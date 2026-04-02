@@ -29,10 +29,10 @@
 
 ### CMO Agent
 
-- [ ] **CMO-01**: Update CMO AGENTS.md with 8-10 primary marketing strategy skills
-- [ ] **CMO-02**: Update CMO SOUL.md with FPZ CreativAI positioning context
-- [ ] **CMO-03**: Update CMO HEARTBEAT.md with content production oversight logic
-- [ ] **CMO-04**: Inject product-marketing-context.md reference
+- [x] **CMO-01**: Update CMO AGENTS.md with 8-10 primary marketing strategy skills
+- [x] **CMO-02**: Update CMO SOUL.md with FPZ CreativAI positioning context
+- [x] **CMO-03**: Update CMO HEARTBEAT.md with content production oversight logic
+- [x] **CMO-04**: Inject product-marketing-context.md reference
 
 ### CTO Agent
 
@@ -168,10 +168,10 @@
 | POWN-01 | Phase 3 | Complete |
 | POWN-02 | Phase 3 | Complete |
 | POWN-03 | Phase 3 | Complete |
-| CMO-01 | Phase 4 | Pending |
-| CMO-02 | Phase 4 | Pending |
-| CMO-03 | Phase 4 | Pending |
-| CMO-04 | Phase 4 | Pending |
+| CMO-01 | Phase 4 | Complete |
+| CMO-02 | Phase 4 | Complete |
+| CMO-03 | Phase 4 | Complete |
+| CMO-04 | Phase 4 | Complete |
 | ADPT-04 | Phase 5 | Pending |
 | ADPT-06 | Phase 5 | Pending |
 | ADPT-07 | Phase 5 | Pending |
