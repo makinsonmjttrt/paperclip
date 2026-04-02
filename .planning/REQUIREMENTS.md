@@ -102,7 +102,7 @@
 
 ### Advanced Patterns
 
-- **ADV-01**: Cross-agent skill handoff chains (e.g., CMO assigns → Technical Writer produces → humanizer pass)
+- **ADV-01**: Cross-agent skill handoff chains (e.g., CMO assigns -> Technical Writer produces -> humanizer pass)
 - **ADV-02**: Skill versioning and hot-reload without agent restart
 - **ADV-03**: Agent performance metrics per skill usage
 - **ADV-04**: Document creation skills (pdf, docx, xlsx, pptx) assigned to relevant agents
@@ -125,6 +125,14 @@
 | SOWN-02 | Phase 1 | Pending |
 | SOWN-03 | Phase 1 | Pending |
 | SOWN-04 | Phase 1 | Pending |
+| SOWN-05 | Phase 1 | Pending |
+| SOWN-06 | Phase 1 | Pending |
+| SOWN-07 | Phase 1 | Pending |
+| SOWN-08 | Phase 1 | Pending |
+| SOWN-09 | Phase 1 | Pending |
+| SOWN-10 | Phase 1 | Pending |
+| SOWN-11 | Phase 1 | Pending |
+| SOWN-12 | Phase 1 | Pending |
 | ADPT-01 | Phase 2 | Pending |
 | ADPT-02 | Phase 2 | Pending |
 | ADPT-03 | Phase 2 | Pending |
@@ -139,19 +147,21 @@
 | CMO-02 | Phase 4 | Pending |
 | CMO-03 | Phase 4 | Pending |
 | CMO-04 | Phase 4 | Pending |
-| ADPT-04 | Phase 4 | Pending |
-| CTO-01 | Phase 5 | Pending |
-| CTO-02 | Phase 5 | Pending |
-| CTO-03 | Phase 5 | Pending |
-| TWRT-01 | Phase 6 | Pending |
-| TWRT-02 | Phase 6 | Pending |
-| TWRT-03 | Phase 6 | Pending |
-| TWRT-04 | Phase 6 | Pending |
-| ADPT-06 | Phase 6 | Pending |
-| CSUC-01 | Phase 7 | Pending |
-| CSUC-02 | Phase 7 | Pending |
-| CSUC-03 | Phase 7 | Pending |
-| CSUC-04 | Phase 7 | Pending |
+| ADPT-04 | Phase 5 | Pending |
+| ADPT-06 | Phase 5 | Pending |
+| ADPT-07 | Phase 5 | Pending |
+| ADPT-08 | Phase 5 | Pending |
+| CTO-01 | Phase 6 | Pending |
+| CTO-02 | Phase 6 | Pending |
+| CTO-03 | Phase 6 | Pending |
+| TWRT-01 | Phase 7 | Pending |
+| TWRT-02 | Phase 7 | Pending |
+| TWRT-03 | Phase 7 | Pending |
+| TWRT-04 | Phase 7 | Pending |
+| CSUC-01 | Phase 8 | Pending |
+| CSUC-02 | Phase 8 | Pending |
+| CSUC-03 | Phase 8 | Pending |
+| CSUC-04 | Phase 8 | Pending |
 | UXRS-01 | Phase 8 | Pending |
 | UXRS-02 | Phase 8 | Pending |
 | UXRS-03 | Phase 8 | Pending |
@@ -172,8 +182,8 @@
 **Coverage:**
 - v1 requirements: 55 total
 - Mapped to phases: 55
-- Unmapped: 0 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-02*
-*Last updated: 2026-04-02 after initial definition*
+*Last updated: 2026-04-02 after roadmap creation*
