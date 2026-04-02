@@ -92,7 +92,7 @@
 - [x] **ADPT-02**: Remove interactive prompts from all adapted skills
 - [x] **ADPT-03**: Add issue-driven trigger logic to adapted skills
 - [x] **ADPT-04**: Adapt and deploy CMO stream skills (30+ files)
-- [ ] **ADPT-05**: Adapt and deploy CTO stream skills
+- [x] **ADPT-05**: Adapt and deploy CTO stream skills
 - [x] **ADPT-06**: Adapt and deploy cross-cutting skills (humanizer, contentfpz router)
 - [x] **ADPT-07**: Adapt and deploy skills unique to contentfpz not in CLAUDE.md (21 skills including humanizer, de-ai-ify, meeting-prep, voice-extractor, youtube-summarizer, etc.)
 - [x] **ADPT-08**: Adapt and deploy skills unique to CLAUDE.md not in contentfpz (28 skills including CRO variants, growth engineering, document tools, etc.)
@@ -201,7 +201,7 @@
 | ENGR-03 | Phase 9 | Complete |
 | CREV-01 | Phase 9 | Complete |
 | CREV-02 | Phase 9 | Complete |
-| ADPT-05 | Phase 9 | Pending |
+| ADPT-05 | Phase 9 | Complete |
 | VALD-01 | Phase 10 | Pending |
 | VALD-02 | Phase 10 | Pending |
 | VALD-03 | Phase 10 | Pending |
