@@ -94,8 +94,8 @@
 - [x] **ADPT-04**: Adapt and deploy CMO stream skills (30+ files)
 - [ ] **ADPT-05**: Adapt and deploy CTO stream skills
 - [x] **ADPT-06**: Adapt and deploy cross-cutting skills (humanizer, contentfpz router)
-- [ ] **ADPT-07**: Adapt and deploy skills unique to contentfpz not in CLAUDE.md (21 skills including humanizer, de-ai-ify, meeting-prep, voice-extractor, youtube-summarizer, etc.)
-- [ ] **ADPT-08**: Adapt and deploy skills unique to CLAUDE.md not in contentfpz (28 skills including CRO variants, growth engineering, document tools, etc.)
+- [x] **ADPT-07**: Adapt and deploy skills unique to contentfpz not in CLAUDE.md (21 skills including humanizer, de-ai-ify, meeting-prep, voice-extractor, youtube-summarizer, etc.)
+- [x] **ADPT-08**: Adapt and deploy skills unique to CLAUDE.md not in contentfpz (28 skills including CRO variants, growth engineering, document tools, etc.)
 
 ### Housekeeping
 
@@ -174,8 +174,8 @@
 | CMO-04 | Phase 4 | Complete |
 | ADPT-04 | Phase 5 | Complete |
 | ADPT-06 | Phase 5 | Complete |
-| ADPT-07 | Phase 5 | Pending |
-| ADPT-08 | Phase 5 | Pending |
+| ADPT-07 | Phase 5 | Complete |
+| ADPT-08 | Phase 5 | Complete |
 | CTO-01 | Phase 6 | Complete |
 | CTO-02 | Phase 6 | Complete |
 | CTO-03 | Phase 6 | Complete |
