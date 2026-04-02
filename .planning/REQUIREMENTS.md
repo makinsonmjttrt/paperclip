@@ -179,10 +179,10 @@
 | CTO-01 | Phase 6 | Complete |
 | CTO-02 | Phase 6 | Complete |
 | CTO-03 | Phase 6 | Complete |
-| TWRT-01 | Phase 7 | Pending |
-| TWRT-02 | Phase 7 | Pending |
-| TWRT-03 | Phase 7 | Pending |
-| TWRT-04 | Phase 7 | Pending |
+| TWRT-01 | Phase 7 | Complete |
+| TWRT-02 | Phase 7 | Complete |
+| TWRT-03 | Phase 7 | Complete |
+| TWRT-04 | Phase 7 | Complete |
 | CSUC-01 | Phase 8 | Complete |
 | CSUC-02 | Phase 8 | Complete |
 | CSUC-03 | Phase 8 | Complete |
