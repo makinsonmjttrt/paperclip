@@ -10,7 +10,8 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Skill Ownership Matrix** - Map all 71 skills to exactly one agent with zero overlap
+- [ ] **Phase 0: Housekeeping** - Delete old FPZ company, create product-marketing-context
+- [ ] **Phase 1: Skill Ownership Matrix** - Map all 73 skills to exactly one agent with zero overlap
 - [ ] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format
 - [ ] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work
 - [ ] **Phase 4: CMO Agent** - Configure the business stream head with marketing strategy skills
@@ -24,12 +25,25 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 
 ## Phase Details
 
+### Phase 0: Housekeeping
+**Goal**: Clean slate - remove old FPZ company, create product-marketing-context, prepare for new company build
+**Depends on**: Nothing
+**Requirements**: HSKP-01, HSKP-02, HSKP-03
+**Success Criteria** (what must be TRUE):
+  1. Old FPZ company deleted from Paperclip (after confirming no data needs preserving)
+  2. Chat Assistant agent removed or recreated under FourPointZero
+  3. Product-marketing-context.md exists with current FPZ/CreativAI positioning, audience, voice
+**Plans**: 1 plan
+
+Plans:
+- [ ] 00-01: Delete old FPZ company, create product-marketing-context.md
+
 ### Phase 1: Skill Ownership Matrix
 **Goal**: Every skill is assigned to exactly one agent, with a single source of truth document
 **Depends on**: Nothing (first phase)
-**Requirements**: SOWN-01, SOWN-02, SOWN-03, SOWN-04, SOWN-05, SOWN-06, SOWN-07, SOWN-08, SOWN-09, SOWN-10, SOWN-11, SOWN-12
+**Requirements**: SOWN-01, SOWN-02, SOWN-03, SOWN-04, SOWN-05, SOWN-06, SOWN-07, SOWN-08, SOWN-09, SOWN-10, SOWN-11, SOWN-12, SOWN-13, SOWN-14, SOWN-15, SOWN-16, SOWN-17, SOWN-18, SOWN-19
 **Success Criteria** (what must be TRUE):
-  1. A skill ownership matrix exists as a markdown table mapping all 71 skills to agents
+  1. A skill ownership matrix exists as a markdown table mapping all 73 skills to agents
   2. No skill is assigned to more than one agent
   3. No agent has more than 10 skills assigned
   4. Zero unmapped skills remain (verified by count against the full inventory)
@@ -175,13 +189,14 @@ Plans:
 ### Phase 10: Validation
 **Goal**: Every agent picks up and processes assigned work correctly on heartbeat
 **Depends on**: All previous phases
-**Requirements**: VALD-01, VALD-02, VALD-03, VALD-04, VALD-05
+**Requirements**: VALD-01, VALD-02, VALD-03, VALD-04, VALD-05, VALD-06
 **Success Criteria** (what must be TRUE):
   1. CEO receives a test issue and delegates it to the correct department head
   2. CMO receives a content production issue and produces a deliverable using the right skill
   3. Technical Writer receives content and runs a quality gate pass including humanizer
   4. Software Engineer receives a technical issue and follows the implementation workflow
-  5. All 9 agents process at least one test issue on heartbeat without stalling
+  5. All 10 agents process at least one test issue on heartbeat without stalling
+  6. LinkedIn Growth Director produces a LinkedIn post and outreach sequence from test issue
 **Plans**: 2 plans
 
 Plans:
@@ -191,10 +206,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8 > 9 > 10
+Phases execute in numeric order: 0 > 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8 > 8.5 > 9 > 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
+| 0. Housekeeping | 0/1 | Not started | - |
 | 1. Skill Ownership Matrix | 0/2 | Not started | - |
 | 2. Skill Adaptation Template | 0/1 | Not started | - |
 | 3. CEO and Product Owner | 0/2 | Not started | - |

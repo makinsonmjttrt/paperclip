@@ -97,6 +97,23 @@
 - [ ] **ADPT-07**: Adapt and deploy skills unique to contentfpz not in CLAUDE.md (21 skills including humanizer, de-ai-ify, meeting-prep, voice-extractor, youtube-summarizer, etc.)
 - [ ] **ADPT-08**: Adapt and deploy skills unique to CLAUDE.md not in contentfpz (28 skills including CRO variants, growth engineering, document tools, etc.)
 
+### Housekeeping
+
+- [ ] **HSKP-01**: Delete old FPZ company from Paperclip (preserving any useful data first)
+- [ ] **HSKP-02**: Remove Chat Assistant agent from old FPZ company (or recreate in FourPointZero if needed)
+- [ ] **HSKP-03**: Create or update product-marketing-context.md with current FPZ/CreativAI positioning
+- [ ] **HSKP-04**: Create LinkedIn Growth Director agent via Paperclip API (wizard only created 9, this is #10)
+
+### Skill Ownership Completeness
+
+- [ ] **SOWN-13**: Explicitly assign all 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose) to Technical Writer
+- [ ] **SOWN-14**: Explicitly assign all LinkedIn skills (linkedin-post-writer, linkedin-content-strategy, linkedin-authority-builder, linkedin-profile-optimizer) to LinkedIn Growth Director
+- [ ] **SOWN-15**: Explicitly assign strategy skills (marketing-ideas, marketing-psychology, marketing-principles, positioning-basics, pricing-strategy, launch-strategy, content-idea-generator) to CMO
+- [ ] **SOWN-16**: Explicitly assign content production skills (social-content, social-card-gen, copywriting, ad-creative, email-sequence, case-study-builder, tweet-draft-reviewer) to Technical Writer
+- [ ] **SOWN-17**: Explicitly assign sales skills (cold-email, revops, sales-enablement) - primary owner TBD in Phase 1
+- [ ] **SOWN-18**: Explicitly assign research skills (daily-briefing-builder, homepage-audit) - primary owner TBD in Phase 1
+- [ ] **SOWN-19**: Explicitly assign anthropic-skills (content-creator, marketing-strategy-pmm, newsletter-content-creator, newsletter-writing-skill) to their primary agents
+
 ### Validation
 
 - [ ] **VALD-01**: Create test issue for CEO delegation routing
@@ -104,6 +121,7 @@
 - [ ] **VALD-03**: Create test issue for Technical Writer quality gate
 - [ ] **VALD-04**: Create test issue for Software Engineer implementation
 - [ ] **VALD-05**: Verify each agent picks up and processes assigned work on heartbeat
+- [ ] **VALD-06**: Create test issue for LinkedIn Growth Director (post creation + outreach)
 
 ## v2 Requirements
 
@@ -189,10 +207,22 @@
 | VALD-03 | Phase 10 | Pending |
 | VALD-04 | Phase 10 | Pending |
 | VALD-05 | Phase 10 | Pending |
+| VALD-06 | Phase 10 | Pending |
+| HSKP-01 | Phase 0 | Pending |
+| HSKP-02 | Phase 0 | Pending |
+| HSKP-03 | Phase 0 | Pending |
+| HSKP-04 | Phase 8.5 | Pending |
+| SOWN-13 | Phase 1 | Pending |
+| SOWN-14 | Phase 1 | Pending |
+| SOWN-15 | Phase 1 | Pending |
+| SOWN-16 | Phase 1 | Pending |
+| SOWN-17 | Phase 1 | Pending |
+| SOWN-18 | Phase 1 | Pending |
+| SOWN-19 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 59 total
-- Mapped to phases: 59
+- v1 requirements: 72 total
+- Mapped to phases: 72
 - Unmapped: 0
 
 ---
