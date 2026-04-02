@@ -10,7 +10,7 @@
 - [ ] **SOWN-01**: Create skill ownership matrix mapping all 71 skills to exactly one primary agent
 - [ ] **SOWN-02**: Identify cross-cutting skills and define primary vs secondary ownership rules
 - [ ] **SOWN-03**: Cap each agent at 10 or fewer skill files to prevent context window overload
-- [ ] **SOWN-04**: Validate zero unmapped skills remain after assignment (71 total: 50 from CLAUDE.md + 21 from contentfpz only)
+- [x] **SOWN-04**: Validate zero unmapped skills remain after assignment (71 total: 50 from CLAUDE.md + 21 from contentfpz only)
 - [ ] **SOWN-05**: Map 6 CRO skills (page-cro, signup-flow-cro, onboarding-cro, form-cro, popup-cro, paywall-upgrade-cro)
 - [ ] **SOWN-06**: Map 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose)
 - [ ] **SOWN-07**: Map 6 SEO/discovery skills (seo-audit, ai-seo, programmatic-seo, site-architecture, schema-markup, ai-discoverability-audit)
@@ -149,7 +149,7 @@
 | SOWN-01 | Phase 1 | Pending |
 | SOWN-02 | Phase 1 | Pending |
 | SOWN-03 | Phase 1 | Pending |
-| SOWN-04 | Phase 1 | Pending |
+| SOWN-04 | Phase 1 | Complete |
 | SOWN-05 | Phase 1 | Pending |
 | SOWN-06 | Phase 1 | Pending |
 | SOWN-07 | Phase 1 | Pending |
