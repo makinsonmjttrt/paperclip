@@ -201,8 +201,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 10-01: Create and run test issues for CEO delegation, CMO production, and Technical Writer quality gate
-- [ ] 10-02: Create and run test issues for tech stream agents and verify all 9 agents on heartbeat
+- [ ] 10-01-PLAN.md -- Approve agents, create LinkedIn Growth Director, create business stream test issues
+- [ ] 10-02-PLAN.md -- Create tech stream test issues, run all 10 heartbeats, validate results
 
 ## Progress
 
