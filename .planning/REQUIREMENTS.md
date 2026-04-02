@@ -71,9 +71,9 @@
 
 ### Software Engineer Agent
 
-- [ ] **ENGR-01**: Update Engineer AGENTS.md with FPZ project context (ADHD EF system, tooling)
-- [ ] **ENGR-02**: Update SOUL.md with tech stack specifics
-- [ ] **ENGR-03**: Update HEARTBEAT.md with implementation workflow
+- [x] **ENGR-01**: Update Engineer AGENTS.md with FPZ project context (ADHD EF system, tooling)
+- [x] **ENGR-02**: Update SOUL.md with tech stack specifics
+- [x] **ENGR-03**: Update HEARTBEAT.md with implementation workflow
 
 ### Product Owner Agent
 
@@ -83,8 +83,8 @@
 
 ### Code Reviewer Agent
 
-- [ ] **CREV-01**: Update Code Reviewer AGENTS.md with FPZ code quality standards
-- [ ] **CREV-02**: Update HEARTBEAT.md with PR review workflow
+- [x] **CREV-01**: Update Code Reviewer AGENTS.md with FPZ code quality standards
+- [x] **CREV-02**: Update HEARTBEAT.md with PR review workflow
 
 ### Skill Adaptation
 
@@ -196,11 +196,11 @@
 | LNKD-03 | Phase 8.5 | Complete |
 | LNKD-04 | Phase 8.5 | Complete |
 | LNKD-05 | Phase 8.5 | Complete |
-| ENGR-01 | Phase 9 | Pending |
-| ENGR-02 | Phase 9 | Pending |
-| ENGR-03 | Phase 9 | Pending |
-| CREV-01 | Phase 9 | Pending |
-| CREV-02 | Phase 9 | Pending |
+| ENGR-01 | Phase 9 | Complete |
+| ENGR-02 | Phase 9 | Complete |
+| ENGR-03 | Phase 9 | Complete |
+| CREV-01 | Phase 9 | Complete |
+| CREV-02 | Phase 9 | Complete |
 | ADPT-05 | Phase 9 | Pending |
 | VALD-01 | Phase 10 | Pending |
 | VALD-02 | Phase 10 | Pending |
