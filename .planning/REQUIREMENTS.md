@@ -59,8 +59,15 @@
 - [ ] **UXRS-01**: Update UX Researcher AGENTS.md with growth and conversion skills
 - [ ] **UXRS-02**: Assign all CRO skills (page-cro, signup-flow-cro, form-cro, popup-cro, paywall-upgrade-cro)
 - [ ] **UXRS-03**: Assign SEO skills (seo-audit, ai-seo, programmatic-seo, schema-markup)
-- [ ] **UXRS-04**: Assign LinkedIn profile and authority builder skills
-- [ ] **UXRS-05**: Update HEARTBEAT.md with growth audit logic
+- [ ] **UXRS-04**: Update HEARTBEAT.md with growth audit logic
+
+### LinkedIn Growth Director Agent
+
+- [ ] **LNKD-01**: Create LinkedIn Growth Director agent in Paperclip (new agent, reports to CEO, logical CMO stream)
+- [ ] **LNKD-02**: Update AGENTS.md with all LinkedIn skills (post-writer, content-strategy, authority-builder, profile-optimizer)
+- [ ] **LNKD-03**: Assign outreach skills (cold-outreach-sequence, meeting-prep)
+- [ ] **LNKD-04**: Update SOUL.md with FPZ LinkedIn persona and CreativAI positioning context
+- [ ] **LNKD-05**: Update HEARTBEAT.md with LinkedIn content calendar and engagement workflow logic
 
 ### Software Engineer Agent
 
@@ -166,7 +173,11 @@
 | UXRS-02 | Phase 8 | Pending |
 | UXRS-03 | Phase 8 | Pending |
 | UXRS-04 | Phase 8 | Pending |
-| UXRS-05 | Phase 8 | Pending |
+| LNKD-01 | Phase 8.5 | Pending |
+| LNKD-02 | Phase 8.5 | Pending |
+| LNKD-03 | Phase 8.5 | Pending |
+| LNKD-04 | Phase 8.5 | Pending |
+| LNKD-05 | Phase 8.5 | Pending |
 | ENGR-01 | Phase 9 | Pending |
 | ENGR-02 | Phase 9 | Pending |
 | ENGR-03 | Phase 9 | Pending |
@@ -180,8 +191,8 @@
 | VALD-05 | Phase 10 | Pending |
 
 **Coverage:**
-- v1 requirements: 55 total
-- Mapped to phases: 55
+- v1 requirements: 59 total
+- Mapped to phases: 59
 - Unmapped: 0
 
 ---

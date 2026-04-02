@@ -2,7 +2,7 @@
 
 ## Overview
 
-Transform 71 existing Claude Code skills into a fully operational 9-agent Paperclip company. The work flows from deciding ownership (who gets what) through adaptation (converting skills to headless format) through agent configuration (wiring each agent) to validation (proving it works). Every phase delivers a verifiable capability: either a complete agent or a foundational artifact that unblocks downstream agents.
+Transform 71 existing Claude Code skills into a fully operational 10-agent Paperclip company. The work flows from deciding ownership (who gets what) through adaptation (converting skills to headless format) through agent configuration (wiring each agent) to validation (proving it works). Every phase delivers a verifiable capability: either a complete agent or a foundational artifact that unblocks downstream agents.
 
 ## Phases
 
@@ -17,7 +17,8 @@ Transform 71 existing Claude Code skills into a fully operational 9-agent Paperc
 - [ ] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream
 - [ ] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight
 - [ ] **Phase 7: Technical Writer** - Configure the content quality gate agent
-- [ ] **Phase 8: Customer Success and UX Researcher** - Configure the two remaining business stream agents
+- [ ] **Phase 8: Customer Success and UX Researcher** - Configure competitive intel and growth agents
+- [ ] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream
 - [ ] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair
 - [ ] **Phase 10: Validation** - Test issues through each agent to prove the company works
 
@@ -128,18 +129,32 @@ Plans:
 ### Phase 8: Customer Success and UX Researcher
 **Goal**: Competitive intelligence and growth/conversion agents are operational
 **Depends on**: Phase 5
-**Requirements**: CSUC-01, CSUC-02, CSUC-03, CSUC-04, UXRS-01, UXRS-02, UXRS-03, UXRS-04, UXRS-05
+**Requirements**: CSUC-01, CSUC-02, CSUC-03, CSUC-04, UXRS-01, UXRS-02, UXRS-03, UXRS-04
 **Success Criteria** (what must be TRUE):
   1. Customer Success AGENTS.md references competitive intelligence skills (competitor-alternatives, customer-research, reddit-insights, last30days)
   2. Customer Success has testimonial-collector and ai-discoverability-audit assigned
   3. UX Researcher AGENTS.md references all CRO skills and SEO skills
-  4. UX Researcher has LinkedIn profile and authority builder skills assigned
-  5. Both agents have HEARTBEAT.md sections for their monitoring/audit cycles
+  4. Both agents have HEARTBEAT.md sections for their monitoring/audit cycles
 **Plans**: 2 plans
 
 Plans:
 - [ ] 08-01: Configure Customer Success agent (AGENTS.md, HEARTBEAT.md, competitive intel skills)
 - [ ] 08-02: Configure UX Researcher agent (AGENTS.md, HEARTBEAT.md, CRO/SEO/growth skills)
+
+### Phase 8.5: LinkedIn Growth Director (INSERTED)
+**Goal**: A dedicated LinkedIn agent owns all LinkedIn skills and manages content calendar, profile optimisation, and outreach
+**Depends on**: Phase 5
+**Requirements**: LNKD-01, LNKD-02, LNKD-03, LNKD-04, LNKD-05
+**Success Criteria** (what must be TRUE):
+  1. LinkedIn Growth Director agent created in Paperclip under CMO stream
+  2. AGENTS.md references all LinkedIn skills (post-writer, content-strategy, authority-builder, profile-optimizer)
+  3. Outreach skills (cold-outreach-sequence, meeting-prep) assigned
+  4. SOUL.md contains FPZ LinkedIn persona with CreativAI positioning
+  5. HEARTBEAT.md contains LinkedIn content calendar and engagement workflow
+**Plans**: 1 plan
+
+Plans:
+- [ ] 08.5-01: Create and configure LinkedIn Growth Director agent
 
 ### Phase 9: Engineer and Code Reviewer
 **Goal**: The dev stream workers are configured and CTO stream skills are adapted and deployed
@@ -188,5 +203,6 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8 > 9 > 10
 | 6. CTO Agent | 0/1 | Not started | - |
 | 7. Technical Writer | 0/1 | Not started | - |
 | 8. Customer Success and UX Researcher | 0/2 | Not started | - |
+| 8.5. LinkedIn Growth Director | 0/1 | Not started | - |
 | 9. Engineer and Code Reviewer | 0/2 | Not started | - |
 | 10. Validation | 0/2 | Not started | - |
