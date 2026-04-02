@@ -19,7 +19,7 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 - [x] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight (2026-04-02)
 - [ ] **Phase 7: Technical Writer** - Configure the content quality gate agent
 - [x] **Phase 8: Customer Success and UX Researcher** - Configure competitive intel and growth agents (completed 2026-04-02)
-- [ ] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream
+- [x] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream (2026-04-02)
 - [ ] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair
 - [ ] **Phase 10: Validation** - Test issues through each agent to prove the company works
 
@@ -169,7 +169,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 08.5-01: Create and configure LinkedIn Growth Director agent
+- [x] 08.5-01: Create and configure LinkedIn Growth Director agent
 
 ### Phase 9: Engineer and Code Reviewer
 **Goal**: The dev stream workers are configured and CTO stream skills are adapted and deployed
@@ -218,8 +218,8 @@ Phases execute in numeric order: 0 > 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8 > 8.5 > 9 > 1
 | 4. CMO Agent | 1/1 | Complete | 2026-04-02 |
 | 5. CMO Stream Skill Deployment | 3/4 | In Progress|  |
 | 6. CTO Agent | 1/1 | Complete | 2026-04-02 |
-| 7. Technical Writer | 0/1 | Not started | - |
+| 7. Technical Writer | 1/1 | Complete | 2026-04-02 |
 | 8. Customer Success and UX Researcher | 2/2 | Complete   | 2026-04-02 |
-| 8.5. LinkedIn Growth Director | 0/1 | Not started | - |
+| 8.5. LinkedIn Growth Director | 1/1 | Complete | 2026-04-02 |
 | 9. Engineer and Code Reviewer | 0/2 | Not started | - |
 | 10. Validation | 0/2 | Not started | - |

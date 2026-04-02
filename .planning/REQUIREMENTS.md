@@ -42,10 +42,10 @@
 
 ### Technical Writer Agent
 
-- [ ] **TWRT-01**: Update Technical Writer AGENTS.md with content production skills (blog, newsletter, social)
-- [ ] **TWRT-02**: Assign humanizer, de-ai-ify, copy-editing as quality gate skills
-- [ ] **TWRT-03**: Update HEARTBEAT.md with content review pass logic
-- [ ] **TWRT-04**: Inject blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-repurpose)
+- [x] **TWRT-01**: Update Technical Writer AGENTS.md with content production skills (blog, newsletter, social)
+- [x] **TWRT-02**: Assign humanizer, de-ai-ify, copy-editing as quality gate skills
+- [x] **TWRT-03**: Update HEARTBEAT.md with content review pass logic
+- [x] **TWRT-04**: Inject blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-repurpose)
 
 ### Customer Success Agent
 
@@ -63,11 +63,11 @@
 
 ### LinkedIn Growth Director Agent
 
-- [ ] **LNKD-01**: Create LinkedIn Growth Director agent in Paperclip (new agent, reports to CEO, logical CMO stream)
-- [ ] **LNKD-02**: Update AGENTS.md with all LinkedIn skills (post-writer, content-strategy, authority-builder, profile-optimizer)
-- [ ] **LNKD-03**: Assign outreach skills (cold-outreach-sequence, meeting-prep)
-- [ ] **LNKD-04**: Update SOUL.md with FPZ LinkedIn persona and CreativAI positioning context
-- [ ] **LNKD-05**: Update HEARTBEAT.md with LinkedIn content calendar and engagement workflow logic
+- [x] **LNKD-01**: Create LinkedIn Growth Director agent in Paperclip (new agent, reports to CEO, logical CMO stream)
+- [x] **LNKD-02**: Update AGENTS.md with all LinkedIn skills (post-writer, content-strategy, authority-builder, profile-optimizer)
+- [x] **LNKD-03**: Assign outreach skills (cold-outreach-sequence, meeting-prep)
+- [x] **LNKD-04**: Update SOUL.md with FPZ LinkedIn persona and CreativAI positioning context
+- [x] **LNKD-05**: Update HEARTBEAT.md with LinkedIn content calendar and engagement workflow logic
 
 ### Software Engineer Agent
 
@@ -102,7 +102,7 @@
 - [ ] **HSKP-01**: Delete old FPZ company from Paperclip (preserving any useful data first)
 - [ ] **HSKP-02**: Remove Chat Assistant agent from old FPZ company (or recreate in FourPointZero if needed)
 - [ ] **HSKP-03**: Create or update product-marketing-context.md with current FPZ/CreativAI positioning
-- [ ] **HSKP-04**: Create LinkedIn Growth Director agent via Paperclip API (wizard only created 9, this is #10)
+- [x] **HSKP-04**: Create LinkedIn Growth Director agent via Paperclip API (wizard only created 9, this is #10)
 
 ### Skill Ownership Completeness
 
@@ -191,11 +191,11 @@
 | UXRS-02 | Phase 8 | Complete |
 | UXRS-03 | Phase 8 | Complete |
 | UXRS-04 | Phase 8 | Complete |
-| LNKD-01 | Phase 8.5 | Pending |
-| LNKD-02 | Phase 8.5 | Pending |
-| LNKD-03 | Phase 8.5 | Pending |
-| LNKD-04 | Phase 8.5 | Pending |
-| LNKD-05 | Phase 8.5 | Pending |
+| LNKD-01 | Phase 8.5 | Complete |
+| LNKD-02 | Phase 8.5 | Complete |
+| LNKD-03 | Phase 8.5 | Complete |
+| LNKD-04 | Phase 8.5 | Complete |
+| LNKD-05 | Phase 8.5 | Complete |
 | ENGR-01 | Phase 9 | Pending |
 | ENGR-02 | Phase 9 | Pending |
 | ENGR-03 | Phase 9 | Pending |
@@ -211,7 +211,7 @@
 | HSKP-01 | Phase 0 | Pending |
 | HSKP-02 | Phase 0 | Pending |
 | HSKP-03 | Phase 0 | Pending |
-| HSKP-04 | Phase 8.5 | Pending |
+| HSKP-04 | Phase 8.5 | Complete |
 | SOWN-13 | Phase 1 | Complete |
 | SOWN-14 | Phase 1 | Complete |
 | SOWN-15 | Phase 1 | Complete |
