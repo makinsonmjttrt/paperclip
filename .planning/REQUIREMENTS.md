@@ -77,9 +77,9 @@
 
 ### Product Owner Agent
 
-- [ ] **POWN-01**: Update Product Owner AGENTS.md with backlog management context
-- [ ] **POWN-02**: Update HEARTBEAT.md with cross-stream prioritisation logic
-- [ ] **POWN-03**: Inject FPZ project context for both business and tech streams
+- [x] **POWN-01**: Update Product Owner AGENTS.md with backlog management context
+- [x] **POWN-02**: Update HEARTBEAT.md with cross-stream prioritisation logic
+- [x] **POWN-03**: Inject FPZ project context for both business and tech streams
 
 ### Code Reviewer Agent
 
@@ -165,9 +165,9 @@
 | CEO-02 | Phase 3 | Pending |
 | CEO-03 | Phase 3 | Pending |
 | CEO-04 | Phase 3 | Pending |
-| POWN-01 | Phase 3 | Pending |
-| POWN-02 | Phase 3 | Pending |
-| POWN-03 | Phase 3 | Pending |
+| POWN-01 | Phase 3 | Complete |
+| POWN-02 | Phase 3 | Complete |
+| POWN-03 | Phase 3 | Complete |
 | CMO-01 | Phase 4 | Pending |
 | CMO-02 | Phase 4 | Pending |
 | CMO-03 | Phase 4 | Pending |
