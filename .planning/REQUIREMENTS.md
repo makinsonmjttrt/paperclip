@@ -49,10 +49,10 @@
 
 ### Customer Success Agent
 
-- [ ] **CSUC-01**: Update Customer Success AGENTS.md with competitive intelligence skills
-- [ ] **CSUC-02**: Assign competitor-alternatives, customer-research, reddit-insights, last30days
-- [ ] **CSUC-03**: Update HEARTBEAT.md with market monitoring logic
-- [ ] **CSUC-04**: Assign testimonial-collector and ai-discoverability-audit
+- [x] **CSUC-01**: Update Customer Success AGENTS.md with competitive intelligence skills
+- [x] **CSUC-02**: Assign competitor-alternatives, customer-research, reddit-insights, last30days
+- [x] **CSUC-03**: Update HEARTBEAT.md with market monitoring logic
+- [x] **CSUC-04**: Assign testimonial-collector and ai-discoverability-audit
 
 ### UX Researcher Agent
 
@@ -183,10 +183,10 @@
 | TWRT-02 | Phase 7 | Pending |
 | TWRT-03 | Phase 7 | Pending |
 | TWRT-04 | Phase 7 | Pending |
-| CSUC-01 | Phase 8 | Pending |
-| CSUC-02 | Phase 8 | Pending |
-| CSUC-03 | Phase 8 | Pending |
-| CSUC-04 | Phase 8 | Pending |
+| CSUC-01 | Phase 8 | Complete |
+| CSUC-02 | Phase 8 | Complete |
+| CSUC-03 | Phase 8 | Complete |
+| CSUC-04 | Phase 8 | Complete |
 | UXRS-01 | Phase 8 | Pending |
 | UXRS-02 | Phase 8 | Pending |
 | UXRS-03 | Phase 8 | Pending |
