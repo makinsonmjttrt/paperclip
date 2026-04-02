@@ -22,10 +22,10 @@
 
 ### CEO Agent
 
-- [ ] **CEO-01**: Update CEO AGENTS.md with FPZ-specific routing instructions
-- [ ] **CEO-02**: Update CEO SOUL.md with FPZ persona (UK English, CreativAI context)
-- [ ] **CEO-03**: Update CEO HEARTBEAT.md with delegation logic for CMO and CTO streams
-- [ ] **CEO-04**: Inject contentfpz router reference so CEO can delegate to correct agent
+- [x] **CEO-01**: Update CEO AGENTS.md with FPZ-specific routing instructions
+- [x] **CEO-02**: Update CEO SOUL.md with FPZ persona (UK English, CreativAI context)
+- [x] **CEO-03**: Update CEO HEARTBEAT.md with delegation logic for CMO and CTO streams
+- [x] **CEO-04**: Inject contentfpz router reference so CEO can delegate to correct agent
 
 ### CMO Agent
 
@@ -161,10 +161,10 @@
 | ADPT-01 | Phase 2 | Complete |
 | ADPT-02 | Phase 2 | Complete |
 | ADPT-03 | Phase 2 | Complete |
-| CEO-01 | Phase 3 | Pending |
-| CEO-02 | Phase 3 | Pending |
-| CEO-03 | Phase 3 | Pending |
-| CEO-04 | Phase 3 | Pending |
+| CEO-01 | Phase 3 | Complete |
+| CEO-02 | Phase 3 | Complete |
+| CEO-03 | Phase 3 | Complete |
+| CEO-04 | Phase 3 | Complete |
 | POWN-01 | Phase 3 | Complete |
 | POWN-02 | Phase 3 | Complete |
 | POWN-03 | Phase 3 | Complete |
