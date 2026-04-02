@@ -56,10 +56,10 @@
 
 ### UX Researcher Agent
 
-- [ ] **UXRS-01**: Update UX Researcher AGENTS.md with growth and conversion skills
-- [ ] **UXRS-02**: Assign all CRO skills (page-cro, signup-flow-cro, form-cro, popup-cro, paywall-upgrade-cro)
-- [ ] **UXRS-03**: Assign SEO skills (seo-audit, ai-seo, programmatic-seo, schema-markup)
-- [ ] **UXRS-04**: Update HEARTBEAT.md with growth audit logic
+- [x] **UXRS-01**: Update UX Researcher AGENTS.md with growth and conversion skills
+- [x] **UXRS-02**: Assign all CRO skills (page-cro, signup-flow-cro, form-cro, popup-cro, paywall-upgrade-cro)
+- [x] **UXRS-03**: Assign SEO skills (seo-audit, ai-seo, programmatic-seo, schema-markup)
+- [x] **UXRS-04**: Update HEARTBEAT.md with growth audit logic
 
 ### LinkedIn Growth Director Agent
 
@@ -187,10 +187,10 @@
 | CSUC-02 | Phase 8 | Complete |
 | CSUC-03 | Phase 8 | Complete |
 | CSUC-04 | Phase 8 | Complete |
-| UXRS-01 | Phase 8 | Pending |
-| UXRS-02 | Phase 8 | Pending |
-| UXRS-03 | Phase 8 | Pending |
-| UXRS-04 | Phase 8 | Pending |
+| UXRS-01 | Phase 8 | Complete |
+| UXRS-02 | Phase 8 | Complete |
+| UXRS-03 | Phase 8 | Complete |
+| UXRS-04 | Phase 8 | Complete |
 | LNKD-01 | Phase 8.5 | Pending |
 | LNKD-02 | Phase 8.5 | Pending |
 | LNKD-03 | Phase 8.5 | Pending |
