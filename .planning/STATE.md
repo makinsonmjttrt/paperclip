@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-04-02T21:35:14Z"
-last_activity: 2026-04-02 -- Completed 05-02 quality gate bundle deployment to Technical Writer
+stopped_at: Completed 05-01-PLAN.md (CMO strategy skills deployed)
+last_updated: "2026-04-02T21:41:45Z"
+last_activity: 2026-04-02 -- Completed 05-01 CMO strategy skills deployment (7 skills)
 progress:
   total_phases: 12
   completed_phases: 5
@@ -57,6 +57,7 @@ Progress: [███████░░░] 73%
 | Phase 03 P02 | 2min | 2 tasks | 3 files |
 | Phase 04 P01 | 2min | 2 tasks | 3 files |
 | Phase 06 P01 | 2min | 2 tasks | 3 files |
+| Phase 05 P01 | 11min | 2 tasks | 7 files |
 | Phase 05 P02 | 4min | 2 tasks | 2 files |
 
 ## Accumulated Context
@@ -77,6 +78,7 @@ Recent decisions affecting current work:
 - [Phase 03]: Product Owner configured with FPZ company structure, 60/40 business/tech stream balance ratio, label-based routing, and UK English throughout.
 - [Phase 04]: CMO configured as business stream head with CreativAI positioning, 10 skill references (3 existing + 7 new from Phase 5), content production oversight delegating to 4 downstream agents, humaniser quality gate enforcement.
 - [Phase 06]: CTO configured with FPZ tech stack (Next.js/Vercel/Notion/n8n), 4-category work routing table, UK English persona with ADHD-aware communication, and engineering oversight logic (architecture, code quality, unblocking, cross-stream).
+- [Phase 05-01]: 7 CMO strategy skills deployed (1 bundle of 5, 5 standalone conversions, 1 from-scratch PMM skill). strategy-core bundle at 482 lines preserving all frameworks verbatim. marketing-strategy-pmm authored with 3 workflow paths (positioning, messaging, GTM).
 - [Phase 05-02]: Quality gate bundle (humanizer + de-ai-ify + copy-editing) deployed to Technical Writer as single 422-line file. Supplementary content inlined. Plain English alternatives condensed to 35 key entries.
 
 ### Pending Todos
@@ -90,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-02T21:35:14Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-04-02T21:41:45Z
+Stopped at: Completed 05-01-PLAN.md (CMO strategy skills deployed)
 Resume file: None

@@ -91,7 +91,7 @@
 - [x] **ADPT-01**: Create skill adaptation template for converting Claude Code skills to Paperclip format
 - [x] **ADPT-02**: Remove interactive prompts from all adapted skills
 - [x] **ADPT-03**: Add issue-driven trigger logic to adapted skills
-- [ ] **ADPT-04**: Adapt and deploy CMO stream skills (30+ files)
+- [x] **ADPT-04**: Adapt and deploy CMO stream skills (30+ files)
 - [ ] **ADPT-05**: Adapt and deploy CTO stream skills
 - [x] **ADPT-06**: Adapt and deploy cross-cutting skills (humanizer, contentfpz router)
 - [ ] **ADPT-07**: Adapt and deploy skills unique to contentfpz not in CLAUDE.md (21 skills including humanizer, de-ai-ify, meeting-prep, voice-extractor, youtube-summarizer, etc.)
@@ -172,7 +172,7 @@
 | CMO-02 | Phase 4 | Complete |
 | CMO-03 | Phase 4 | Complete |
 | CMO-04 | Phase 4 | Complete |
-| ADPT-04 | Phase 5 | Pending |
+| ADPT-04 | Phase 5 | Complete |
 | ADPT-06 | Phase 5 | Complete |
 | ADPT-07 | Phase 5 | Pending |
 | ADPT-08 | Phase 5 | Pending |
