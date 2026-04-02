@@ -88,9 +88,9 @@
 
 ### Skill Adaptation
 
-- [ ] **ADPT-01**: Create skill adaptation template for converting Claude Code skills to Paperclip format
-- [ ] **ADPT-02**: Remove interactive prompts from all adapted skills
-- [ ] **ADPT-03**: Add issue-driven trigger logic to adapted skills
+- [x] **ADPT-01**: Create skill adaptation template for converting Claude Code skills to Paperclip format
+- [x] **ADPT-02**: Remove interactive prompts from all adapted skills
+- [x] **ADPT-03**: Add issue-driven trigger logic to adapted skills
 - [ ] **ADPT-04**: Adapt and deploy CMO stream skills (30+ files)
 - [ ] **ADPT-05**: Adapt and deploy CTO stream skills
 - [ ] **ADPT-06**: Adapt and deploy cross-cutting skills (humanizer, contentfpz router)
@@ -158,9 +158,9 @@
 | SOWN-10 | Phase 1 | Complete |
 | SOWN-11 | Phase 1 | Complete |
 | SOWN-12 | Phase 1 | Complete |
-| ADPT-01 | Phase 2 | Pending |
-| ADPT-02 | Phase 2 | Pending |
-| ADPT-03 | Phase 2 | Pending |
+| ADPT-01 | Phase 2 | Complete |
+| ADPT-02 | Phase 2 | Complete |
+| ADPT-03 | Phase 2 | Complete |
 | CEO-01 | Phase 3 | Pending |
 | CEO-02 | Phase 3 | Pending |
 | CEO-03 | Phase 3 | Pending |
