@@ -7,18 +7,18 @@
 
 ### Skill Ownership
 
-- [ ] **SOWN-01**: Create skill ownership matrix mapping all 71 skills to exactly one primary agent
-- [ ] **SOWN-02**: Identify cross-cutting skills and define primary vs secondary ownership rules
-- [ ] **SOWN-03**: Cap each agent at 10 or fewer skill files to prevent context window overload
+- [x] **SOWN-01**: Create skill ownership matrix mapping all 71 skills to exactly one primary agent
+- [x] **SOWN-02**: Identify cross-cutting skills and define primary vs secondary ownership rules
+- [x] **SOWN-03**: Cap each agent at 10 or fewer skill files to prevent context window overload
 - [x] **SOWN-04**: Validate zero unmapped skills remain after assignment (71 total: 50 from CLAUDE.md + 21 from contentfpz only)
-- [ ] **SOWN-05**: Map 6 CRO skills (page-cro, signup-flow-cro, onboarding-cro, form-cro, popup-cro, paywall-upgrade-cro)
-- [ ] **SOWN-06**: Map 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose)
-- [ ] **SOWN-07**: Map 6 SEO/discovery skills (seo-audit, ai-seo, programmatic-seo, site-architecture, schema-markup, ai-discoverability-audit)
-- [ ] **SOWN-08**: Map 5 growth engineering skills (free-tool-strategy, lead-magnets, referral-program, paid-ads, ab-test-setup)
-- [ ] **SOWN-09**: Map 5 document creation skills (pdf, docx, xlsx, pptx, frontend-slides)
-- [ ] **SOWN-10**: Map 3 newsletter skills (newsletter-creation-curation, anthropic-skills:newsletter-content-creator, anthropic-skills:newsletter-writing-skill)
-- [ ] **SOWN-11**: Map 3 anthropic-skills (content-creator, marketing-strategy-pmm, newsletter-content-creator)
-- [ ] **SOWN-12**: Map retention skill (churn-prevention) and product-marketing-context
+- [x] **SOWN-05**: Map 6 CRO skills (page-cro, signup-flow-cro, onboarding-cro, form-cro, popup-cro, paywall-upgrade-cro)
+- [x] **SOWN-06**: Map 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose)
+- [x] **SOWN-07**: Map 6 SEO/discovery skills (seo-audit, ai-seo, programmatic-seo, site-architecture, schema-markup, ai-discoverability-audit)
+- [x] **SOWN-08**: Map 5 growth engineering skills (free-tool-strategy, lead-magnets, referral-program, paid-ads, ab-test-setup)
+- [x] **SOWN-09**: Map 5 document creation skills (pdf, docx, xlsx, pptx, frontend-slides)
+- [x] **SOWN-10**: Map 3 newsletter skills (newsletter-creation-curation, anthropic-skills:newsletter-content-creator, anthropic-skills:newsletter-writing-skill)
+- [x] **SOWN-11**: Map 3 anthropic-skills (content-creator, marketing-strategy-pmm, newsletter-content-creator)
+- [x] **SOWN-12**: Map retention skill (churn-prevention) and product-marketing-context
 
 ### CEO Agent
 
@@ -106,13 +106,13 @@
 
 ### Skill Ownership Completeness
 
-- [ ] **SOWN-13**: Explicitly assign all 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose) to Technical Writer
-- [ ] **SOWN-14**: Explicitly assign all LinkedIn skills (linkedin-post-writer, linkedin-content-strategy, linkedin-authority-builder, linkedin-profile-optimizer) to LinkedIn Growth Director
-- [ ] **SOWN-15**: Explicitly assign strategy skills (marketing-ideas, marketing-psychology, marketing-principles, positioning-basics, pricing-strategy, launch-strategy, content-idea-generator) to CMO
-- [ ] **SOWN-16**: Explicitly assign content production skills (social-content, social-card-gen, copywriting, ad-creative, email-sequence, case-study-builder, tweet-draft-reviewer) to Technical Writer
-- [ ] **SOWN-17**: Explicitly assign sales skills (cold-email, revops, sales-enablement) - primary owner TBD in Phase 1
-- [ ] **SOWN-18**: Explicitly assign research skills (daily-briefing-builder, homepage-audit) - primary owner TBD in Phase 1
-- [ ] **SOWN-19**: Explicitly assign anthropic-skills (content-creator, marketing-strategy-pmm, newsletter-content-creator, newsletter-writing-skill) to their primary agents
+- [x] **SOWN-13**: Explicitly assign all 6 blog engine skills (blog-write, blog-rewrite, blog-analyse, blog-seo-check, blog-strategy, blog-repurpose) to Technical Writer
+- [x] **SOWN-14**: Explicitly assign all LinkedIn skills (linkedin-post-writer, linkedin-content-strategy, linkedin-authority-builder, linkedin-profile-optimizer) to LinkedIn Growth Director
+- [x] **SOWN-15**: Explicitly assign strategy skills (marketing-ideas, marketing-psychology, marketing-principles, positioning-basics, pricing-strategy, launch-strategy, content-idea-generator) to CMO
+- [x] **SOWN-16**: Explicitly assign content production skills (social-content, social-card-gen, copywriting, ad-creative, email-sequence, case-study-builder, tweet-draft-reviewer) to Technical Writer
+- [x] **SOWN-17**: Explicitly assign sales skills (cold-email, revops, sales-enablement) - primary owner TBD in Phase 1
+- [x] **SOWN-18**: Explicitly assign research skills (daily-briefing-builder, homepage-audit) - primary owner TBD in Phase 1
+- [x] **SOWN-19**: Explicitly assign anthropic-skills (content-creator, marketing-strategy-pmm, newsletter-content-creator, newsletter-writing-skill) to their primary agents
 
 ### Validation
 
@@ -146,18 +146,18 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SOWN-01 | Phase 1 | Pending |
-| SOWN-02 | Phase 1 | Pending |
-| SOWN-03 | Phase 1 | Pending |
+| SOWN-01 | Phase 1 | Complete |
+| SOWN-02 | Phase 1 | Complete |
+| SOWN-03 | Phase 1 | Complete |
 | SOWN-04 | Phase 1 | Complete |
-| SOWN-05 | Phase 1 | Pending |
-| SOWN-06 | Phase 1 | Pending |
-| SOWN-07 | Phase 1 | Pending |
-| SOWN-08 | Phase 1 | Pending |
-| SOWN-09 | Phase 1 | Pending |
-| SOWN-10 | Phase 1 | Pending |
-| SOWN-11 | Phase 1 | Pending |
-| SOWN-12 | Phase 1 | Pending |
+| SOWN-05 | Phase 1 | Complete |
+| SOWN-06 | Phase 1 | Complete |
+| SOWN-07 | Phase 1 | Complete |
+| SOWN-08 | Phase 1 | Complete |
+| SOWN-09 | Phase 1 | Complete |
+| SOWN-10 | Phase 1 | Complete |
+| SOWN-11 | Phase 1 | Complete |
+| SOWN-12 | Phase 1 | Complete |
 | ADPT-01 | Phase 2 | Pending |
 | ADPT-02 | Phase 2 | Pending |
 | ADPT-03 | Phase 2 | Pending |
@@ -212,13 +212,13 @@
 | HSKP-02 | Phase 0 | Pending |
 | HSKP-03 | Phase 0 | Pending |
 | HSKP-04 | Phase 8.5 | Pending |
-| SOWN-13 | Phase 1 | Pending |
-| SOWN-14 | Phase 1 | Pending |
-| SOWN-15 | Phase 1 | Pending |
-| SOWN-16 | Phase 1 | Pending |
-| SOWN-17 | Phase 1 | Pending |
-| SOWN-18 | Phase 1 | Pending |
-| SOWN-19 | Phase 1 | Pending |
+| SOWN-13 | Phase 1 | Complete |
+| SOWN-14 | Phase 1 | Complete |
+| SOWN-15 | Phase 1 | Complete |
+| SOWN-16 | Phase 1 | Complete |
+| SOWN-17 | Phase 1 | Complete |
+| SOWN-18 | Phase 1 | Complete |
+| SOWN-19 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 72 total
