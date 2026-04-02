@@ -106,12 +106,13 @@ Plans:
   3. Skills unique to contentfpz (21 skills) are adapted and deployed
   4. Skills unique to CLAUDE.md (28 skills) are adapted and deployed
   5. No adapted skill contains interactive prompts
-**Plans**: 3 plans
+**Plans**: 4 plans
 
 Plans:
-- [ ] 05-01: Adapt and deploy CMO-owned marketing strategy skills
-- [ ] 05-02: Adapt and deploy cross-cutting skills (humanizer, contentfpz router, de-ai-ify)
-- [ ] 05-03: Adapt and deploy remaining business stream skills (contentfpz-only and CLAUDE.md-only)
+- [ ] 05-01-PLAN.md -- Adapt and deploy 7 CMO-owned marketing strategy skills
+- [ ] 05-02-PLAN.md -- Adapt and deploy cross-cutting quality gate skills (humanizer, de-ai-ify, copy-editing)
+- [ ] 05-03-PLAN.md -- Adapt and deploy Technical Writer + Customer Success skills (16 files)
+- [ ] 05-04-PLAN.md -- Adapt and deploy UX Researcher skills + stage LinkedIn Growth Director skills (13 files)
 
 ### Phase 6: CTO Agent
 **Goal**: The CTO agent is configured as the tech stream head with engineering oversight
@@ -215,7 +216,7 @@ Phases execute in numeric order: 0 > 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8 > 8.5 > 9 > 1
 | 2. Skill Adaptation Template | 1/1 | Complete | 2026-04-02 |
 | 3. CEO and Product Owner | 2/2 | Complete | 2026-04-02 |
 | 4. CMO Agent | 1/1 | Complete | 2026-04-02 |
-| 5. CMO Stream Skill Deployment | 0/3 | Not started | - |
+| 5. CMO Stream Skill Deployment | 0/4 | Not started | - |
 | 6. CTO Agent | 1/1 | Complete | 2026-04-02 |
 | 7. Technical Writer | 0/1 | Not started | - |
 | 8. Customer Success and UX Researcher | 0/2 | Not started | - |
