@@ -10,10 +10,10 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 0: Housekeeping** - Delete old FPZ company, create product-marketing-context
-- [ ] **Phase 1: Skill Ownership Matrix** - Map all 73 skills to exactly one agent with zero overlap
-- [ ] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format
-- [ ] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work
+- [x] **Phase 0: Housekeeping** - Delete old FPZ company, create product-marketing-context (2026-04-02)
+- [x] **Phase 1: Skill Ownership Matrix** - Map all 71 skills to exactly one agent with zero overlap (2026-04-02)
+- [x] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format (2026-04-02)
+- [x] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work (2026-04-02)
 - [ ] **Phase 4: CMO Agent** - Configure the business stream head with marketing strategy skills
 - [ ] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream
 - [ ] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight
