@@ -86,6 +86,10 @@
         "AI Leadership Recruitment",
         "Creative Technology Recruitment"
       ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
       "areaServed": [
         {
           "@type": "Country",

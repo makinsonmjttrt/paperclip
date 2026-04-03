@@ -176,6 +176,10 @@ function fpz_professional_service_schema(): array {
             'AI Leadership Recruitment',
             'Creative Technology Recruitment',
         ],
+        'address' => [
+            '@type'         => 'PostalAddress',
+            'addressCountry' => 'GB',
+        ],
         'areaServed' => [
             [ '@type' => 'Country', 'name' => 'United Kingdom' ],
             [ '@type' => 'Country', 'name' => 'United States' ],
