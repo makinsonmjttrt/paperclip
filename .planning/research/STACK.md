@@ -1,205 +1,242 @@
-# Technology Stack
+# Technology Stack: Conducting AI Scale Features
 
-**Project:** FourPointZero AI Agent Company (Paperclip Skill Mapping)
-**Researched:** 2026-04-02
+**Project:** FourPointZero AI Agent Company v2.0
+**Researched:** 2026-04-03
+**Confidence:** HIGH (verified against Paperclip source code, API docs, and live company files)
 
-## Platform: Paperclip Agent Framework
+## Constraint: No New Technology
 
-Paperclip is the orchestration layer. It provisions agents, manages heartbeats, handles issue assignment, and provides an API for inter-agent coordination. All agents run via `claude_local` adapter (Claude Sonnet 4.6) on a single machine.
+Paperclip is the entire platform. There is no new stack to install. Every v2.0 feature must be built from the existing Paperclip primitives: **issues, labels, comments, agent files (AGENTS.md, HEARTBEAT.md, SOUL.md, skills/), shared docs, the project workspace, and heartbeat-driven execution.**
 
-The project is NOT about building software. It is about configuring 9 Paperclip agents with the right instruction files and skill mappings so 47 existing Claude Code skills route to the correct agent without overlap.
+The question is not "what technology to add" but "which existing primitives to repurpose and how."
 
-## Paperclip Agent File Structure
+---
 
-Every agent lives at `~/.paperclip/instances/default/companies/FourPointZero/agents/{agent-slug}/` and follows an identical four-file + skills-directory structure:
+## Paperclip Primitives Inventory
+
+What exists today and what each can be repurposed for:
+
+| Primitive | Current Use | v2.0 Repurpose |
+|-----------|-------------|----------------|
+| **Issues** (tasks) | Work units with status lifecycle, parentId hierarchy, assigneeAgentId, goalId, projectId, labelIds, priority, comments | Event bus messages, delegation chain tracking, cross-department handoffs |
+| **Labels** | Issue categorisation (manually created via API) | Department tagging, data gating filters, event routing keys |
+| **Comments** | Agent-to-agent updates on issues | Structured context payloads for handoffs, delegation chain audit trail |
+| **Agent files** (`$AGENT_HOME/`) | AGENTS.md (identity), HEARTBEAT.md (execution), SOUL.md (persona), TOOLS.md, skills/ dir | Department brain references, gated file reads, sub-team coordination instructions |
+| **Skills** (markdown in `skills/`) | Procedural knowledge bundles (10-file cap per agent) | Department-specific knowledge bundles, delegation chain protocols |
+| **Shared docs** (`docs/`) | Company-wide templates and processes | Department brain storage location |
+| **Project workspace** (`projects/FourPointZero/workspace/`) | Output deliverables (50+ files already) | Shared knowledge base with directory-based department scoping |
+| **Routines** (cron triggers) | Scheduled heartbeats (PO grooming, CEO stall detection) | Department sync routines, cross-department polling |
+| **Goals** | Strategic objectives linking to issues | Department-level sub-goals for ownership boundaries |
+| **`parentId`** on issues | Sub-task decomposition | Multi-level delegation chains (CEO > CMO > Director > Specialist) |
+| **`requestDepth`** on issues | Tracks delegation level (0 = CEO) | Automatic delegation depth visibility |
+| **`reportsTo`** on agents | Flat manager assignment (one manager per agent) | Unchanged. Hierarchy enforced via instructions, not the field |
+
+## Feature-by-Feature Implementation Stack
+
+### 1. Department Brains (Shared Knowledge Bases)
+
+**What to use:** File-based directories + `Read:` directives in AGENTS.md
+
+**Implementation:**
+
+Create department-scoped directories under the company root:
 
 ```
-agents/{agent-slug}/
-  AGENTS.md      # Primary instruction file (identity, principles, skill references, shared docs)
-  HEARTBEAT.md   # Execution checklist run on every wake cycle
-  SOUL.md        # Persona definition (philosophy, voice, tone)
-  TOOLS.md       # Tool access declarations (currently empty for most agents)
-  skills/        # Skill markdown files local to this agent
+companies/FourPointZero/
+  departments/
+    business/
+      brain/
+        positioning.md
+        voice-guidelines.md
+        content-calendar.md
+        competitive-intel.md
+        campaign-history.md
+      README.md
+    tech/
+      brain/
+        architecture-decisions.md
+        tech-debt-register.md
+        deployment-runbook.md
+        standards.md
+      README.md
 ```
 
-### AGENTS.md (The Control File)
+**Why this works:** Every agent has filesystem access via Claude Code. AGENTS.md already uses `Read:` directives to load shared files. Adding `Read: departments/business/brain/positioning.md` to the CMO's AGENTS.md makes the brain available on every heartbeat. The same pattern is already proven with `docs/` and the shared `product-marketing-context.md` file (referenced by 33 files across the company).
 
-This is the master instruction document. Structure observed across all existing agents:
+**Why NOT a database or API:** Paperclip has no built-in knowledge store. The filesystem is the only persistence layer agents can both read and write. Files are durable across heartbeats. No new infrastructure needed.
 
-| Section | Purpose | Required |
-|---------|---------|----------|
-| Identity line | "You are the [Role]." | Yes |
-| Home directory | Points to `$AGENT_HOME` | Yes |
-| Reporting line | "You report to the CEO." | Yes |
-| Core Principles | 3-5 bullet points defining how this agent operates | Yes |
-| Safety Considerations | Guardrails (no secrets, no destructive commands) | Yes |
-| References | Pointers to HEARTBEAT.md, SOUL.md, TOOLS.md | Yes |
-| Skills section | `Read and follow: $AGENT_HOME/skills/{skill-name}.md` lines | Yes |
-| Shared Documentation | `Read: docs/{doc}.md` lines | Yes |
+**10-file skill cap workaround:** Department brain files are NOT skills. They go in a shared `departments/` directory referenced via `Read:` directives in AGENTS.md, which has no file count cap. Only the `skills/` directory has the 10-file limit.
 
-**Critical pattern:** Skills are injected into AGENTS.md as `Read and follow:` directives. Each line points to a markdown file in the agent's local `skills/` directory. The comment `<!-- Skills are appended here by modules during company assembly -->` marks the injection point.
+**Write-back pattern:** Agents update department brain files during their heartbeat work. Example: Customer Success finishes competitive research, writes findings to `departments/business/brain/competitive-intel.md`. Next time CMO wakes up, it reads the updated file. This is eventually consistent (one heartbeat cycle delay).
 
-### HEARTBEAT.md (The Execution Loop)
+### 2. Sub-Agent Teams
 
-Defines what the agent does on every wake cycle. Standard sections:
+**What to use:** New agents via the Paperclip hire API + skill redistribution
 
-1. **Identity and Context** - Confirm agent ID via API, check wake reason
-2. **Get Assignments** - Query issues assigned to this agent
-3. **Checkout and Work** - Claim a task via API, do the work, update status
-4. **Handover** - Mention the right person when work is ready for review
-5. **Exit** - Comment on in-progress work, exit cleanly
+**Implementation:**
 
-CEO has additional sections: Local Planning Check, Approval Follow-Up, Delegation, Fact Extraction, Backlog Health (Fallback), Assignment Check (Fallback), Stall Detection.
+Hire new specialist agents under the LinkedIn Growth Director's domain. Example expansion:
 
-**For skill mapping:** Heartbeat sections tell agents WHEN to use skills. A heartbeat step like "When producing marketing deliverables, write them as markdown documents" triggers the agent to invoke its assigned skills during the work phase.
+| New Agent | Role | Reports To (API) | Reports To (Instructions) | Skills (from LGD) |
+|-----------|------|-------------------|---------------------------|-------------------|
+| LinkedIn Content Writer | linkedin-content-writer | CEO (flat) | LinkedIn Growth Director | linkedin-post-writer |
+| LinkedIn Outreach Specialist | linkedin-outreach | CEO (flat) | LinkedIn Growth Director | cold-outreach-sequence, cold-email, meeting-prep |
 
-### SOUL.md (The Persona)
+**Paperclip constraint:** `reportsTo` is flat. There is no multi-level reporting hierarchy in the API. New sub-agents report to CEO in the `reportsTo` field. The LGD's management authority comes from AGENTS.md instructions and HEARTBEAT.md delegation rules, not from the API field.
 
-Defines personality, philosophy, voice and tone. Not directly relevant to skill mapping, but matters for output quality. Each agent's soul should reflect the kind of work their skills produce.
+**This is already the pattern used.** The CMO "manages" Technical Writer, Customer Success, UX Researcher, and LinkedIn Growth Director, but they all have `reportsTo: CEO` in the API. Management hierarchy is enforced by instruction text, not API structure. This is proven and working.
 
-### TOOLS.md (Tool Access)
+**Machine constraint:** 2-3 concurrent agents max on a single local machine. Sub-agents don't run in parallel with their manager. The LGD creates issues assigned to sub-agents, then exits. Sub-agents pick up work on their next heartbeat. Serial, not parallel, which is fine for Paperclip's async model.
 
-Currently empty (`(Your tools will go here.)`) for most agents. This is where MCP tool access and API permissions get declared. Not a blocker for skill mapping but will need populating later for agents that need web search, file system access, etc.
+**Skill redistribution:** When splitting LGD into a team, move execution skills to specialists and give LGD a new "team-coordinator" skill that handles delegation logic. LGD keeps linkedin-content-strategy and linkedin-authority-builder (strategic); content-writer gets linkedin-post-writer; outreach-specialist gets cold-outreach-sequence, cold-email, meeting-prep.
 
-### skills/ Directory
+### 3. Cross-Department Event Bus
 
-Contains markdown files that are the actual skill instructions. Two types observed:
+**What to use:** Labelled issues + heartbeat polling + structured comments
 
-| Type | Naming | Purpose |
-|------|--------|---------|
-| Primary skill | `{skill-name}.md` | This agent owns the skill |
-| Fallback skill | `{skill-name}.fallback.md` | Safety net when the primary owner is absent |
+**Implementation:**
 
-Fallback skills are shorter, scoped versions. Example: CEO has `brand-identity.fallback.md` while CMO has `brand-identity.md` (the full version).
+There is no real event bus in Paperclip. No pub/sub, no webhooks between agents, no message queue. The workaround is a convention-based issue routing pattern:
 
-## Skill Injection Mechanism
+1. **Create "event labels"** for cross-department triggers:
+   - `event:content-ready-for-tech` (CMO stream > CTO stream)
+   - `event:tech-ready-for-content` (CTO stream > CMO stream)
+   - `event:quality-gate-request` (any > Technical Writer)
+   - `event:competitive-intel-update` (Customer Success > CMO)
 
-### How Claude Code Skills Become Paperclip Skills
+2. **Producing agent** creates an issue with the event label, a structured description (context payload), and assigns to the target stream head.
 
-Claude Code skills live at two locations:
-- **Global:** `~/.claude/skills/{skill-name}/SKILL.md`
-- **Project:** `/Users/martynmakinson/Documents/fourpointzero/.claude/skills/contentfpz/SKILL.md`
+3. **Consuming agent** queries issues by label on each heartbeat:
+   ```
+   GET /api/companies/{companyId}/issues?labelIds={event-label-id}&status=todo
+   ```
 
-Paperclip agent skills live at:
-- `~/.paperclip/instances/default/companies/FourPointZero/agents/{agent}/skills/{skill}.md`
+4. **HEARTBEAT.md addition** for stream heads (CMO, CTO): "Check for cross-department events. Query issues with `event:` labels assigned to you. Process and delegate."
 
-**The mapping process is manual.** There is no automation that syncs Claude Code skills into Paperclip agent skill files. Each skill must be:
+**Why labels, not parentId:** Labels are queryable via the API. ParentId creates a tree under an existing task. Cross-department triggers are new top-level work items, not subtasks of the originating work.
 
-1. Read from its Claude Code source (`SKILL.md`)
-2. Adapted into a Paperclip-compatible skill markdown file (removing Claude Code-specific directives, adding Paperclip coordination patterns)
-3. Written to the target agent's `skills/` directory
-4. Referenced in the agent's `AGENTS.md` via a `Read and follow:` line
+**Structured comment format for handoff context:**
 
-### Adaptation Requirements
+```markdown
+## Cross-Department Handoff
 
-Claude Code skills assume a single-agent, interactive session (user types, Claude responds). Paperclip skills must work in a headless, heartbeat-driven context where the agent:
-- Wakes on a schedule or task assignment
-- Reads an issue description as its "prompt"
-- Produces deliverables as markdown files or issue comments
-- Hands off to other agents via API
+**From:** CMO (business stream)
+**Trigger:** New landing page copy approved (FOU-120)
+**Needs:** Frontend implementation of landing page
+**Context:** Copy at workspace/creativai-page-copy-edited.md
+**Priority:** high
+**Deadline:** Before June Cannes Lions launch
+```
 
-Key adaptations per skill:
-- **Input:** Change from "ask the user" to "read from issue description"
-- **Output:** Change from "respond in chat" to "write to workspace file, comment on issue"
-- **Context:** Add `$AGENT_HOME` references, remove interactive prompts
-- **Coordination:** Add handover instructions (who to @-mention when done)
+### 4. Delegation Chains
 
-## The 47 Skills to Map
+**What to use:** `parentId` issue hierarchy + `requestDepth` + HEARTBEAT.md routing rules
 
-Based on the contentfpz SKILL.md router and CLAUDE.md skill listing, these are the Claude Code skills that need mapping to the 9 agents:
+**Implementation:**
 
-### CMO Stream Skills (Business)
+True delegation chains mean: CEO assigns to CMO, CMO creates a child issue assigned to Technical Writer, Technical Writer creates a child issue assigned to a sub-specialist. The chain is tracked by `parentId`.
 
-**LinkedIn (4):** linkedin-post-writer, linkedin-content-strategy, linkedin-authority-builder, linkedin-profile-optimizer
+This is already partially working. The CEO's HEARTBEAT.md contains FPZ Delegation Logic. The gap: **CMO and CTO don't do their own sub-delegation.** CEO currently assigns directly to leaf agents (Technical Writer, Customer Success, etc.).
 
-**Content Creation (11):** copywriting, cold-email, cold-outreach-sequence, email-sequence, social-content, ad-creative, newsletter-creation-curation, case-study-builder, sales-enablement, social-card-gen, testimonial-collector
+Changes needed:
 
-**Content Improvement (7):** copy-editing, de-ai-ify, humanizer, homepage-audit, claude-blog:blog-rewrite, claude-blog:blog-analyse, claude-blog:blog-seo-check
+1. **CMO HEARTBEAT.md update:** Add a delegation section mirroring the CEO's FPZ Delegation Logic. When CMO receives a strategy issue, CMO creates child issues for production work and assigns to the correct downstream agent.
 
-**Strategy & Planning (10):** content-idea-generator, content-strategy, marketing-ideas, positioning-basics, marketing-principles, customer-research, reddit-insights, voice-extractor, pricing-strategy, launch-strategy, marketing-psychology, meeting-prep
+2. **CTO HEARTBEAT.md update:** Same pattern. When CTO receives a tech issue, CTO creates child issues for implementation (Engineer) and review (Code Reviewer).
 
-**SEO & Discovery (6):** seo-audit, ai-seo, ai-discoverability-audit, programmatic-seo, site-architecture, schema-markup, competitor-alternatives
+3. **CEO AGENTS.md update:** Change routing table. Instead of CEO assigning directly to Technical Writer or Customer Success, CEO assigns to CMO (business) or CTO (tech). The stream heads then sub-delegate.
 
-**Conversion (6):** page-cro, signup-flow-cro, onboarding-cro, form-cro, popup-cro, paywall-upgrade-cro
+4. **`requestDepth` tracking:** Paperclip auto-increments `requestDepth` when child issues are created. CEO issues are depth 0. CMO sub-issues are depth 1. Director sub-issues are depth 2. This gives automatic visibility into delegation chain length without any custom code.
 
-**Paid & Growth (5):** paid-ads, ab-test-setup, free-tool-strategy, lead-magnets, referral-program
+**What NOT to change:** The `reportsTo` field on agents stays flat (all report to CEO in the API). Delegation chains are enforced through issue `parentId` hierarchy and HEARTBEAT.md instructions.
 
-**Retention & Revenue (3):** churn-prevention, revops, product-marketing-context
+### 5. Data Gating
 
-**Blog Engine (4):** claude-blog:blog-write, claude-blog:blog-strategy, claude-blog:blog-repurpose, social-content (repurposing)
+**What to use:** Separate `Read:` directives per agent + department-scoped directories + label-filtered queries
 
-**Research & Intel (3):** youtube-summarizer, last30days, daily-briefing-builder
+**Implementation:**
 
-### CTO Stream Skills (Tech)
+Paperclip has NO built-in data isolation between agents within a company. All agents in the same company can access the same filesystem. Data gating must be enforced by convention, not by access control.
 
-These come from the existing engineer and code-reviewer agents plus skills that need adding:
-- git-workflow, pr-workflow (already on engineer)
-- Code review skills (already on code-reviewer via pr-review module)
-- Product management skills (product-owner)
+**Convention-based gating:**
 
-## The 9 Agents
+1. **Department brain directories** (from feature 1) provide natural boundaries. Business agents get `Read: departments/business/brain/` in their AGENTS.md. Tech agents get `Read: departments/tech/brain/`. Neither is instructed to read the other's department brain.
 
-| Agent | Slug | Stream | Current Skills | Status |
-|-------|------|--------|----------------|--------|
-| CEO | ceo | Both | 7 (vision, fallbacks, stall-detection) | Partially configured |
-| CMO | cmo | Business | 3 (brand-identity, fallbacks) | Needs 40+ skills |
-| CTO | cto | Tech | 0 | Empty |
-| Engineer | engineer | Tech | 2 (git-workflow, pr-workflow) | Minimal |
-| Code Reviewer | code-reviewer | Tech | Unknown (pr-review module) | Check |
-| Product Owner | product-owner | Tech | Unknown | Check |
-| Customer Success | customer-success | Business | Unknown | Check |
-| Technical Writer | technical-writer | Tech | Unknown | Check |
-| UX Researcher | ux-researcher | Business | Unknown | Check |
+2. **Skill ownership** already gates expertise. CMO has strategy skills. Technical Writer has content production skills. No agent has skills outside their domain.
 
-## Recommended Skill Distribution
+3. **Issue label filtering** gates what work an agent sees. Agents query only issues assigned to them (`?assigneeAgentId={your-id}`). Adding department labels (`dept:business`, `dept:tech`) enables stream heads to query their department's full issue set when needed.
 
-Use these principles for mapping:
+**Hard gating is impossible** without modifying Paperclip core (out of scope per PROJECT.md). The API scopes agent keys to their company, but within a company there's no per-department permission model. Any agent could technically read any file. Gating is about what agents are _instructed_ to read and what issues they're assigned. Soft gating only.
 
-1. **One owner per skill.** No duplication. If two agents could use a skill, assign to the one whose SOUL.md best matches.
-2. **CEO gets fallbacks only.** The CEO should never be the primary owner of execution skills.
-3. **CMO does NOT do everything.** Split business skills across CMO, Customer Success, and UX Researcher.
-4. **contentfpz router skill stays in Claude Code.** It is an interactive routing layer. Paperclip agents don't need routers because issue assignment handles routing.
+---
 
-### Proposed Distribution
+## What to Repurpose vs What to Create New
 
-| Agent | Skill Category | Skills Count |
-|-------|---------------|-------------|
-| **CMO** | LinkedIn, content strategy, brand, launch, positioning, marketing ideas, pricing | ~12 |
-| **Content Director** (customer-success or new) | Content creation (copywriting, email, social, ads, blog engine) | ~15 |
-| **SEO/Growth Lead** (ux-researcher repurposed) | SEO, CRO, paid ads, lead magnets, growth | ~12 |
-| **Customer Success** | customer-research, meeting-prep, testimonials, case studies, sales-enablement | ~6 |
-| **CTO** | Architecture decisions, tech standards | 0 direct content skills |
-| **Engineer** | git-workflow, pr-workflow + coding skills from ~/.claude/skills/ | ~5 |
-| **Code Reviewer** | PR review, code quality | ~3 |
-| **Product Owner** | Backlog, prioritisation, product-marketing-context | ~3 |
-| **Technical Writer** | copy-editing, de-ai-ify, humanizer, docs | ~4 |
+### Repurpose (zero new infrastructure)
 
-**Note:** The exact mapping is the deliverable of Phase 1 work. This distribution is directional.
+| Existing Primitive | Repurpose For | How |
+|--------------------|---------------|-----|
+| `docs/` directory pattern | Department brain storage | Create `departments/{name}/brain/` subdirectories |
+| `Read:` directives in AGENTS.md | Department brain loading | Add department-scoped reads per agent |
+| `parentId` on issues | Delegation chains | CMO/CTO create child issues instead of CEO assigning directly |
+| `labelIds` on issues | Event bus routing, department tagging | Create `event:` and `dept:` label prefixes |
+| Issue comments | Cross-department context payloads | Structured markdown format for handoff context |
+| HEARTBEAT.md sections | Stream head delegation logic | Mirror CEO's FPZ Delegation Logic in CMO/CTO heartbeats |
+| `requestDepth` on issues | Delegation depth visibility | Already auto-tracked by Paperclip |
+| Routines (cron triggers) | Department sync checks | Add heartbeats for stream heads to poll event labels |
 
-## Practical Constraints
+### Create New (file-based, no infrastructure)
 
-| Constraint | Impact | Mitigation |
-|-----------|--------|------------|
-| Single machine, 2-3 concurrent agents | Cannot run all 9 simultaneously | Stagger heartbeats, prioritise by queue depth |
-| Flat Paperclip hierarchy | CEO cannot delegate to CMO who delegates to Content Director | Use issue assignment + @-mentions to simulate hierarchy |
-| No skill hot-reload | Changing a skill requires editing the markdown file | Keep skills in version control, deploy via script |
-| 47 skills is a lot for adaptation | Each needs manual review and adaptation | Batch by category, template the adaptation |
-| `claude_local` adapter only | All agents share one Claude subscription | Cost monitoring needed |
+| New Artifact | Purpose | Location |
+|--------------|---------|----------|
+| Department brain directories | Shared knowledge per stream | `departments/business/brain/`, `departments/tech/brain/` |
+| Event label set | Cross-department routing | Created via `POST /api/companies/{companyId}/labels` |
+| Department labels | Issue scoping | `dept:business`, `dept:tech` labels |
+| CMO delegation logic | True stream head management | Added to CMO HEARTBEAT.md |
+| CTO delegation logic | True stream head management | Added to CTO HEARTBEAT.md |
+| Sub-agent configs | LinkedIn team expansion | New agent dirs under `agents/` |
+| Team coordinator skill | LGD manages sub-agents | New skill in LGD `skills/` |
 
-## File Paths Reference
+---
 
-| What | Where |
-|------|-------|
-| Paperclip agent root | `~/.paperclip/instances/default/companies/FourPointZero/agents/` |
-| Claude Code skills (global) | `~/.claude/skills/` |
-| Claude Code skills (project) | `/Users/martynmakinson/Documents/fourpointzero/.claude/skills/` |
-| contentfpz router | `/Users/martynmakinson/Documents/fourpointzero/.claude/skills/contentfpz/SKILL.md` |
-| Company ID | `c86bff2f-e63b-4982-8a0d-aa4b50fc82a5` |
+## What NOT to Build
+
+These approaches are impossible or counterproductive within Paperclip:
+
+| Approach | Why Not |
+|----------|---------|
+| Real-time agent-to-agent messaging | Paperclip doesn't support it. Async issues only (PROJECT.md constraint). |
+| Custom API endpoints for event bus | Cannot modify Paperclip core (out of scope). |
+| Database-backed knowledge store | No built-in per-department memory. Files are the persistence layer. |
+| Hard access control between departments | No per-department permission model within a company. Soft gating only. |
+| Matrix reporting (agent reports to two managers) | Paperclip enforces single `reportsTo`. Use instructions-based hierarchy. |
+| Running 10+ agents concurrently | Machine constraint: 2-3 concurrent agents max. Async serial execution only. |
+| Separate Paperclip projects per department | Would break cross-department issue visibility. One project, labelled by department. |
+| Agent-to-agent direct API calls | Agents coordinate through issues and comments only. No agent-to-agent RPC. |
+| Separate Paperclip companies per department | Would block cross-department delegation entirely. Company boundary = hard isolation. |
+
+---
+
+## Implementation Priority Order
+
+1. **Labels first** (event and department labels) -- enables everything else, zero risk, 10 minutes via API
+2. **Department brain directories** -- create the file structure, add `Read:` directives to AGENTS.md files
+3. **CMO/CTO delegation logic** -- update HEARTBEAT.md files to enable true delegation chains
+4. **CEO routing update** -- shift from direct-to-leaf to stream-head delegation
+5. **Cross-department event bus** -- add event label polling to stream head heartbeats
+6. **Sub-agent team expansion** -- hire LinkedIn specialists, redistribute skills (most disruptive, do last)
+
+This order ensures each step builds on the previous one with no rework.
 
 ## Sources
 
-- Direct inspection of Paperclip agent files at `~/.paperclip/instances/default/companies/FourPointZero/agents/`
-- Claude Code skill inventory at `~/.claude/skills/` (151 skills total, ~47 contentfpz-relevant)
-- contentfpz SKILL.md router definition
-- CLAUDE.md project configuration with full skill listing
-- PROJECT.md requirements and constraints
+- Paperclip official docs: https://paperclipai-paperclip.mintlify.app/
+- Paperclip GitHub: https://github.com/paperclipai/paperclip
+- Live company files at `~/.paperclip/instances/default/companies/FourPointZero/agents/` (all 10 agent dirs inspected)
+- CEO AGENTS.md, HEARTBEAT.md (verified delegation patterns, FPZ routing logic)
+- CMO AGENTS.md, HEARTBEAT.md (verified current routing, content production rules)
+- CTO AGENTS.md, HEARTBEAT.md (verified tech stream patterns, cross-stream coordination)
+- LinkedIn Growth Director AGENTS.md (verified skill set, reporting structure)
+- CEO memory/2026-04-03.md (verified live issue flow, heartbeat patterns, 150+ issues processed)
+- Paperclip API docs: issues support parentId, labelIds, assigneeAgentId, requestDepth, status lifecycle, comments, atomic checkout (verified)
+- `product-marketing-context.md` referenced by 33 files (verified shared-file pattern works at scale)
