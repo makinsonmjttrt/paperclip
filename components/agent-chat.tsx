@@ -292,7 +292,7 @@ export function AgentChat() {
   const selectedAgentData = agents.find((a) => a.id === selectedAgent)
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-[#050509]">
+    <div className="flex h-screen w-full overflow-hidden bg-transparent relative z-10">
       {/* Agent Sidebar */}
       <motion.aside
         initial={{ x: -300, opacity: 0 }}
