@@ -1,0 +1,124 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://fourpointzero.io/creativai/#webpage",
+      "url": "https://fourpointzero.io/creativai",
+      "name": "CreativAI | AI Executive Search for Creative Production | FourPointZero",
+      "isPartOf": { "@id": "https://fourpointzero.io/#website" },
+      "about": { "@id": "https://fourpointzero.io/#organization" },
+      "description": "CreativAI is FourPointZero's AI executive search practice. We place CAIO, Head of AI Production, Creative Technology Director, and VP AI roles at VFX studios, virtual production facilities, and AI-native creative companies.",
+      "breadcrumb": { "@id": "https://fourpointzero.io/creativai/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://fourpointzero.io/creativai/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://fourpointzero.io"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CreativAI",
+          "item": "https://fourpointzero.io/creativai"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://fourpointzero.io/creativai/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is CAIO hiring and why is it specialist work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CAIO appointments in creative production companies are typically first-ever senior AI leadership hires. The brief usually requires a candidate who can operate at C-suite level, translate AI capability into production reality, and build credibility with both technical and creative leadership. That profile sits at the intersection of two separate talent markets. Standard executive search methods do not reliably produce qualified shortlists for it. FourPointZero focuses exclusively on this intersection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is creative tech AI recruitment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Creative tech AI recruitment is executive search at the intersection of creative production and AI-integrated workflows. The roles require candidates with both production pipeline experience (VFX, real-time, spatial computing, experiential) and AI/ML development credibility. Most AI search firms work the AI side without the production depth. Most creative tech recruiters work the production side without the AI leadership capability. FourPointZero covers both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of roles does CreativAI place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Senior permanent roles at the intersection of AI and creative production: CAIO, Head of AI Production, Creative Technology Director, VP AI, Head of ML Engineering in VFX, and Executive Producer with AI mandate. The common requirement is that candidates have shipped AI in actual production environments, not just developed AI products."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is the CreativAI practice for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Established companies with a confirmed AI mandate at board or executive level: 50 or more employees, budget for a £150K+ senior appointment, active or imminent search underway. FourPointZero is not the right partner for organisations at the AI strategy stage with no active hiring need, or for junior or mid-level roles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a CreativAI executive search take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically 8 to 12 weeks from signed brief to shortlist of three to five qualified candidates. That is faster than most organisations achieve through internal talent acquisition for this candidate profile, because the network is already built."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the CreativAI engagement model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Retained search. A small engagement fee is payable on commencement, with the balance due on placement. First-time retained clients can access a structured engagement option: a fixed engagement fee with the full success fee payable only on placement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the geographic coverage for CreativAI executive search?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UK and US coverage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my mandate is in scope for CreativAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 15-minute call is enough. FourPointZero will tell you directly whether the mandate fits the scope of the CreativAI practice. No pitch, no commitment."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://fourpointzero.io/creativai/#service",
+      "name": "CreativAI — AI Executive Search for Creative Production",
+      "provider": {
+        "@id": "https://fourpointzero.io/#organization"
+      },
+      "url": "https://fourpointzero.io/creativai",
+      "description": "CreativAI is FourPointZero's specialist executive search practice placing senior AI leadership roles in VFX studios, virtual production facilities, creative software platforms, broadcasters, and AI-native creative companies.",
+      "serviceType": "Executive Search",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ]
+    }
+  ]
+}

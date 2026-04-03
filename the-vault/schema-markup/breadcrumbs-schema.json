@@ -1,0 +1,92 @@
+{
+  "_comment": "BreadcrumbList schemas for key FPZ pages. Each page should output only its own breadcrumb block.",
+
+  "homepage": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fourpointzero.io"
+      }
+    ]
+  },
+
+  "creativai": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fourpointzero.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CreativAI",
+        "item": "https://fourpointzero.io/creativai"
+      }
+    ]
+  },
+
+  "jobs": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fourpointzero.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Jobs",
+        "item": "https://fourpointzero.io/jobs"
+      }
+    ]
+  },
+
+  "about": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fourpointzero.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://fourpointzero.io/about"
+      }
+    ]
+  },
+
+  "contact": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fourpointzero.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://fourpointzero.io/contact"
+      }
+    ]
+  }
+}

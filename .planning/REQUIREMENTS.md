@@ -99,9 +99,9 @@
 
 ### Housekeeping
 
-- [ ] **HSKP-01**: Delete old FPZ company from Paperclip (preserving any useful data first)
-- [ ] **HSKP-02**: Remove Chat Assistant agent from old FPZ company (or recreate in FourPointZero if needed)
-- [ ] **HSKP-03**: Create or update product-marketing-context.md with current FPZ/CreativAI positioning
+- [x]**HSKP-01**: Delete old FPZ company from Paperclip (preserving any useful data first)
+- [x]**HSKP-02**: Remove Chat Assistant agent from old FPZ company (or recreate in FourPointZero if needed)
+- [x]**HSKP-03**: Create or update product-marketing-context.md with current FPZ/CreativAI positioning
 - [x] **HSKP-04**: Create LinkedIn Growth Director agent via Paperclip API (wizard only created 9, this is #10)
 
 ### Skill Ownership Completeness
