@@ -1,0 +1,252 @@
+{
+  "name": "ADHD: Weekly Review (WF-02)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "wr_cron",
+      "name": "Weekly Review Sunday 18:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 0],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 18 * * 0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wr_completed",
+      "name": "Get Completed Tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [250, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/2915456c-327f-80d8-83b4-000b8bc03128/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "{\"filter\":{\"and\":[{\"property\":\"Status\",\"select\":{\"equals\":\"Complete\"}},{\"property\":\"Completed\",\"date\":{\"on_or_after\":\"={{$now.minus({days: 7}).toISO()}}\"}}]},\"sorts\":[{\"property\":\"Completed\",\"direction\":\"descending\"}],\"page_size\":10}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    },
+    {
+      "id": "wr_stuck",
+      "name": "Get Stuck Tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [500, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/2915456c-327f-80d8-83b4-000b8bc03128/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "{\"filter\":{\"and\":[{\"property\":\"Status\",\"select\":{\"does_not_equal\":\"Complete\"}},{\"property\":\"Status\",\"select\":{\"does_not_equal\":\"Cancelled\"}},{\"timestamp\":\"created_time\",\"created_time\":{\"on_or_before\":\"={{$now.minus({days: 7}).toISO()}}\"}}]},\"sorts\":[{\"timestamp\":\"created_time\",\"direction\":\"ascending\"}],\"page_size\":5}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    },
+    {
+      "id": "wr_focus",
+      "name": "Get Focus Sessions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [750, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://api.notion.com/v1/databases/' + $env.FOCUS_SESSIONS_DB_ID + '/query' }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "{\"filter\":{\"and\":[{\"property\":\"Status\",\"select\":{\"equals\":\"Completed\"}},{\"property\":\"StartTime\",\"date\":{\"on_or_after\":\"={{$now.startOf('week').toISO()}}\"}},{\"property\":\"StartTime\",\"date\":{\"on_or_before\":\"={{$now.toISO()}}\"}}]},\"page_size\":100}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    },
+    {
+      "id": "wr_build",
+      "name": "Build Weekly Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 0],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const completedResponse = $('Get Completed Tasks').first().json;\nconst stuckResponse = $('Get Stuck Tasks').first().json;\n\n// Focus sessions may have errored if DB ID not yet configured — default to empty\nlet focusPages = [];\ntry {\n  const focusResponse = $('Get Focus Sessions').first().json;\n  focusPages = focusResponse.results || [];\n} catch (e) {\n  focusPages = [];\n}\n\nconst completedPages = completedResponse.results || [];\nconst stuckPages = stuckResponse.results || [];\n\nconst now = new Date();\nconst weekEndingDate = $now.toFormat('yyyy-MM-dd');\n\nconst getName = (page) => {\n  const titleArr = page.properties?.Name?.title;\n  return (titleArr && titleArr.length > 0) ? (titleArr[0].text?.content || 'Unnamed task') : 'Unnamed task';\n};\n\nconst getDateProp = (page, field) => page.properties?.[field]?.date?.start || null;\n\nconst completedTasks = completedPages.slice(0, 10).map(page => ({\n  id: page.id,\n  name: getName(page),\n  completedAt: getDateProp(page, 'Completed') || (page.last_edited_time ? page.last_edited_time.substring(0, 10) : null)\n}));\n\nconst stuckTasks = stuckPages.slice(0, 5).map(page => {\n  const createdDate = page.created_time ? new Date(page.created_time) : now;\n  const daysOpen = Math.floor((now - createdDate) / (1000 * 60 * 60 * 24));\n  return { id: page.id, name: getName(page), daysOpen };\n});\n\nconst focusBlockCount = focusPages.length;\n\nconst payload = {\n  weekEnding: weekEndingDate,\n  generatedAt: now.toISOString(),\n  completedTasks,\n  completedCount: completedTasks.length,\n  stuckTasks,\n  stuckCount: stuckTasks.length,\n  focusBlockCount\n};\n\nconst weekEndingFormatted = $now.toFormat('dd MMM');\nconst emailLines = [\n  'Your weekly review is ready.',\n  '',\n  'This week:',\n  `- ${completedTasks.length} tasks completed`,\n  `- ${stuckTasks.length} tasks still open`,\n  `- ${focusBlockCount} focus blocks`,\n  '',\n  'Open your dashboard to complete the review.',\n  'https://adhd-ef-system.vercel.app'\n];\n\nconst emailSubject = `[ADHD System] Weekly Review Ready \\u2014 w/e ${weekEndingFormatted}`;\n\nreturn [{ json: { ...payload, emailSubject, emailBody: emailLines.join('\\n') } }];"
+      }
+    },
+    {
+      "id": "wr_push",
+      "name": "Push to Dashboard",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1250, 0],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.ADHD_WEEKLY_REVIEW_WEBHOOK_URL || 'https://adhd-ef-system.vercel.app/api/webhooks/weekly-review' }}",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Webhook-Secret",
+              "value": "={{ $env.ADHD_WEBHOOK_SECRET }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ { weekEnding: $json.weekEnding, generatedAt: $json.generatedAt, completedTasks: $json.completedTasks, completedCount: $json.completedCount, stuckTasks: $json.stuckTasks, stuckCount: $json.stuckCount, focusBlockCount: $json.focusBlockCount } }}"
+      }
+    },
+    {
+      "id": "wr_email",
+      "name": "Send Summary Email",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [1500, 0],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "subject": "={{ $('Build Weekly Payload').first().json.emailSubject }}",
+        "bodyContent": "={{ $('Build Weekly Payload').first().json.emailBody }}",
+        "toRecipients": "mart@fourpointzero.co.uk",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "name": "Mart"
+        }
+      }
+    },
+    {
+      "id": "wr_log",
+      "name": "Log to Notion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1750, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ { parent: { database_id: $env.WEEKLY_REVIEWS_DB_ID }, properties: { Name: { title: [{ text: { content: 'Week ending ' + $('Build Weekly Payload').first().json.weekEnding } }] }, WeekEndingDate: { date: { start: $('Build Weekly Payload').first().json.weekEnding } }, FocusBlockCount: { number: $('Build Weekly Payload').first().json.focusBlockCount }, TasksCompleted: { number: $('Build Weekly Payload').first().json.completedCount }, TasksStuck: { number: $('Build Weekly Payload').first().json.stuckCount } } } }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Weekly Review Sunday 18:00": {
+      "main": [[{"node": "Get Completed Tasks", "type": "main", "index": 0}]]
+    },
+    "Get Completed Tasks": {
+      "main": [[{"node": "Get Stuck Tasks", "type": "main", "index": 0}]]
+    },
+    "Get Stuck Tasks": {
+      "main": [[{"node": "Get Focus Sessions", "type": "main", "index": 0}]]
+    },
+    "Get Focus Sessions": {
+      "main": [[{"node": "Build Weekly Payload", "type": "main", "index": 0}]]
+    },
+    "Build Weekly Payload": {
+      "main": [[{"node": "Push to Dashboard", "type": "main", "index": 0}]]
+    },
+    "Push to Dashboard": {
+      "main": [[{"node": "Send Summary Email", "type": "main", "index": 0}]]
+    },
+    "Send Summary Email": {
+      "main": [[{"node": "Log to Notion", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/London",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  }
+}
