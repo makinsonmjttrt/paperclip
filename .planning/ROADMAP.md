@@ -15,12 +15,12 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 - [x] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format (2026-04-02)
 - [x] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work (2026-04-02)
 - [x] **Phase 4: CMO Agent** - Configure the business stream head with marketing strategy skills (2026-04-02)
-- [ ] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream
+- [x] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream (2026-04-03)
 - [x] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight (2026-04-02)
-- [ ] **Phase 7: Technical Writer** - Configure the content quality gate agent
+- [x] **Phase 7: Technical Writer** - Configure the content quality gate agent (2026-04-03)
 - [x] **Phase 8: Customer Success and UX Researcher** - Configure competitive intel and growth agents (completed 2026-04-02)
 - [x] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream (2026-04-02)
-- [ ] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair
+- [x] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair (2026-04-03)
 - [x] **Phase 10: Validation** - Test issues through each agent to prove the company works (2026-04-03)
 
 ## Phase Details
@@ -36,7 +36,7 @@ Transform 71 existing Claude Code skills into a fully operational 10-agent Paper
 **Plans**: 1 plan
 
 Plans:
-- [ ] 00-01: Delete old FPZ company, create product-marketing-context.md
+- [x]00-01: Delete old FPZ company, create product-marketing-context.md
 
 ### Phase 1: Skill Ownership Matrix
 **Goal**: Every skill is assigned to exactly one agent, with a single source of truth document
@@ -51,8 +51,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: Audit and inventory all 71 skills from both sources (CLAUDE.md and contentfpz)
-- [ ] 01-02: Assign skills to agents and validate coverage constraints
+- [x]01-01: Audit and inventory all 71 skills from both sources (CLAUDE.md and contentfpz)
+- [x]01-02: Assign skills to agents and validate coverage constraints
 
 ### Phase 2: Skill Adaptation Template
 **Goal**: A reusable template and checklist exists so any Claude Code skill can be converted to Paperclip format consistently
@@ -65,7 +65,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: Create adaptation template and conversion checklist
+- [x]02-01: Create adaptation template and conversion checklist
 
 ### Phase 3: CEO and Product Owner
 **Goal**: The CEO can route work to the correct department head and the Product Owner can manage cross-stream prioritisation
@@ -79,8 +79,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Configure CEO agent (AGENTS.md, SOUL.md, HEARTBEAT.md, contentfpz router reference)
-- [ ] 03-02: Configure Product Owner agent (AGENTS.md, HEARTBEAT.md, project context)
+- [x]03-01: Configure CEO agent (AGENTS.md, SOUL.md, HEARTBEAT.md, contentfpz router reference)
+- [x]03-02: Configure Product Owner agent (AGENTS.md, HEARTBEAT.md, project context)
 
 ### Phase 4: CMO Agent
 **Goal**: The CMO agent is fully configured as the business stream head with marketing strategy skills
@@ -94,7 +94,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: Configure CMO agent (AGENTS.md, SOUL.md, HEARTBEAT.md, product-marketing-context)
+- [x]04-01: Configure CMO agent (AGENTS.md, SOUL.md, HEARTBEAT.md, product-marketing-context)
 
 ### Phase 5: CMO Stream Skill Deployment
 **Goal**: All 30+ marketing and content skills are adapted from Claude Code format and deployed to the correct business stream agents
@@ -109,10 +109,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 05-01-PLAN.md -- Adapt and deploy 7 CMO-owned marketing strategy skills
-- [ ] 05-02-PLAN.md -- Adapt and deploy cross-cutting quality gate skills (humanizer, de-ai-ify, copy-editing)
-- [ ] 05-03-PLAN.md -- Adapt and deploy Technical Writer + Customer Success skills (16 files)
-- [ ] 05-04-PLAN.md -- Adapt and deploy UX Researcher skills + stage LinkedIn Growth Director skills (13 files)
+- [x]05-01-PLAN.md -- Adapt and deploy 7 CMO-owned marketing strategy skills
+- [x]05-02-PLAN.md -- Adapt and deploy cross-cutting quality gate skills (humanizer, de-ai-ify, copy-editing)
+- [x]05-03-PLAN.md -- Adapt and deploy Technical Writer + Customer Success skills (16 files)
+- [x]05-04-PLAN.md -- Adapt and deploy UX Researcher skills + stage LinkedIn Growth Director skills (13 files)
 
 ### Phase 6: CTO Agent
 **Goal**: The CTO agent is configured as the tech stream head with engineering oversight
@@ -125,7 +125,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: Configure CTO agent (AGENTS.md, SOUL.md, HEARTBEAT.md)
+- [x]06-01: Configure CTO agent (AGENTS.md, SOUL.md, HEARTBEAT.md)
 
 ### Phase 7: Technical Writer
 **Goal**: The Technical Writer agent operates as a content quality gate with humanizer enforcement
@@ -139,7 +139,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: Configure Technical Writer agent (AGENTS.md, HEARTBEAT.md, quality gate skills, blog engine)
+- [x]07-01: Configure Technical Writer agent (AGENTS.md, HEARTBEAT.md, quality gate skills, blog engine)
 
 ### Phase 8: Customer Success and UX Researcher
 **Goal**: Competitive intelligence and growth/conversion agents are operational
@@ -154,7 +154,7 @@ Plans:
 
 Plans:
 - [x] 08-01: Configure Customer Success agent (AGENTS.md, HEARTBEAT.md, competitive intel skills)
-- [ ] 08-02: Configure UX Researcher agent (AGENTS.md, HEARTBEAT.md, CRO/SEO/growth skills)
+- [x]08-02: Configure UX Researcher agent (AGENTS.md, HEARTBEAT.md, CRO/SEO/growth skills)
 
 ### Phase 8.5: LinkedIn Growth Director (INSERTED)
 **Goal**: A dedicated LinkedIn agent owns all LinkedIn skills and manages content calendar, profile optimisation, and outreach
