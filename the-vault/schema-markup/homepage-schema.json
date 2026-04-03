@@ -1,0 +1,158 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fourpointzero.io/#organization",
+      "name": "FourPointZero",
+      "alternateName": "Four Point Zero",
+      "url": "https://fourpointzero.io",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://fourpointzero.io/#logo",
+        "url": "https://fourpointzero.io/wp-content/uploads/fpz-logo.png",
+        "caption": "FourPointZero"
+      },
+      "image": { "@id": "https://fourpointzero.io/#logo" },
+      "description": "FourPointZero is an executive search firm specialising in senior AI leadership roles at the intersection of artificial intelligence and creative production. Our CreativAI practice places CAIO, Head of AI Production, and Creative Technology Director roles at VFX studios, virtual production facilities, and AI-native creative companies.",
+      "foundingDate": "2019",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 10
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "knowsAbout": [
+        "Executive Search",
+        "AI Leadership Recruitment",
+        "Creative Production Talent",
+        "VFX Recruitment",
+        "Chief AI Officer Hiring",
+        "Creative Technology Recruitment"
+      ],
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "APSCO",
+          "url": "https://www.apsco.org"
+        },
+        {
+          "@type": "Organization",
+          "name": "AIXR",
+          "url": "https://aixr.org"
+        },
+        {
+          "@type": "Organization",
+          "name": "VRARA",
+          "url": "https://www.thevrara.com"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/xrjobs",
+        "https://www.crunchbase.com/organization/fourpointzero"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer enquiries",
+        "areaServed": ["GB", "US"],
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://fourpointzero.io/#professionalservice",
+      "name": "FourPointZero Executive Search",
+      "alternateName": "CreativAI by FourPointZero",
+      "parentOrganization": {
+        "@id": "https://fourpointzero.io/#organization"
+      },
+      "url": "https://fourpointzero.io",
+      "description": "Retained executive search for senior AI leadership roles in creative production. Specialist search for CAIO, Head of AI Production, Creative Technology Director, VP AI, and Head of ML Engineering in VFX and creative software companies.",
+      "serviceType": [
+        "Executive Search",
+        "Retained Search",
+        "AI Leadership Recruitment",
+        "Creative Technology Recruitment"
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Executive Search Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CAIO / Chief AI Officer Search",
+              "description": "Retained executive search for Chief AI Officer and first-ever AI leadership appointments at VFX studios, creative agencies, and media companies."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Head of AI Production Search",
+              "description": "Retained search for VP AI Production, Head of AI Production, and AI-integrated pipeline leadership roles."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Creative Technology Director Search",
+              "description": "Executive search for Creative Technology Director and Head of ML Engineering roles at VFX studios and creative software platforms."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fourpointzero.io/#website",
+      "url": "https://fourpointzero.io",
+      "name": "FourPointZero",
+      "description": "AI executive search for creative production",
+      "publisher": {
+        "@id": "https://fourpointzero.io/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://fourpointzero.io/?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://fourpointzero.io/#webpage",
+      "url": "https://fourpointzero.io",
+      "name": "FourPointZero | AI Executive Search for Creative Production",
+      "isPartOf": { "@id": "https://fourpointzero.io/#website" },
+      "about": { "@id": "https://fourpointzero.io/#organization" },
+      "description": "FourPointZero is an executive search firm placing senior AI leadership roles in VFX, virtual production, and creative technology companies. UK and US coverage."
+    }
+  ]
+}
