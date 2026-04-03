@@ -1,0 +1,139 @@
+{
+  "name": "ADHD: Daily Briefing (WF-01)",
+  "n8nWorkflowId": "rzLb74LnUGDSJTU3",
+  "active": false,
+  "nodes": [
+    {
+      "id": "db_cron",
+      "name": "Daily 07:30",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 0],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 7 * * *"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "db_query",
+      "name": "Query Today's Tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [250, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/{{NOTION_TASKS_DB_ID}}/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"filter\": {\n    \"and\": [\n      {\n        \"property\": \"Status\",\n        \"select\": {\n          \"does_not_equal\": \"Complete\"\n        }\n      },\n      {\n        \"property\": \"Status\",\n        \"select\": {\n          \"does_not_equal\": \"Cancelled\"\n        }\n      },\n      {\n        \"or\": [\n          {\n            \"property\": \"Due\",\n            \"date\": {\n              \"on_or_before\": \"={{$now.toFormat('yyyy-MM-dd')}}\"\n            }\n          },\n          {\n            \"property\": \"Status\",\n            \"select\": {\n              \"equals\": \"In Progress\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"sorts\": [\n    {\"property\": \"Due\", \"direction\": \"ascending\"}\n  ],\n  \"page_size\": 50\n}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    },
+    {
+      "id": "db_build",
+      "name": "Build Briefing Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const response = $input.first().json;\nconst pages = response.results || [];\nconst today = $now.toFormat('yyyy-MM-dd');\n\nconst getName = (page) => page.properties?.Name?.title?.[0]?.text?.content || 'Unnamed task';\nconst getPriority = (page) => page.properties?.Priority?.select?.name || null;\nconst getDue = (page) => page.properties?.Due?.date?.start || null;\nconst getStatus = (page) => page.properties?.Status?.select?.name || 'Unknown';\n\nif (pages.length === 0) {\n  const dateStr = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: '2-digit', month: 'long' });\n  return [{\n    json: {\n      date: today,\n      generatedAt: new Date().toISOString(),\n      taskCount: 0,\n      overdueCount: 0,\n      todayCount: 0,\n      inProgressCount: 0,\n      overdueTasks: [],\n      todayTasks: [],\n      inProgressTasks: [],\n      emailSubject: `[ADHD System] Daily Briefing — ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })} — Clear day`,\n      emailBody: `Daily Briefing — ${dateStr}\\n\\nClear day — no tasks due or in progress.\\n\\nUse this intentionally. What is the one thing you want to move forward today?\\n\\nOpen your dashboard to capture it.`\n    }\n  }];\n}\n\nconst todayTasks = [];\nconst overdueTasks = [];\nconst inProgressTasks = [];\n\nfor (const page of pages) {\n  const due = getDue(page);\n  const task = {\n    id: page.id,\n    name: getName(page),\n    priority: getPriority(page),\n    status: getStatus(page),\n    due,\n    url: page.url\n  };\n  if (due && due < today) {\n    overdueTasks.push(task);\n  } else if (due === today) {\n    todayTasks.push(task);\n  } else {\n    inProgressTasks.push(task);\n  }\n}\n\nconst priorityOrder = { 'RED': 0, 'AMBER': 1, 'GREEN': 2 };\nconst sortByPriority = (a, b) => (priorityOrder[a.priority] ?? 3) - (priorityOrder[b.priority] ?? 3);\noverdueTasks.sort(sortByPriority);\ntodayTasks.sort(sortByPriority);\n\nconst payload = {\n  date: today,\n  generatedAt: new Date().toISOString(),\n  taskCount: pages.length,\n  overdueCount: overdueTasks.length,\n  todayCount: todayTasks.length,\n  inProgressCount: inProgressTasks.length,\n  overdueTasks: overdueTasks.slice(0, 10),\n  todayTasks: todayTasks.slice(0, 10),\n  inProgressTasks: inProgressTasks.slice(0, 5)\n};\n\nconst dateStr = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: '2-digit', month: 'long' });\nconst lines = [`Daily Briefing — ${dateStr}`, ''];\n\nif (overdueTasks.length > 0) {\n  lines.push(`OVERDUE (${overdueTasks.length})`);\n  overdueTasks.slice(0, 5).forEach(t => {\n    lines.push(`  - ${t.name}${t.priority ? ` [${t.priority}]` : ''} — was due ${t.due}`);\n  });\n  if (overdueTasks.length > 5) lines.push(`  ... and ${overdueTasks.length - 5} more`);\n  lines.push('');\n}\n\nif (todayTasks.length > 0) {\n  lines.push(`TODAY (${todayTasks.length})`);\n  todayTasks.slice(0, 5).forEach(t => {\n    lines.push(`  - ${t.name}${t.priority ? ` [${t.priority}]` : ''}`);\n  });\n  if (todayTasks.length > 5) lines.push(`  ... and ${todayTasks.length - 5} more`);\n  lines.push('');\n}\n\nif (inProgressTasks.length > 0) {\n  lines.push(`IN PROGRESS (${inProgressTasks.length})`);\n  inProgressTasks.slice(0, 3).forEach(t => {\n    lines.push(`  - ${t.name}`);\n  });\n  lines.push('');\n}\n\nlines.push('Open your dashboard to review and start your day.');\n\nconst emailSubject = `[ADHD System] Daily Briefing — ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })} — ${overdueTasks.length > 0 ? overdueTasks.length + ' overdue' : todayTasks.length + ' today'}`;\n\nreturn [{ json: { ...payload, emailSubject, emailBody: lines.join('\\n') } }];"
+      }
+    },
+    {
+      "id": "db_push",
+      "name": "Push to Dashboard",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [750, 0],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.ADHD_DASHBOARD_WEBHOOK_URL || 'https://adhd-ef-system.vercel.app/api/webhooks/daily-briefing' }}",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Webhook-Secret",
+              "value": "={{ $env.ADHD_WEBHOOK_SECRET }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ date: $json.date, generatedAt: $json.generatedAt, taskCount: $json.taskCount, overdueCount: $json.overdueCount, todayCount: $json.todayCount, inProgressCount: $json.inProgressCount, overdueTasks: $json.overdueTasks, todayTasks: $json.todayTasks, inProgressTasks: $json.inProgressTasks }) }}"
+      }
+    },
+    {
+      "id": "db_email",
+      "name": "Send Briefing Email",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [1000, 0],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "subject": "={{ $('Build Briefing Payload').first().json.emailSubject }}",
+        "bodyContent": "={{ $('Build Briefing Payload').first().json.emailBody }}",
+        "toRecipients": "mart@fourpointzero.co.uk",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "name": "Mart"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Daily 07:30": {
+      "main": [[{"node": "Query Today's Tasks", "type": "main", "index": 0}]]
+    },
+    "Query Today's Tasks": {
+      "main": [[{"node": "Build Briefing Payload", "type": "main", "index": 0}]]
+    },
+    "Build Briefing Payload": {
+      "main": [[{"node": "Push to Dashboard", "type": "main", "index": 0}]]
+    },
+    "Push to Dashboard": {
+      "main": [[{"node": "Send Briefing Email", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/London",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  }
+}
