@@ -80,11 +80,11 @@ Plans:
   2. A deadlocked agent (executionRunId set but idle) gets cleared by the CEO without manual intervention
   3. An interrupted heartbeat resumes from its MEMORY.md checkpoint with no data loss
   4. Work stalled after 2 failed nudges gets reassigned to another capable agent automatically (routine work only)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 17-01: TBD
-- [ ] 17-02: TBD
+- [ ] 17-01-PLAN.md -- Agent-level self-recovery: error auto-retry and checkpoint resume with data preservation
+- [ ] 17-02-PLAN.md -- Organisational-level recovery: CEO deadlock auto-clear and 2-nudge stall reassignment
 
 ### Phase 18: Workload & Consolidation
 **Goal**: Work is distributed fairly across agents, and underperforming agents are identified for merge or retirement
@@ -126,6 +126,6 @@ Plans:
 | 0-10 | v1.0 | All | Complete | 2026-04-03 |
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
 | 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
-| 17. Self-Healing | v3.0 | 0/? | Not started | - |
+| 17. Self-Healing | v3.0 | 0/2 | Planning complete | - |
 | 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
 | 19. End-to-End Validation | v3.0 | 0/? | Not started | - |
