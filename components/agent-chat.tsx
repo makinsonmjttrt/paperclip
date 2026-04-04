@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import {
   Send,
   Bot,
@@ -18,6 +18,8 @@ import {
   Globe,
   Crown,
   MessageCircle,
+  Menu,
+  X,
   type LucideIcon,
 } from "lucide-react"
 
@@ -82,20 +84,53 @@ function getAgentColor(urlKey: string): string {
   return AGENT_COLORS[urlKey] ?? "from-gray-500 to-zinc-600"
 }
 
+// ---- Animation presets (centralised for reduced-motion) --------------------
+
+function useSafeMotion() {
+  const prefersReduced = useReducedMotion()
+  return {
+    prefersReduced: prefersReduced ?? false,
+    fadeIn: prefersReduced
+      ? { initial: {}, animate: {}, transition: {} }
+      : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.25 } },
+    slideInLeft: prefersReduced
+      ? { initial: {}, animate: {}, transition: {} }
+      : { initial: { x: -300, opacity: 0 }, animate: { x: 0, opacity: 1 }, transition: { duration: 0.4, ease: "easeOut" as const } },
+    slideInDown: prefersReduced
+      ? { initial: {}, animate: {}, transition: {} }
+      : { initial: { y: -20, opacity: 0 }, animate: { y: 0, opacity: 1 }, transition: { duration: 0.3 } },
+    messageIn: prefersReduced
+      ? { initial: {}, animate: {}, transition: {} }
+      : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.25, ease: "easeOut" as const } },
+  }
+}
+
 // ---- Empty state -----------------------------------------------------------
 
-function EmptyState({ agentName }: { agentName?: string }) {
+function EmptyState({
+  agentName,
+  onHintClick,
+  prefersReduced,
+}: {
+  agentName?: string
+  onHintClick: (text: string) => void
+  prefersReduced: boolean
+}) {
+  const hints = agentName
+    ? [`What are you working on?`, `Give me a status update`, `Help me with a task`]
+    : ["Draft a LinkedIn post", "Review the roadmap", "Run a code audit"]
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={prefersReduced ? {} : { opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      transition={prefersReduced ? {} : { duration: 0.5, delay: 0.2 }}
       className="flex-1 flex flex-col items-center justify-center px-6 text-center"
     >
       <motion.div
         className="size-16 rounded-2xl bg-gradient-to-br from-[#1EA3C7]/20 to-[#B844BC]/20 border border-white/[0.06] flex items-center justify-center mb-5"
-        animate={{ rotate: [0, 3, -3, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        animate={prefersReduced ? {} : { rotate: [0, 3, -3, 0] }}
+        transition={prefersReduced ? {} : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <MessageCircle className="size-7 text-[#1EA3C7]" />
       </motion.div>
@@ -108,23 +143,42 @@ function EmptyState({ agentName }: { agentName?: string }) {
           : "Type a message below. Select an agent from the sidebar, or let auto-routing pick the best one."}
       </p>
 
-      {/* Quick action hints */}
-      <div className="flex gap-2 mt-6">
-        {["Draft a LinkedIn post", "Review the roadmap", "Run a code audit"].map(
-          (hint, i) => (
-            <motion.span
-              key={hint}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.1 }}
-              className="text-xs px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[#9A9EAD] cursor-default"
-            >
-              {hint}
-            </motion.span>
-          )
-        )}
+      {/* Clickable quick actions */}
+      <div className="flex flex-wrap justify-center gap-2 mt-6">
+        {hints.map((hint, i) => (
+          <motion.button
+            key={hint}
+            initial={prefersReduced ? {} : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={prefersReduced ? {} : { delay: 0.4 + i * 0.1 }}
+            whileHover={prefersReduced ? {} : { scale: 1.04, borderColor: "rgba(30,163,199,0.3)" }}
+            whileTap={prefersReduced ? {} : { scale: 0.97 }}
+            onClick={() => onHintClick(hint)}
+            className="text-xs px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[#9A9EAD] cursor-pointer hover:text-[#EFF1F6] hover:bg-white/[0.06] transition-colors duration-200"
+          >
+            {hint}
+          </motion.button>
+        ))}
       </div>
     </motion.div>
+  )
+}
+
+// ---- Skeleton loader -------------------------------------------------------
+
+function AgentListSkeleton() {
+  return (
+    <div className="space-y-2 p-3">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div key={i} className="flex items-center gap-3 px-3 py-2.5">
+          <div className="size-9 rounded-lg bg-white/[0.06] animate-pulse" />
+          <div className="flex-1 space-y-1.5">
+            <div className="h-3.5 w-24 bg-white/[0.06] rounded animate-pulse" />
+            <div className="h-3 w-32 bg-white/[0.04] rounded animate-pulse" />
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -137,13 +191,15 @@ export function AgentChat() {
   const [input, setInput] = useState("")
   const [isSending, setIsSending] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const motion$ = useSafeMotion()
 
   // Scroll to bottom on new messages
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+    messagesEndRef.current?.scrollIntoView({ behavior: motion$.prefersReduced ? "auto" : "smooth" })
+  }, [messages, motion$.prefersReduced])
 
   // Fetch agents from Paperclip
   useEffect(() => {
@@ -194,6 +250,12 @@ export function AgentChat() {
     }
 
     fetchAgents()
+  }, [])
+
+  // Close mobile sidebar on agent select
+  const handleSelectAgent = useCallback((agentId: string | null) => {
+    setSelectedAgent(agentId)
+    setSidebarOpen(false)
   }, [])
 
   const sendMessage = useCallback(async () => {
@@ -265,7 +327,7 @@ export function AgentChat() {
             ? {
                 ...m,
                 content: `Task assigned: ${issue.identifier}. ${targetAgent?.name ?? "Agent"} is working on it.`,
-                status: "done",
+                status: "done" as const,
                 issueId: issue.id,
               }
             : m
@@ -278,7 +340,7 @@ export function AgentChat() {
             ? {
                 ...m,
                 content: "Failed to reach Paperclip. Check the tunnel connection.",
-                status: "error",
+                status: "error" as const,
               }
             : m
         )
@@ -299,120 +361,165 @@ export function AgentChat() {
   const selectedAgentData = agents.find((a) => a.id === selectedAgent)
   const hasMessages = messages.length > 0
 
+  // ---- Sidebar content (shared between desktop and mobile) ----
+  const sidebarContent = (
+    <>
+      <div className="p-5 border-b border-white/[0.06]">
+        <h1 className="text-lg font-semibold text-white tracking-tight font-[family-name:var(--font-heading)]">
+          FourPointZero
+        </h1>
+        <p className="text-xs text-[#616675] mt-0.5">Agent Command Centre</p>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-3 space-y-1 scrollbar-thin">
+        {isLoading ? (
+          <AgentListSkeleton />
+        ) : (
+          <>
+            {/* Auto-route */}
+            <button
+              onClick={() => handleSelectAgent(null)}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
+                selectedAgent === null
+                  ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
+                  : "hover:bg-white/[0.04]"
+              }`}
+            >
+              <div className="size-9 rounded-lg bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/10">
+                <Bot className="size-4 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-sm font-medium text-[#EFF1F6] block">
+                  Auto-route
+                </span>
+                <span className="text-xs text-[#616675]">
+                  Smart agent selection
+                </span>
+              </div>
+            </button>
+
+            <div className="h-px bg-white/[0.06] my-2" />
+
+            {/* Agent buttons */}
+            {agents.map((agent, i) => {
+              const Icon = getAgentIcon(agent.icon)
+              const isActive = selectedAgent === agent.id
+              return (
+                <motion.button
+                  key={agent.id}
+                  initial={motion$.prefersReduced ? {} : { opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={motion$.prefersReduced ? {} : { delay: 0.05 * i, duration: 0.3 }}
+                  onClick={() => handleSelectAgent(agent.id)}
+                  whileHover={motion$.prefersReduced ? {} : { scale: 1.01 }}
+                  whileTap={motion$.prefersReduced ? {} : { scale: 0.99 }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
+                    isActive
+                      ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
+                      : "hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <div
+                    className={`size-9 rounded-lg bg-gradient-to-br ${agent.color} flex items-center justify-center shadow-lg`}
+                  >
+                    <Icon className="size-4 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-[#EFF1F6] truncate">
+                        {agent.name}
+                      </span>
+                      <span
+                        className={`size-1.5 rounded-full shrink-0 ${
+                          agent.status === "running"
+                            ? "bg-emerald-400 animate-pulse"
+                            : agent.status === "idle"
+                              ? "bg-[#616675]"
+                              : "bg-amber-400"
+                        }`}
+                      />
+                    </div>
+                    <span className="text-xs text-[#616675] truncate block">
+                      {agent.title}
+                    </span>
+                  </div>
+                </motion.button>
+              )
+            })}
+          </>
+        )}
+      </div>
+
+      {/* Connection status */}
+      <div className="p-4 border-t border-white/[0.06]">
+        <div className="flex items-center gap-2">
+          <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs text-[#616675]">Paperclip connected</span>
+        </div>
+      </div>
+    </>
+  )
+
   return (
     <div className="flex h-screen w-full overflow-hidden bg-transparent relative z-10">
-      {/* ── Agent Sidebar ── */}
+      {/* ── Desktop Sidebar ── */}
       <motion.aside
-        initial={{ x: -300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        {...motion$.slideInLeft}
         className="hidden md:flex w-72 flex-col border-r border-white/[0.06] bg-[#0a0a12]/80 backdrop-blur-xl"
       >
-        <div className="p-5 border-b border-white/[0.06]">
-          <h1 className="text-lg font-semibold text-white tracking-tight font-[family-name:var(--font-heading)]">
-            FourPointZero
-          </h1>
-          <p className="text-xs text-[#616675] mt-0.5">Agent Command Centre</p>
-        </div>
-
-        <div className="flex-1 overflow-y-auto p-3 space-y-1 scrollbar-thin">
-          {isLoading ? (
-            <div className="flex items-center justify-center py-8">
-              <Loader2 className="size-5 text-[#616675] animate-spin" />
-            </div>
-          ) : (
-            <>
-              {/* Auto-route */}
-              <button
-                onClick={() => setSelectedAgent(null)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
-                  selectedAgent === null
-                    ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
-                    : "hover:bg-white/[0.04]"
-                }`}
-              >
-                <div className="size-9 rounded-lg bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/10">
-                  <Bot className="size-4 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm font-medium text-[#EFF1F6] block">
-                    Auto-route
-                  </span>
-                  <span className="text-xs text-[#616675]">
-                    Smart agent selection
-                  </span>
-                </div>
-              </button>
-
-              <div className="h-px bg-white/[0.06] my-2" />
-
-              {/* Agent buttons */}
-              {agents.map((agent, i) => {
-                const Icon = getAgentIcon(agent.icon)
-                const isActive = selectedAgent === agent.id
-                return (
-                  <motion.button
-                    key={agent.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i, duration: 0.3 }}
-                    onClick={() => setSelectedAgent(agent.id)}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
-                      isActive
-                        ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
-                        : "hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    <div
-                      className={`size-9 rounded-lg bg-gradient-to-br ${agent.color} flex items-center justify-center shadow-lg`}
-                    >
-                      <Icon className="size-4 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-[#EFF1F6] truncate">
-                          {agent.name}
-                        </span>
-                        <span
-                          className={`size-1.5 rounded-full shrink-0 ${
-                            agent.status === "running"
-                              ? "bg-emerald-400 animate-pulse"
-                              : agent.status === "idle"
-                                ? "bg-[#616675]"
-                                : "bg-amber-400"
-                          }`}
-                        />
-                      </div>
-                      <span className="text-xs text-[#616675] truncate block">
-                        {agent.title}
-                      </span>
-                    </div>
-                  </motion.button>
-                )
-              })}
-            </>
-          )}
-        </div>
-
-        {/* Connection status */}
-        <div className="p-4 border-t border-white/[0.06]">
-          <div className="flex items-center gap-2">
-            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-[#616675]">Paperclip connected</span>
-          </div>
-        </div>
+        {sidebarContent}
       </motion.aside>
+
+      {/* ── Mobile Sidebar Overlay ── */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <>
+            {/* Scrim */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              onClick={() => setSidebarOpen(false)}
+            />
+            {/* Drawer */}
+            <motion.aside
+              initial={{ x: -300 }}
+              animate={{ x: 0 }}
+              exit={{ x: -300 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed inset-y-0 left-0 z-50 w-72 flex flex-col border-r border-white/[0.06] bg-[#0a0a12]/95 backdrop-blur-xl md:hidden"
+            >
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="absolute top-4 right-4 size-8 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
+                aria-label="Close sidebar"
+              >
+                <X className="size-4 text-[#9A9EAD]" />
+              </button>
+              {sidebarContent}
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── Main Chat Area ── */}
       <main className="flex-1 flex flex-col min-w-0">
         {/* Header */}
         <motion.header
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06] bg-[#0a0a12]/60 backdrop-blur-xl"
+          {...motion$.slideInDown}
+          className="flex items-center gap-3 px-4 md:px-6 py-4 border-b border-white/[0.06] bg-[#0a0a12]/60 backdrop-blur-xl"
         >
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="md:hidden size-9 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
+            aria-label="Open agent sidebar"
+          >
+            <Menu className="size-4 text-[#9A9EAD]" />
+          </button>
+
           {selectedAgentData ? (
             <>
               <div
@@ -460,7 +567,7 @@ export function AgentChat() {
 
         {/* Messages or Empty State */}
         {hasMessages ? (
-          <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 space-y-4">
             <AnimatePresence initial={false}>
               {messages.map((msg) => {
                 const msgAgent = msg.agentId
@@ -470,10 +577,8 @@ export function AgentChat() {
                 return (
                   <motion.div
                     key={msg.id}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    {...motion$.messageIn}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
                     className={`flex gap-3 ${
                       msg.role === "user" ? "flex-row-reverse" : ""
                     }`}
@@ -502,7 +607,7 @@ export function AgentChat() {
 
                     {/* Bubble */}
                     <div
-                      className={`max-w-[70%] ${
+                      className={`max-w-[80%] md:max-w-[70%] ${
                         msg.role === "user"
                           ? "bg-[#1EA3C7]/10 border border-[#1EA3C7]/20 rounded-2xl rounded-tr-sm"
                           : "bg-white/[0.04] border border-white/[0.06] rounded-2xl rounded-tl-sm"
@@ -527,12 +632,16 @@ export function AgentChat() {
                                       ? "#3C66EA"
                                       : "#B844BC",
                               }}
-                              animate={{ opacity: [0.3, 1, 0.3] }}
-                              transition={{
-                                duration: 1.2,
-                                repeat: Infinity,
-                                delay,
-                              }}
+                              animate={motion$.prefersReduced ? {} : { opacity: [0.3, 1, 0.3] }}
+                              transition={
+                                motion$.prefersReduced
+                                  ? {}
+                                  : {
+                                      duration: 1.2,
+                                      repeat: Infinity,
+                                      delay,
+                                    }
+                              }
                             />
                           ))}
                         </div>
@@ -560,11 +669,15 @@ export function AgentChat() {
             <div ref={messagesEndRef} />
           </div>
         ) : (
-          <EmptyState agentName={selectedAgentData?.name} />
+          <EmptyState
+            agentName={selectedAgentData?.name}
+            onHintClick={(text) => setInput(text)}
+            prefersReduced={motion$.prefersReduced}
+          />
         )}
 
         {/* ── Input ── */}
-        <div className="px-6 py-4 border-t border-white/[0.06] bg-[#0a0a12]/60 backdrop-blur-xl">
+        <div className="px-4 md:px-6 py-4 border-t border-white/[0.06] bg-[#0a0a12]/60 backdrop-blur-xl">
           <div className="flex items-center gap-3 max-w-3xl mx-auto">
             <div className="flex-1 relative group">
               <input
@@ -585,8 +698,8 @@ export function AgentChat() {
               <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-[#1EA3C7]/0 via-[#3C66EA]/0 to-[#B844BC]/0 group-focus-within:from-[#1EA3C7]/10 group-focus-within:via-[#3C66EA]/10 group-focus-within:to-[#B844BC]/10 transition-all duration-300 -z-10 blur-sm" />
             </div>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={motion$.prefersReduced ? {} : { scale: 1.05 }}
+              whileTap={motion$.prefersReduced ? {} : { scale: 0.95 }}
               onClick={sendMessage}
               disabled={!input.trim() || isSending}
               className="size-12 rounded-xl bg-gradient-to-r from-[#1EA3C7] to-[#3C66EA] text-white flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-200 cursor-pointer shadow-lg shadow-[#1EA3C7]/20"

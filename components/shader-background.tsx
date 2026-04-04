@@ -1,24 +1,26 @@
 "use client"
 
 import { MeshGradient } from "@paper-design/shaders-react"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 /**
  * Full-screen animated shader gradient background.
  * Renders flowing teal/blue/magenta orbs on a near-black canvas.
  * Reacts subtly to mouse position via speed modulation.
+ * Respects prefers-reduced-motion by freezing all animation.
  */
 export function ShaderBackground() {
   const [speed, setSpeed] = useState(0.4)
   const [mounted, setMounted] = useState(false)
+  const prefersReduced = useReducedMotion()
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   useEffect(() => {
-    if (!mounted) return
+    if (!mounted || prefersReduced) return
 
     const handleMouseMove = (e: MouseEvent) => {
       // Map mouse X position to shader speed (0.2 - 0.8)
@@ -28,15 +30,18 @@ export function ShaderBackground() {
 
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [mounted])
+  }, [mounted, prefersReduced])
 
   if (!mounted) return null
+
+  // Static fallback for reduced-motion users
+  const effectiveSpeed = prefersReduced ? 0 : speed
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+      transition={{ duration: prefersReduced ? 0 : 1.5, ease: "easeOut" }}
       className="fixed inset-0 z-0 pointer-events-none"
       aria-hidden="true"
     >
@@ -50,74 +55,78 @@ export function ShaderBackground() {
             "#3C66EA", // Blue
             "#B844BC", // Magenta
           ]}
-          speed={speed}
+          speed={effectiveSpeed}
           className="w-full h-full"
         />
       </div>
 
-      {/* Floating orb overlays for depth */}
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(30,163,199,0.15) 0%, transparent 70%)",
-          filter: "blur(80px)",
-          top: "10%",
-          left: "20%",
-        }}
-        animate={{
-          x: [0, 40, -20, 0],
-          y: [0, -30, 20, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      {/* Floating orb overlays for depth (hidden when reduced motion) */}
+      {!prefersReduced && (
+        <>
+          <motion.div
+            className="absolute w-[600px] h-[600px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(30,163,199,0.15) 0%, transparent 70%)",
+              filter: "blur(80px)",
+              top: "10%",
+              left: "20%",
+            }}
+            animate={{
+              x: [0, 40, -20, 0],
+              y: [0, -30, 20, 0],
+              scale: [1, 1.1, 0.95, 1],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
 
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(184,68,188,0.12) 0%, transparent 70%)",
-          filter: "blur(100px)",
-          bottom: "5%",
-          right: "10%",
-        }}
-        animate={{
-          x: [0, -30, 25, 0],
-          y: [0, 20, -25, 0],
-          scale: [1, 0.9, 1.08, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+          <motion.div
+            className="absolute w-[500px] h-[500px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(184,68,188,0.12) 0%, transparent 70%)",
+              filter: "blur(100px)",
+              bottom: "5%",
+              right: "10%",
+            }}
+            animate={{
+              x: [0, -30, 25, 0],
+              y: [0, 20, -25, 0],
+              scale: [1, 0.9, 1.08, 1],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
 
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(60,102,234,0.1) 0%, transparent 70%)",
-          filter: "blur(90px)",
-          top: "50%",
-          left: "60%",
-        }}
-        animate={{
-          x: [0, 25, -15, 0],
-          y: [0, -20, 30, 0],
-          scale: [1, 1.05, 0.92, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+          <motion.div
+            className="absolute w-[400px] h-[400px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(60,102,234,0.1) 0%, transparent 70%)",
+              filter: "blur(90px)",
+              top: "50%",
+              left: "60%",
+            }}
+            animate={{
+              x: [0, 25, -15, 0],
+              y: [0, -20, 30, 0],
+              scale: [1, 1.05, 0.92, 1],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </>
+      )}
 
       {/* Subtle grain overlay for texture */}
       <div
