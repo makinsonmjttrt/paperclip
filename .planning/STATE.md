@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Hardening
 status: executing
-stopped_at: "Completed 16-01-PLAN.md"
-last_updated: "2026-04-04T16:29:00Z"
-last_activity: 2026-04-04 -- Completed 16-01 agent performance metrics instrumentation
+stopped_at: "Completed 16-02-PLAN.md"
+last_updated: "2026-04-04T16:32:00Z"
+last_activity: 2026-04-04 -- Completed 16-02 CEO health reporting
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
-  percent: 50
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-04-04)
 ## Current Position
 
 Phase: 16 of 19 (Performance Monitoring)
-Plan: 1 of 2 complete
-Status: Executing
-Last activity: 2026-04-04 -- Completed 16-01 agent performance metrics instrumentation
+Plan: 2 of 2 complete
+Status: Phase 16 complete
+Last activity: 2026-04-04 -- Completed 16-02 CEO health reporting
 
-Progress: [█████░░░░░] 50%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Progress: [█████░░░░░] 50%
 - No new agents until consolidation data proves they're needed
 - Phase 18 combines LOAD + CONS (both depend on monitoring data, both about agent allocation)
 - 16-01: Identical metrics schema for all 14 agents; daily period rollover into lifetime counters; utilisation = heartbeats_with_work / heartbeats_total
+- 16-02: X-Dept Metrics separate from X-Dept Summary (cumulative vs current-state); underutilisation threshold < 20% with min 5 heartbeats
 
 ### Blockers/Concerns
 
@@ -60,5 +61,5 @@ Progress: [█████░░░░░] 50%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Completed 16-01-PLAN.md
+Stopped at: Completed 16-02-PLAN.md
 Resume file: None

@@ -49,7 +49,7 @@ Expanded from 10 to 14 agents. Department brains, delegation chains, cross-depar
 
 **Milestone Goal:** Make the 14-agent company reliable and resilient under real workload. Monitor, measure, self-heal, and consolidate.
 
-- [ ] **Phase 16: Performance Monitoring** - Instrument every agent to track output, stalls, errors, and utilisation
+- [x] **Phase 16: Performance Monitoring** - Instrument every agent to track output, stalls, errors, and utilisation (completed 2026-04-04)
 - [ ] **Phase 17: Self-Healing** - Auto-recover from errors, deadlocks, interrupted heartbeats, and stalled work
 - [ ] **Phase 18: Workload & Consolidation** - Balance load across agents and make data-driven keep/merge/retire decisions
 - [ ] **Phase 19: End-to-End Validation** - Prove real work completes full delegation chains under failure conditions
@@ -125,7 +125,7 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 0-10 | v1.0 | All | Complete | 2026-04-03 |
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
-| 16. Performance Monitoring | 1/2 | In Progress|  | - |
+| 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
 | 17. Self-Healing | v3.0 | 0/? | Not started | - |
 | 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
 | 19. End-to-End Validation | v3.0 | 0/? | Not started | - |

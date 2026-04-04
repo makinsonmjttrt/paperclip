@@ -8,9 +8,9 @@
 ### Monitoring
 
 - [x] **MON-01**: Each agent's heartbeat logs output count, stall count, and error count to MEMORY.md
-- [ ] **MON-02**: CEO generates a daily company health summary (agents active, stalled, errored, issues completed)
+- [x] **MON-02**: CEO generates a daily company health summary (agents active, stalled, errored, issues completed)
 - [x] **MON-03**: Agent utilisation tracked (heartbeats with work vs heartbeats idle)
-- [ ] **MON-04**: Cross-department event bus metrics logged (handoffs created, approved, rejected, stalled)
+- [x] **MON-04**: Cross-department event bus metrics logged (handoffs created, approved, rejected, stalled)
 
 ### Self-Healing
 
@@ -57,9 +57,9 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | MON-01 | Phase 16 | Complete |
-| MON-02 | Phase 16 | Pending |
+| MON-02 | Phase 16 | Complete |
 | MON-03 | Phase 16 | Complete |
-| MON-04 | Phase 16 | Pending |
+| MON-04 | Phase 16 | Complete |
 | HEAL-01 | Phase 17 | Pending |
 | HEAL-02 | Phase 17 | Pending |
 | HEAL-03 | Phase 17 | Pending |
