@@ -27,9 +27,9 @@
 
 ### Consolidation
 
-- [ ] **CONS-01**: Weekly utilisation report identifies agents with less than 20% active heartbeats
-- [ ] **CONS-02**: CEO recommends merge or retire for consistently underutilised agents
-- [ ] **CONS-03**: Skill redistribution plan generated before any agent retirement
+- [x] **CONS-01**: Weekly utilisation report identifies agents with less than 20% active heartbeats
+- [x] **CONS-02**: CEO recommends merge or retire for consistently underutilised agents
+- [x] **CONS-03**: Skill redistribution plan generated before any agent retirement
 
 ### End-to-End Testing
 
@@ -67,9 +67,9 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 | LOAD-01 | Phase 18 | Complete |
 | LOAD-02 | Phase 18 | Complete |
 | LOAD-03 | Phase 18 | Complete |
-| CONS-01 | Phase 18 | Pending |
-| CONS-02 | Phase 18 | Pending |
-| CONS-03 | Phase 18 | Pending |
+| CONS-01 | Phase 18 | Complete |
+| CONS-02 | Phase 18 | Complete |
+| CONS-03 | Phase 18 | Complete |
 | E2E-01 | Phase 19 | Pending |
 | E2E-02 | Phase 19 | Pending |
 | E2E-03 | Phase 19 | Pending |

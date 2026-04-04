@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Hardening
 status: executing
-stopped_at: "Completed 18-01-PLAN.md"
-last_updated: "2026-04-04T18:19:00Z"
-last_activity: 2026-04-04 -- Completed 18-01 workload balancing
+stopped_at: "Completed 18-02-PLAN.md"
+last_updated: "2026-04-04T18:24:00Z"
+last_activity: 2026-04-04 -- Completed 18-02 consolidation reporting
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 8
-  completed_plans: 5
-  percent: 63
+  completed_plans: 6
+  percent: 75
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-04-04)
 
 ## Current Position
 
-Phase: 18 of 19 (Workload & Consolidation)
-Plan: 1 of 2 complete
+Phase: 18 of 19 (Workload & Consolidation) -- COMPLETE
+Plan: 2 of 2 complete
 Status: executing
-Last activity: 2026-04-04 -- Completed 18-01 workload balancing
+Last activity: 2026-04-04 -- Completed 18-02 consolidation reporting
 
-Progress: [████████░░] 80%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Progress: [████████░░] 80%
 - 17-01: Agent name in HEAL-ERROR-LIMIT comments for fast identification; retry_count/partial_output fields before Resume Instructions; data preservation as step 2
 - 17-02: Deadlocks act after 1 idle cycle (not 2) because they never self-resolve; 2-nudge protocol before auto-reassignment; strategic work never auto-reassigned
 - 18-01: Overload threshold 3+ active issues (queued-only excluded); idle detection uses heartbeats_with_work delta from snapshots; Issue Size Check before Delegation in CMO/CTO
+- 18-02: Consolidation recommendations are board-only (never auto-executed); new agents (< 5 heartbeats) classified as NEW not UNDERUTILISED; reactive roles use relaxed thresholds (< 10% for 5+ weeks)
 
 ### Blockers/Concerns
 
@@ -64,5 +65,5 @@ Progress: [████████░░] 80%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Completed 18-01-PLAN.md
+Stopped at: Completed 18-02-PLAN.md
 Resume file: None

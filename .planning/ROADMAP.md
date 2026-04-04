@@ -51,7 +51,7 @@ Expanded from 10 to 14 agents. Department brains, delegation chains, cross-depar
 
 - [x] **Phase 16: Performance Monitoring** - Instrument every agent to track output, stalls, errors, and utilisation (completed 2026-04-04)
 - [x] **Phase 17: Self-Healing** - Auto-recover from errors, deadlocks, interrupted heartbeats, and stalled work (completed 2026-04-04)
-- [ ] **Phase 18: Workload & Consolidation** - Balance load across agents and make data-driven keep/merge/retire decisions
+- [x] **Phase 18: Workload & Consolidation** - Balance load across agents and make data-driven keep/merge/retire decisions (completed 2026-04-04)
 - [ ] **Phase 19: End-to-End Validation** - Prove real work completes full delegation chains under failure conditions
 
 ## Phase Details
@@ -100,7 +100,7 @@ Plans:
 
 Plans:
 - [x] 18-01-PLAN.md -- CEO workload balance check (overload + idle detection) and CMO/CTO issue splitting
-- [ ] 18-02-PLAN.md -- Weekly utilisation report with merge/retire recommendations and skill redistribution plans
+- [x] 18-02-PLAN.md -- Weekly utilisation report with merge/retire recommendations and skill redistribution plans
 
 ### Phase 19: End-to-End Validation
 **Goal**: Prove the full system works under real and simulated failure conditions
@@ -127,5 +127,5 @@ Plans:
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
 | 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
 | 17. Self-Healing | v3.0 | 2/2 | Complete | 2026-04-04 |
-| 18. Workload & Consolidation | v3.0 | 1/2 | In progress | - |
+| 18. Workload & Consolidation | v3.0 | 2/2 | Complete | 2026-04-04 |
 | 19. End-to-End Validation | v3.0 | 0/2 | Not started | - |
