@@ -56,29 +56,29 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MON-01 | TBD | Pending |
-| MON-02 | TBD | Pending |
-| MON-03 | TBD | Pending |
-| MON-04 | TBD | Pending |
-| HEAL-01 | TBD | Pending |
-| HEAL-02 | TBD | Pending |
-| HEAL-03 | TBD | Pending |
-| HEAL-04 | TBD | Pending |
-| LOAD-01 | TBD | Pending |
-| LOAD-02 | TBD | Pending |
-| LOAD-03 | TBD | Pending |
-| CONS-01 | TBD | Pending |
-| CONS-02 | TBD | Pending |
-| CONS-03 | TBD | Pending |
-| E2E-01 | TBD | Pending |
-| E2E-02 | TBD | Pending |
-| E2E-03 | TBD | Pending |
-| E2E-04 | TBD | Pending |
+| MON-01 | Phase 16 | Pending |
+| MON-02 | Phase 16 | Pending |
+| MON-03 | Phase 16 | Pending |
+| MON-04 | Phase 16 | Pending |
+| HEAL-01 | Phase 17 | Pending |
+| HEAL-02 | Phase 17 | Pending |
+| HEAL-03 | Phase 17 | Pending |
+| HEAL-04 | Phase 17 | Pending |
+| LOAD-01 | Phase 18 | Pending |
+| LOAD-02 | Phase 18 | Pending |
+| LOAD-03 | Phase 18 | Pending |
+| CONS-01 | Phase 18 | Pending |
+| CONS-02 | Phase 18 | Pending |
+| CONS-03 | Phase 18 | Pending |
+| E2E-01 | Phase 19 | Pending |
+| E2E-02 | Phase 19 | Pending |
+| E2E-03 | Phase 19 | Pending |
+| E2E-04 | Phase 19 | Pending |
 
 **Coverage:**
 - v3 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18
+- Mapped to phases: 18
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-04*
