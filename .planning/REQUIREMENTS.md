@@ -22,10 +22,10 @@
 
 ### Delegation Chains
 
-- [ ] **DELG-01**: CMO can assign work directly to Technical Writer, Customer Success, UX Researcher, LinkedIn Growth Director
-- [ ] **DELG-02**: CTO can assign work directly to Software Engineer, Code Reviewer, Product Owner
+- [x] **DELG-01**: CMO can assign work directly to Technical Writer, Customer Success, UX Researcher, LinkedIn Growth Director
+- [x] **DELG-02**: CTO can assign work directly to Software Engineer, Code Reviewer, Product Owner
 - [ ] **DELG-03**: Department heads can review and override output from their reports
-- [ ] **DELG-04**: CEO delegates to department heads only (no longer routing to individual directors)
+- [x] **DELG-04**: CEO delegates to department heads only (no longer routing to individual directors)
 - [ ] **DELG-05**: Original brief passthrough enforced (max 3 delegation hops before content degrades)
 
 ### Cross-Department Event Bus
@@ -86,10 +86,10 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | GATE-03 | Phase 12 | Complete |
 | GATE-04 | Phase 12 | Complete |
 | GATE-05 | Phase 12 | Complete |
-| DELG-01 | Phase 13 | Pending |
-| DELG-02 | Phase 13 | Pending |
+| DELG-01 | Phase 13 | Complete |
+| DELG-02 | Phase 13 | Complete |
 | DELG-03 | Phase 13 | Pending |
-| DELG-04 | Phase 13 | Pending |
+| DELG-04 | Phase 13 | Complete |
 | DELG-05 | Phase 13 | Pending |
 | EVNT-01 | Phase 14 | Pending |
 | EVNT-02 | Phase 14 | Pending |
