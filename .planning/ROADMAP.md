@@ -96,11 +96,11 @@ Plans:
   3. Department heads can split oversized issues into sub-tasks for their reports
   4. A weekly utilisation report identifies agents with less than 20% active heartbeats
   5. CEO generates merge/retire recommendations with a skill redistribution plan before any agent removal
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 18-01: TBD
-- [ ] 18-02: TBD
+- [ ] 18-01-PLAN.md -- CEO workload balance check (overload + idle detection) and CMO/CTO issue splitting
+- [ ] 18-02-PLAN.md -- Weekly utilisation report with merge/retire recommendations and skill redistribution plans
 
 ### Phase 19: End-to-End Validation
 **Goal**: Prove the full system works under real and simulated failure conditions
@@ -127,5 +127,5 @@ Plans:
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
 | 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
 | 17. Self-Healing | v3.0 | 2/2 | Complete | 2026-04-04 |
-| 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
+| 18. Workload & Consolidation | v3.0 | 0/2 | Not started | - |
 | 19. End-to-End Validation | v3.0 | 0/2 | Not started | - |
