@@ -67,11 +67,11 @@ Plans:
   2. CTO can assign and review work from Software Engineer, Code Reviewer, and Product Owner
   3. CEO routes all work to department heads only, never directly to individual directors
   4. The original brief passes through unchanged at every delegation hop (max 3 hops before delivery)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 13-01: TBD
-- [ ] 13-02: TBD
+- [ ] 13-01-PLAN.md -- Fix reporting lines for 5 agents, replace CEO routing tables with stream-head-only routing
+- [ ] 13-02-PLAN.md -- Add Direct Reports sections, Delegation steps, and Review/Override authority to CMO and CTO
 
 ### Phase 14: Cross-Department Event Bus
 **Goal**: CMO and CTO streams can trigger work in each other's departments through structured, rate-limited handoffs
@@ -127,6 +127,6 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 10. Validation | v1.0 | 2/2 | Complete | 2026-04-03 |
 | 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
-| 13. Delegation Chains | v2.0 | 0/? | Not started | - |
+| 13. Delegation Chains | v2.0 | 0/2 | Not started | - |
 | 14. Cross-Department Event Bus | v2.0 | 0/? | Not started | - |
 | 15. Sub-Agent Teams | v2.0 | 0/? | Not started | - |
