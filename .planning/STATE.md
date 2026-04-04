@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Hardening
 status: executing
-stopped_at: "Completed 17-02-PLAN.md"
-last_updated: "2026-04-04T17:55:00Z"
-last_activity: 2026-04-04 -- Completed 17-02 organisational recovery
+stopped_at: "Completed 18-01-PLAN.md"
+last_updated: "2026-04-04T18:19:00Z"
+last_activity: 2026-04-04 -- Completed 18-01 workload balancing
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_plans: 8
+  completed_plans: 5
+  percent: 63
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-04)
 
 **Core value:** Every agent knows exactly which skills it owns, and work flows down the hierarchy without ambiguity or overlap.
-**Current focus:** Phase 17 - Self-Healing
+**Current focus:** Phase 18 - Workload & Consolidation
 
 ## Current Position
 
-Phase: 17 of 19 (Self-Healing)
-Plan: 2 of 2 complete
-Status: Phase 17 complete
-Last activity: 2026-04-04 -- Completed 17-02 organisational recovery
+Phase: 18 of 19 (Workload & Consolidation)
+Plan: 1 of 2 complete
+Status: executing
+Last activity: 2026-04-04 -- Completed 18-01 workload balancing
 
-Progress: [██████████] 100%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Progress: [██████████] 100%
 - 16-02: X-Dept Metrics separate from X-Dept Summary (cumulative vs current-state); underutilisation threshold < 20% with min 5 heartbeats
 - 17-01: Agent name in HEAL-ERROR-LIMIT comments for fast identification; retry_count/partial_output fields before Resume Instructions; data preservation as step 2
 - 17-02: Deadlocks act after 1 idle cycle (not 2) because they never self-resolve; 2-nudge protocol before auto-reassignment; strategic work never auto-reassigned
+- 18-01: Overload threshold 3+ active issues (queued-only excluded); idle detection uses heartbeats_with_work delta from snapshots; Issue Size Check before Delegation in CMO/CTO
 
 ### Blockers/Concerns
 
@@ -63,5 +64,5 @@ Progress: [██████████] 100%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Completed 17-01-PLAN.md (both 17-01 and 17-02 now done)
+Stopped at: Completed 18-01-PLAN.md
 Resume file: None

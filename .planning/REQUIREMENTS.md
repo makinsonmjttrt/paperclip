@@ -21,9 +21,9 @@
 
 ### Workload Balancing
 
-- [ ] **LOAD-01**: CEO detects agents with 3+ assigned issues and flags overload
-- [ ] **LOAD-02**: CEO detects agents idle for 3+ heartbeat cycles and suggests work redistribution
-- [ ] **LOAD-03**: Department heads can split oversized issues into sub-tasks for their reports
+- [x] **LOAD-01**: CEO detects agents with 3+ assigned issues and flags overload
+- [x] **LOAD-02**: CEO detects agents idle for 3+ heartbeat cycles and suggests work redistribution
+- [x] **LOAD-03**: Department heads can split oversized issues into sub-tasks for their reports
 
 ### Consolidation
 
@@ -64,9 +64,9 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 | HEAL-02 | Phase 17 | Complete |
 | HEAL-03 | Phase 17 | Complete |
 | HEAL-04 | Phase 17 | Complete |
-| LOAD-01 | Phase 18 | Pending |
-| LOAD-02 | Phase 18 | Pending |
-| LOAD-03 | Phase 18 | Pending |
+| LOAD-01 | Phase 18 | Complete |
+| LOAD-02 | Phase 18 | Complete |
+| LOAD-03 | Phase 18 | Complete |
 | CONS-01 | Phase 18 | Pending |
 | CONS-02 | Phase 18 | Pending |
 | CONS-03 | Phase 18 | Pending |

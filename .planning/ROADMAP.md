@@ -99,7 +99,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 18-01-PLAN.md -- CEO workload balance check (overload + idle detection) and CMO/CTO issue splitting
+- [x] 18-01-PLAN.md -- CEO workload balance check (overload + idle detection) and CMO/CTO issue splitting
 - [ ] 18-02-PLAN.md -- Weekly utilisation report with merge/retire recommendations and skill redistribution plans
 
 ### Phase 19: End-to-End Validation
@@ -127,5 +127,5 @@ Plans:
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
 | 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
 | 17. Self-Healing | v3.0 | 2/2 | Complete | 2026-04-04 |
-| 18. Workload & Consolidation | v3.0 | 0/2 | Not started | - |
+| 18. Workload & Consolidation | v3.0 | 1/2 | In progress | - |
 | 19. End-to-End Validation | v3.0 | 0/2 | Not started | - |
