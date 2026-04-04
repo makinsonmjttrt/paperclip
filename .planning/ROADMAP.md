@@ -102,8 +102,8 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 15-01-PLAN.md -- Create LinkedIn Content Specialist and LinkedIn Outreach Specialist, move skills from LinkedIn Growth Director, update director to team lead
-- [ ] 15-02-PLAN.md -- Create Content Producer and Quality Reviewer, move skills from Technical Writer, update writer to team lead with quality gate fallback
+- [x] 15-01-PLAN.md -- Create LinkedIn Content Specialist and LinkedIn Outreach Specialist, move skills from LinkedIn Growth Director, update director to team lead
+- [x] 15-02-PLAN.md -- Create Content Producer and Quality Reviewer, move skills from Technical Writer, update writer to team lead with quality gate fallback
 - [ ] 15-03-PLAN.md -- Update skill ownership matrix for 14 agents, update CEO/CMO awareness, register agents in Paperclip, validate heartbeat
 
 ## Progress
@@ -129,4 +129,4 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 13. Delegation Chains | v2.0 | 1/2 | In Progress | - |
 | 14. Cross-Department Event Bus | v2.0 | 2/2 | Complete | 2026-04-04 |
-| 15. Sub-Agent Teams | v2.0 | 0/3 | Not started | - |
+| 15. Sub-Agent Teams | v2.0 | 2/3 | In Progress | - |

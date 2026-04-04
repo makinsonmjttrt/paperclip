@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Conducting AI Scale
 status: in_progress
-stopped_at: Completed 14-02-PLAN.md
-last_updated: "2026-04-04T12:04:00Z"
-last_activity: 2026-04-04 -- completed Phase 14 Plan 02 Approval gate and CEO event bus monitoring
+stopped_at: Completed 15-02-PLAN.md
+last_updated: "2026-04-04T12:12:00Z"
+last_activity: 2026-04-04 -- completed Phase 15 Plan 02 Technical Writer sub-agent team
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 5
-  completed_plans: 7
-  percent: 80
+  completed_plans: 9
+  percent: 90
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-03)
 
 **Core value:** Every agent knows exactly which skills it owns, and work flows down the hierarchy without ambiguity or overlap.
-**Current focus:** Phase 14 - Cross-Department Event Bus
+**Current focus:** Phase 15 - Sub-Agent Teams
 
 ## Current Position
 
-Phase: 14 complete, ready for Phase 15 (fifth of 5 in v2.0 milestone)
-Plan: 2 of 2 in Phase 14 complete
-Status: Phase 14 complete, Phase 15 pending
-Last activity: 2026-04-04 -- completed Phase 14 Plan 02 Approval gate and CEO event bus monitoring
+Phase: 15 (fifth of 5 in v2.0 milestone)
+Plan: 2 of 3 in Phase 15 complete
+Status: Phase 15 in progress
+Last activity: 2026-04-04 -- completed Phase 15 Plan 02 Technical Writer sub-agent team
 
-Progress: [████████--] 80% (Phase 14 complete)
+Progress: [█████████-] 90% (Phase 15 Plan 2 of 3 complete)
 
 ## Performance Metrics
 
@@ -72,6 +72,12 @@ Progress: [████████--] 80% (Phase 14 complete)
 - [Phase 14]: Product Owner gets full cross-stream handoff capability targeting either CMO or CTO
 - [Phase 14]: Approval gate placed at section 1.5 (before Get Assignments) so approved handoffs visible in same-cycle assignment query
 - [Phase 14]: CEO Event Bus Monitoring runs after stall detection, logs active/pending/stalled counts to MEMORY.md
+- [Phase 15]: Skills physically moved (mv, not copied) from director to specialists to prevent drift
+- [Phase 15]: Quality gate routing updated from Technical Writer to Quality Reviewer for LinkedIn Growth Director files
+- [Phase 15]: Sub-agents wait for team lead only in stagger (not all business stream), narrowing collision window
+- [Phase 15]: Content Producer gets B8, Quality Reviewer gets B9 stagger slots
+- [Phase 15]: Quality Reviewer accepts review requests from any agent (peer rule exception for quality gate)
+- [Phase 15]: Technical Writer fallback: runs quality gate if Quality Reviewer stalled 2+ cycles
 
 ### Pending Todos
 
@@ -85,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-04T12:04:00Z
-Stopped at: Completed 14-02-PLAN.md
+Last session: 2026-04-04T12:12:00Z
+Stopped at: Completed 15-02-PLAN.md
 Resume file: None

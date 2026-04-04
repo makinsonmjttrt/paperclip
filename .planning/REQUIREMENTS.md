@@ -46,8 +46,8 @@
 
 ### Sub-Agent Teams
 
-- [ ] **TEAM-01**: LinkedIn Growth Director expanded with LinkedIn Content Specialist (hook writing, carousel scripts, story posts)
-- [ ] **TEAM-02**: LinkedIn Growth Director expanded with LinkedIn Outreach Specialist (DM sequences, connection requests, engagement)
+- [x] **TEAM-01**: LinkedIn Growth Director expanded with LinkedIn Content Specialist (hook writing, carousel scripts, story posts)
+- [x] **TEAM-02**: LinkedIn Growth Director expanded with LinkedIn Outreach Specialist (DM sequences, connection requests, engagement)
 - [ ] **TEAM-03**: Technical Writer expanded with Content Producer (drafting blog posts, newsletters, social content)
 - [ ] **TEAM-04**: Technical Writer expanded with Quality Reviewer (humanizer pass, copy-editing, brand voice checks)
 - [ ] **TEAM-05**: Skill ownership matrix updated for all new agents (skills redistributed from directors to specialists)
@@ -96,8 +96,8 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | EVNT-03 | Phase 14 | Complete |
 | EVNT-04 | Phase 14 | Complete |
 | EVNT-05 | Phase 14 | Complete |
-| TEAM-01 | Phase 15 | Pending |
-| TEAM-02 | Phase 15 | Pending |
+| TEAM-01 | Phase 15 | Complete |
+| TEAM-02 | Phase 15 | Complete |
 | TEAM-03 | Phase 15 | Pending |
 | TEAM-04 | Phase 15 | Pending |
 | TEAM-05 | Phase 15 | Pending |
