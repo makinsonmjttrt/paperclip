@@ -22,7 +22,7 @@
 - [x] **Phase 11: Infrastructure Hardening** (2026-04-04) - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
 - [x] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping (2026-04-04)
 - [x] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only (2026-04-04)
-- [ ] **Phase 14: Cross-Department Event Bus** - Structured handoffs between business and tech streams via labelled issues
+- [x] **Phase 14: Cross-Department Event Bus** (2026-04-04) - Structured handoffs between business and tech streams via labelled issues
 - [ ] **Phase 15: Sub-Agent Teams** - Expand LinkedIn and Technical Writer into specialist teams
 
 ## Phase Details
@@ -86,8 +86,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 14-01-PLAN.md -- Create x-dept labels, add handoff protocol with templates and rate limiting to CMO/CTO/PO
-- [ ] 14-02-PLAN.md -- Add approval gate to CMO/CTO and CEO event bus monitoring
+- [x] 14-01-PLAN.md -- Create x-dept labels, add handoff protocol with templates and rate limiting to CMO/CTO/PO
+- [x] 14-02-PLAN.md -- Add approval gate to CMO/CTO and CEO event bus monitoring
 
 ### Phase 15: Sub-Agent Teams
 **Goal**: LinkedIn Growth Director and Technical Writer each lead specialist teams that carry redistributed production skills
@@ -128,5 +128,5 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 13. Delegation Chains | v2.0 | 1/2 | In Progress | - |
-| 14. Cross-Department Event Bus | 1/2 | In Progress|  | - |
+| 14. Cross-Department Event Bus | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 15. Sub-Agent Teams | v2.0 | 0/3 | Not started | - |

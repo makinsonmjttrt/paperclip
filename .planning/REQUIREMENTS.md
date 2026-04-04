@@ -33,8 +33,8 @@
 - [x] **EVNT-01**: Label convention defined for cross-department issues (x-dept:business->tech, x-dept:tech->business)
 - [x] **EVNT-02**: Handoff issue templates created for common cross-dept workflows
 - [x] **EVNT-03**: Rate limiting configured (max 3 cross-dept issues per heartbeat cycle)
-- [ ] **EVNT-04**: Draft-status handoffs require department head approval before execution
-- [ ] **EVNT-05**: CEO has oversight dashboard of all cross-department work in flight
+- [x] **EVNT-04**: Draft-status handoffs require department head approval before execution
+- [x] **EVNT-05**: CEO has oversight dashboard of all cross-department work in flight
 
 ### Data Gating
 
@@ -94,8 +94,8 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | EVNT-01 | Phase 14 | Complete |
 | EVNT-02 | Phase 14 | Complete |
 | EVNT-03 | Phase 14 | Complete |
-| EVNT-04 | Phase 14 | Pending |
-| EVNT-05 | Phase 14 | Pending |
+| EVNT-04 | Phase 14 | Complete |
+| EVNT-05 | Phase 14 | Complete |
 | TEAM-01 | Phase 15 | Pending |
 | TEAM-02 | Phase 15 | Pending |
 | TEAM-03 | Phase 15 | Pending |
