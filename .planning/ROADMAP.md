@@ -23,7 +23,7 @@
 - [x] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping (2026-04-04)
 - [x] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only (2026-04-04)
 - [x] **Phase 14: Cross-Department Event Bus** (2026-04-04) - Structured handoffs between business and tech streams via labelled issues
-- [ ] **Phase 15: Sub-Agent Teams** - Expand LinkedIn and Technical Writer into specialist teams
+- [x] **Phase 15: Sub-Agent Teams** - Expand LinkedIn and Technical Writer into specialist teams (2026-04-04)
 
 ## Phase Details
 
