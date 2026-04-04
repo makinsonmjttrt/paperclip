@@ -21,7 +21,7 @@
 
 - [x] **Phase 11: Infrastructure Hardening** (2026-04-04) - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
 - [x] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping (2026-04-04)
-- [ ] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only
+- [x] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only (2026-04-04)
 - [ ] **Phase 14: Cross-Department Event Bus** - Structured handoffs between business and tech streams via labelled issues
 - [ ] **Phase 15: Sub-Agent Teams** - Expand LinkedIn and Technical Writer into specialist teams
 
