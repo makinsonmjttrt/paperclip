@@ -1,113 +1,84 @@
 # Requirements: FourPointZero AI Agent Company
 
-**Defined:** 2026-04-03
+**Defined:** 2026-04-04
 **Core Value:** Every agent knows exactly which skills it owns, and work flows down the hierarchy without ambiguity or overlap.
 
-## v2.0 Requirements
+## v3 Requirements
 
-### Infrastructure Hardening
+### Monitoring
 
-- [ ] **INFR-01**: Heartbeat stagger configured so no two agents in the same stream fire simultaneously
-- [ ] **INFR-02**: Stall detection tuned for 12+ agents (timeout thresholds, escalation to CEO)
-- [ ] **INFR-03**: Session recovery documented so interrupted heartbeats resume cleanly
-- [ ] **INFR-04**: Chain-of-command validation added (CEO confirms delegation routes match org chart)
+- [ ] **MON-01**: Each agent's heartbeat logs output count, stall count, and error count to MEMORY.md
+- [ ] **MON-02**: CEO generates a daily company health summary (agents active, stalled, errored, issues completed)
+- [ ] **MON-03**: Agent utilisation tracked (heartbeats with work vs heartbeats idle)
+- [ ] **MON-04**: Cross-department event bus metrics logged (handoffs created, approved, rejected, stalled)
 
-### Department Brains
+### Self-Healing
 
-- [x] **BRAIN-01**: CMO stream brain directory created with shared marketing context (positioning, campaign history, audience intel)
-- [x] **BRAIN-02**: CTO stream brain directory created with shared tech context (architecture decisions, tech debt, deployment state)
-- [x] **BRAIN-03**: Each agent's AGENTS.md updated with Read directives pointing to their department brain
-- [x] **BRAIN-04**: Brain files capped at 200 lines with rotation/pruning strategy
-- [x] **BRAIN-05**: Department heads (CMO, CTO) are the only agents that write to their brain files
+- [ ] **HEAL-01**: Agents in "error" status auto-retry on next heartbeat cycle
+- [ ] **HEAL-02**: Deadlocked agents (executionRunId set but idle) auto-cleared by CEO
+- [ ] **HEAL-03**: Interrupted heartbeats resume from MEMORY.md checkpoint without data loss
+- [ ] **HEAL-04**: Stalled work auto-reassigned after 2 failed nudges (routine work only)
 
-### Delegation Chains
+### Workload Balancing
 
-- [x] **DELG-01**: CMO can assign work directly to Technical Writer, Customer Success, UX Researcher, LinkedIn Growth Director
-- [x] **DELG-02**: CTO can assign work directly to Software Engineer, Code Reviewer, Product Owner
-- [ ] **DELG-03**: Department heads can review and override output from their reports
-- [x] **DELG-04**: CEO delegates to department heads only (no longer routing to individual directors)
-- [ ] **DELG-05**: Original brief passthrough enforced (max 3 delegation hops before content degrades)
+- [ ] **LOAD-01**: CEO detects agents with 3+ assigned issues and flags overload
+- [ ] **LOAD-02**: CEO detects agents idle for 3+ heartbeat cycles and suggests work redistribution
+- [ ] **LOAD-03**: Department heads can split oversized issues into sub-tasks for their reports
 
-### Cross-Department Event Bus
+### Consolidation
 
-- [x] **EVNT-01**: Label convention defined for cross-department issues (x-dept:business->tech, x-dept:tech->business)
-- [x] **EVNT-02**: Handoff issue templates created for common cross-dept workflows
-- [x] **EVNT-03**: Rate limiting configured (max 3 cross-dept issues per heartbeat cycle)
-- [x] **EVNT-04**: Draft-status handoffs require department head approval before execution
-- [x] **EVNT-05**: CEO has oversight dashboard of all cross-department work in flight
+- [ ] **CONS-01**: Weekly utilisation report identifies agents with less than 20% active heartbeats
+- [ ] **CONS-02**: CEO recommends merge or retire for consistently underutilised agents
+- [ ] **CONS-03**: Skill redistribution plan generated before any agent retirement
 
-### Data Gating
+### End-to-End Testing
 
-- [x] **GATE-01**: Each agent has a Data Scope section in AGENTS.md defining readable paths
-- [x] **GATE-02**: Business stream agents scoped to marketing/content/competitive data
-- [x] **GATE-03**: Tech stream agents scoped to engineering/product/architecture data
-- [x] **GATE-04**: CEO and Product Owner have cross-stream read access (both brains)
-- [x] **GATE-05**: Data scope violations logged when detected (advisory, not enforced)
+- [ ] **E2E-01**: Create a test issue that exercises the full CEO > CMO > Director > Specialist chain
+- [ ] **E2E-02**: Create a test issue that exercises cross-department handoff (business > tech)
+- [ ] **E2E-03**: Verify quality gate pass (content through Quality Reviewer) completes end-to-end
+- [ ] **E2E-04**: Verify stall detection and escalation fires correctly under simulated failure
 
-### Sub-Agent Teams
+## Completed Requirements (v1.0 + v2.0)
 
-- [x] **TEAM-01**: LinkedIn Growth Director expanded with LinkedIn Content Specialist (hook writing, carousel scripts, story posts)
-- [x] **TEAM-02**: LinkedIn Growth Director expanded with LinkedIn Outreach Specialist (DM sequences, connection requests, engagement)
-- [x] **TEAM-03**: Technical Writer expanded with Content Producer (drafting blog posts, newsletters, social content)
-- [x] **TEAM-04**: Technical Writer expanded with Quality Reviewer (humanizer pass, copy-editing, brand voice checks)
-- [ ] **TEAM-05**: Skill ownership matrix updated for all new agents (skills redistributed from directors to specialists)
-- [ ] **TEAM-06**: New agents registered in Paperclip and validated via heartbeat
-
-## v1.0 Requirements (Completed)
-
-All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
+All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.md for details.
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Modifying Paperclip source code | Working within platform constraints |
-| Moving to Relevance AI or Make.com | User chose to stay on Paperclip |
-| 150+ agents | Machine resource constraint (single local machine) |
-| Real-time agent messaging | Paperclip only supports async issue-based communication |
-| Technical data gating enforcement | Paperclip has no file permission system; advisory only |
-| Building new skills | Only orchestration and team expansion |
+| Adding more agents | 14 is the cap until consolidation data proves need |
+| New skills | Only hardening existing agent orchestration |
+| Platform migration | Staying on Paperclip |
+| Real-time monitoring dashboard | Would require new infrastructure outside Paperclip |
+| Automated agent scaling | Single machine constraint makes this impractical |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFR-01 | Phase 11 | Pending |
-| INFR-02 | Phase 11 | Pending |
-| INFR-03 | Phase 11 | Pending |
-| INFR-04 | Phase 11 | Pending |
-| BRAIN-01 | Phase 12 | Complete |
-| BRAIN-02 | Phase 12 | Complete |
-| BRAIN-03 | Phase 12 | Complete |
-| BRAIN-04 | Phase 12 | Complete |
-| BRAIN-05 | Phase 12 | Complete |
-| GATE-01 | Phase 12 | Complete |
-| GATE-02 | Phase 12 | Complete |
-| GATE-03 | Phase 12 | Complete |
-| GATE-04 | Phase 12 | Complete |
-| GATE-05 | Phase 12 | Complete |
-| DELG-01 | Phase 13 | Complete |
-| DELG-02 | Phase 13 | Complete |
-| DELG-03 | Phase 13 | Pending |
-| DELG-04 | Phase 13 | Complete |
-| DELG-05 | Phase 13 | Pending |
-| EVNT-01 | Phase 14 | Complete |
-| EVNT-02 | Phase 14 | Complete |
-| EVNT-03 | Phase 14 | Complete |
-| EVNT-04 | Phase 14 | Complete |
-| EVNT-05 | Phase 14 | Complete |
-| TEAM-01 | Phase 15 | Complete |
-| TEAM-02 | Phase 15 | Complete |
-| TEAM-03 | Phase 15 | Complete |
-| TEAM-04 | Phase 15 | Complete |
-| TEAM-05 | Phase 15 | Pending |
-| TEAM-06 | Phase 15 | Pending |
+| MON-01 | TBD | Pending |
+| MON-02 | TBD | Pending |
+| MON-03 | TBD | Pending |
+| MON-04 | TBD | Pending |
+| HEAL-01 | TBD | Pending |
+| HEAL-02 | TBD | Pending |
+| HEAL-03 | TBD | Pending |
+| HEAL-04 | TBD | Pending |
+| LOAD-01 | TBD | Pending |
+| LOAD-02 | TBD | Pending |
+| LOAD-03 | TBD | Pending |
+| CONS-01 | TBD | Pending |
+| CONS-02 | TBD | Pending |
+| CONS-03 | TBD | Pending |
+| E2E-01 | TBD | Pending |
+| E2E-02 | TBD | Pending |
+| E2E-03 | TBD | Pending |
+| E2E-04 | TBD | Pending |
 
 **Coverage:**
-- v2.0 requirements: 30 total
-- Mapped to phases: 30
-- Unmapped: 0
+- v3 requirements: 18 total
+- Mapped to phases: 0
+- Unmapped: 18
 
 ---
-*Requirements defined: 2026-04-03*
-*Last updated: 2026-04-04 after Phase 12 Plan 02 completion*
+*Requirements defined: 2026-04-04*
