@@ -19,7 +19,7 @@
 - [x] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair (2026-04-03)
 - [x] **Phase 10: Validation** - Test issues through each agent to prove the company works (2026-04-03)
 
-- [ ] **Phase 11: Infrastructure Hardening** - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
+- [x] **Phase 11: Infrastructure Hardening** (2026-04-04) - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
 - [ ] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping
 - [ ] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only
 - [ ] **Phase 14: Cross-Department Event Bus** - Structured handoffs between business and tech streams via labelled issues
@@ -39,7 +39,7 @@
 **Plans**: TBD
 
 Plans:
-- [ ] 11-01: TBD
+- [x] 11-01: Heartbeat stagger awareness and checkpoint session recovery
 - [ ] 11-02: TBD
 
 ### Phase 12: Department Brains and Data Gating
