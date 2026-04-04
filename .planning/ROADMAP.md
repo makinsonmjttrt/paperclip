@@ -83,11 +83,11 @@ Plans:
   3. No more than 3 cross-department issues fire per heartbeat cycle
   4. Draft-status handoffs require department head approval before any agent acts on them
   5. CEO can see all cross-department work currently in flight
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 14-01: TBD
-- [ ] 14-02: TBD
+- [ ] 14-01-PLAN.md -- Create x-dept labels, add handoff protocol with templates and rate limiting to CMO/CTO/PO
+- [ ] 14-02-PLAN.md -- Add approval gate to CMO/CTO and CEO event bus monitoring
 
 ### Phase 15: Sub-Agent Teams
 **Goal**: LinkedIn Growth Director and Technical Writer each lead specialist teams that carry redistributed production skills
@@ -128,5 +128,5 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 13. Delegation Chains | v2.0 | 1/2 | In Progress | - |
-| 14. Cross-Department Event Bus | v2.0 | 0/? | Not started | - |
+| 14. Cross-Department Event Bus | v2.0 | 0/2 | Not started | - |
 | 15. Sub-Agent Teams | v2.0 | 0/? | Not started | - |
