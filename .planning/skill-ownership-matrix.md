@@ -2,7 +2,7 @@
 
 **Created:** 2026-04-02
 **Total skills mapped:** 71
-**Agents:** 10
+**Agents:** 14
 **Constraint:** No agent exceeds 10 skill files (bundles count as 1 file)
 
 ## Skill Ownership Matrix
@@ -15,15 +15,15 @@
 | 4 | form-cro | UX Researcher | Conversion | CLAUDE.md only | cro-suite |
 | 5 | popup-cro | UX Researcher | Conversion | CLAUDE.md only | cro-suite |
 | 6 | paywall-upgrade-cro | UX Researcher | Conversion | CLAUDE.md only | cro-suite |
-| 7 | linkedin-post-writer | LinkedIn Growth Director | Content and copy | Both | |
-| 8 | linkedin-content-strategy | LinkedIn Growth Director | Content and copy | Both | |
-| 9 | copywriting | Technical Writer | Content and copy | Both | |
-| 10 | copy-editing | Technical Writer | Quality gate | Both | quality-gate |
-| 11 | cold-email | LinkedIn Growth Director | Content and copy | Both | |
-| 12 | email-sequence | Technical Writer | Content and copy | Both | |
-| 13 | social-content | Technical Writer | Content and copy | Both | |
-| 14 | ad-creative | Technical Writer | Content and copy | Both | |
-| 15 | anthropic-skills:content-creator | Technical Writer | Content and copy | CLAUDE.md only | |
+| 7 | linkedin-post-writer | LinkedIn Content Specialist | Content and copy | Both | |
+| 8 | linkedin-content-strategy | LinkedIn Content Specialist | Content and copy | Both | |
+| 9 | copywriting | Content Producer | Content and copy | Both | |
+| 10 | copy-editing | Quality Reviewer | Quality gate | Both | quality-gate |
+| 11 | cold-email | LinkedIn Outreach Specialist | Content and copy | Both | |
+| 12 | email-sequence | Content Producer | Content and copy | Both | |
+| 13 | social-content | Content Producer | Content and copy | Both | |
+| 14 | ad-creative | Content Producer | Content and copy | Both | |
+| 15 | anthropic-skills:content-creator | Content Producer | Content and copy | CLAUDE.md only | |
 | 16 | anthropic-skills:newsletter-content-creator | Technical Writer | Content and copy | CLAUDE.md only | newsletter-suite |
 | 17 | anthropic-skills:newsletter-writing-skill | Technical Writer | Content and copy | CLAUDE.md only | newsletter-suite |
 | 18 | seo-audit | UX Researcher | SEO and discovery | Both | seo-suite |
@@ -61,14 +61,14 @@
 | 50 | frontend-slides | Software Engineer | Documents | CLAUDE.md only | document-tools |
 | 51 | linkedin-authority-builder | LinkedIn Growth Director | LinkedIn | contentfpz only | |
 | 52 | linkedin-profile-optimizer | LinkedIn Growth Director | LinkedIn | contentfpz only | |
-| 53 | cold-outreach-sequence | LinkedIn Growth Director | Content and copy | contentfpz only | |
+| 53 | cold-outreach-sequence | LinkedIn Outreach Specialist | Content and copy | contentfpz only | |
 | 54 | case-study-builder | Customer Success | Content and copy | contentfpz only | |
 | 55 | social-card-gen | Technical Writer | Content and copy | contentfpz only | |
 | 56 | testimonial-collector | Customer Success | Content and copy | contentfpz only | |
 | 57 | tweet-draft-reviewer | Technical Writer | Content and copy | contentfpz only | |
 | 58 | newsletter-creation-curation | Technical Writer | Content and copy | contentfpz only | newsletter-suite |
-| 59 | de-ai-ify | Technical Writer | Quality gate | contentfpz only | quality-gate |
-| 60 | humanizer | Technical Writer | Quality gate | contentfpz only | quality-gate |
+| 59 | de-ai-ify | Quality Reviewer | Quality gate | contentfpz only | quality-gate |
+| 60 | humanizer | Quality Reviewer | Quality gate | contentfpz only | quality-gate |
 | 61 | homepage-audit | UX Researcher | SEO and discovery | contentfpz only | |
 | 62 | ai-discoverability-audit | Customer Success | SEO and discovery | contentfpz only | |
 | 63 | content-idea-generator | CMO | Strategy | contentfpz only | strategy-core |
@@ -76,7 +76,7 @@
 | 65 | marketing-principles | CMO | Strategy | contentfpz only | strategy-core |
 | 66 | reddit-insights | Customer Success | Research | contentfpz only | research-suite |
 | 67 | voice-extractor | CMO | Research | contentfpz only | |
-| 68 | meeting-prep | LinkedIn Growth Director | Research | contentfpz only | |
+| 68 | meeting-prep | LinkedIn Outreach Specialist | Research | contentfpz only | |
 | 69 | youtube-summarizer | Customer Success | Research | contentfpz only | research-suite |
 | 70 | last30days | Customer Success | Research | contentfpz only | research-suite |
 | 71 | daily-briefing-builder | Customer Success | Research | contentfpz only | research-suite |
@@ -89,14 +89,18 @@
 | CMO | 3 | 6 | 1 (strategy-core) | 10 | Yes |
 | CTO | 0 | 0 | 0 | 0 | Yes |
 | Product Owner | 4 | 0 | 0 | 4 | Yes |
-| Technical Writer | 0 | 7 | 3 (blog-engine, newsletter-suite, quality-gate) | 10 | Yes |
+| Technical Writer | 0 | 2 | 2 (blog-engine, newsletter-suite) | 4 | Yes |
 | Customer Success | 1 | 5 | 2 (research-suite, sales-suite) | 8 | Yes |
 | UX Researcher | 3 | 2 | 4 (cro-suite, seo-suite, growth-suite, paid-suite) | 9 | Yes |
-| LinkedIn Growth Director | 0 | 7 | 0 | 7 | Yes |
+| LinkedIn Growth Director | 0 | 2 | 0 | 2 | Yes |
 | Software Engineer | 2 | 0 | 1 (document-tools) | 3 | Yes |
 | Code Reviewer | 1 | 0 | 0 | 1 | Yes |
+| LinkedIn Content Specialist | 0 | 2 | 0 | 2 | Yes |
+| LinkedIn Outreach Specialist | 0 | 3 | 0 | 3 | Yes |
+| Content Producer | 0 | 5 | 0 | 5 | Yes |
+| Quality Reviewer | 0 | 0 | 1 (quality-gate) | 1 | Yes |
 
-**Maximum: 10 (CMO and Technical Writer). All agents at or under cap.**
+**Maximum: 10 (CMO). All agents at or under cap.**
 
 ### Detailed File Counts
 
@@ -105,9 +109,9 @@ Existing: brand-identity.md, competitive-tracking.fallback.md, market-analysis.f
 New standalone: launch-strategy, pricing-strategy, content-strategy, product-marketing-context, anthropic-skills:marketing-strategy-pmm, voice-extractor
 New bundle: strategy-core (marketing-ideas, marketing-psychology, marketing-principles, positioning-basics, content-idea-generator)
 
-**Technical Writer (10 files = 0 existing + 10 new):**
-New standalone: copywriting, email-sequence, social-content, ad-creative, anthropic-skills:content-creator, social-card-gen, tweet-draft-reviewer
-New bundles: blog-engine (6 blog skills), newsletter-suite (3 newsletter skills), quality-gate (humanizer, de-ai-ify, copy-editing)
+**Technical Writer (4 files = 0 existing + 4 new):**
+New standalone: social-card-gen, tweet-draft-reviewer
+New bundles: blog-engine (6 blog skills), newsletter-suite (3 newsletter skills)
 
 **Customer Success (8 files = 1 existing + 7 new):**
 Existing: competitive-tracking.md
@@ -119,8 +123,20 @@ Existing: market-analysis.md, ux-review.md, vision-workshop.md
 New standalone: homepage-audit, churn-prevention
 New bundles: cro-suite (6 CRO skills), seo-suite (5 SEO skills), growth-suite (free-tool-strategy, lead-magnets, referral-program), paid-suite (paid-ads, ab-test-setup)
 
-**LinkedIn Growth Director (7 files = 0 existing + 7 new):**
-New standalone: linkedin-post-writer, linkedin-content-strategy, linkedin-authority-builder, linkedin-profile-optimizer, cold-outreach-sequence, meeting-prep, cold-email
+**LinkedIn Growth Director (2 files = 0 existing + 2 new):**
+New standalone: linkedin-authority-builder, linkedin-profile-optimizer
+
+**LinkedIn Content Specialist (2 files = 0 existing + 2 new):**
+New standalone: linkedin-post-writer, linkedin-content-strategy
+
+**LinkedIn Outreach Specialist (3 files = 0 existing + 3 new):**
+New standalone: cold-outreach-sequence, cold-email, meeting-prep
+
+**Content Producer (5 files = 0 existing + 5 new):**
+New standalone: copywriting, email-sequence, social-content, ad-creative, anthropic-skills:content-creator
+
+**Quality Reviewer (1 file = 0 existing + 1 new):**
+New bundle: quality-gate (humanizer, de-ai-ify, copy-editing)
 
 **Software Engineer (3 files = 2 existing + 1 new):**
 Existing: git-workflow.md, pr-workflow.md
@@ -142,13 +158,13 @@ No skills. Architecture and standards via agent instructions only.
 
 | Skill | Primary Owner | Secondary Users | Rule |
 |-------|---------------|-----------------|------|
-| humanizer | Technical Writer | All content-producing agents | Runs as final pass on ALL content. Content-producing agents hand off to Technical Writer for humanizer pass. |
-| de-ai-ify | Technical Writer | All content-producing agents | Same as humanizer. Quality gate skill applied before publishing. |
-| copy-editing | Technical Writer | All content-producing agents | Editing pass before publishing. Content-producing agents route drafts through Technical Writer. |
+| humanizer | Quality Reviewer | All content-producing agents | Runs as final pass on ALL content. Content-producing agents route drafts through Quality Reviewer for humanizer pass. |
+| de-ai-ify | Quality Reviewer | All content-producing agents | Same as humanizer. Quality gate skill applied before publishing. |
+| copy-editing | Quality Reviewer | All content-producing agents | Editing pass before publishing. Content-producing agents route drafts through Quality Reviewer. |
 | product-marketing-context | CMO | All agents | CMO maintains the doc. Other agents READ it for positioning, audience, and voice context but do not own or modify it. |
 | contentfpz router | EXCLUDED | N/A | Not a Paperclip skill. Issue assignment replaces routing. The contentfpz SKILL.md router is infrastructure, not a deployable skill. |
 
-**Cross-cutting rule:** Primary owner is the agent that EXECUTES the skill. Secondary users consume the output but never invoke the skill themselves. In Paperclip, heartbeat handover steps route work to the primary owner.
+**Cross-cutting rule:** Primary owner is the agent that EXECUTES the skill. Secondary users consume the output but never invoke the skill themselves. In Paperclip, heartbeat handover steps route work to the primary owner. Content-producing agents route drafts through Quality Reviewer (was Technical Writer pre-v2.0).
 
 ## Skill Bundles
 
@@ -156,7 +172,7 @@ No skills. Architecture and standards via agent instructions only.
 |-------------|-------|----------|-------------|------------|
 | blog-engine | Technical Writer | claude-blog:blog-write, claude-blog:blog-rewrite, claude-blog:blog-analyse, claude-blog:blog-seo-check, claude-blog:blog-strategy, claude-blog:blog-repurpose | 6 | 1 |
 | newsletter-suite | Technical Writer | newsletter-creation-curation, anthropic-skills:newsletter-content-creator, anthropic-skills:newsletter-writing-skill | 3 | 1 |
-| quality-gate | Technical Writer | humanizer, de-ai-ify, copy-editing | 3 | 1 |
+| quality-gate | Quality Reviewer | humanizer, de-ai-ify, copy-editing | 3 | 1 |
 | cro-suite | UX Researcher | page-cro, signup-flow-cro, onboarding-cro, form-cro, popup-cro, paywall-upgrade-cro | 6 | 1 |
 | seo-suite | UX Researcher | seo-audit, ai-seo, programmatic-seo, schema-markup, site-architecture | 5 | 1 |
 | growth-suite | UX Researcher | free-tool-strategy, lead-magnets, referral-program | 3 | 1 |
