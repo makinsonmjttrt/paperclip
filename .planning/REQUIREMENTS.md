@@ -14,11 +14,11 @@
 
 ### Department Brains
 
-- [ ] **BRAIN-01**: CMO stream brain directory created with shared marketing context (positioning, campaign history, audience intel)
-- [ ] **BRAIN-02**: CTO stream brain directory created with shared tech context (architecture decisions, tech debt, deployment state)
-- [ ] **BRAIN-03**: Each agent's AGENTS.md updated with Read directives pointing to their department brain
-- [ ] **BRAIN-04**: Brain files capped at 200 lines with rotation/pruning strategy
-- [ ] **BRAIN-05**: Department heads (CMO, CTO) are the only agents that write to their brain files
+- [x] **BRAIN-01**: CMO stream brain directory created with shared marketing context (positioning, campaign history, audience intel)
+- [x] **BRAIN-02**: CTO stream brain directory created with shared tech context (architecture decisions, tech debt, deployment state)
+- [x] **BRAIN-03**: Each agent's AGENTS.md updated with Read directives pointing to their department brain
+- [x] **BRAIN-04**: Brain files capped at 200 lines with rotation/pruning strategy
+- [x] **BRAIN-05**: Department heads (CMO, CTO) are the only agents that write to their brain files
 
 ### Delegation Chains
 
@@ -76,11 +76,11 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | INFR-02 | Phase 11 | Pending |
 | INFR-03 | Phase 11 | Pending |
 | INFR-04 | Phase 11 | Pending |
-| BRAIN-01 | Phase 12 | Pending |
-| BRAIN-02 | Phase 12 | Pending |
-| BRAIN-03 | Phase 12 | Pending |
-| BRAIN-04 | Phase 12 | Pending |
-| BRAIN-05 | Phase 12 | Pending |
+| BRAIN-01 | Phase 12 | Complete |
+| BRAIN-02 | Phase 12 | Complete |
+| BRAIN-03 | Phase 12 | Complete |
+| BRAIN-04 | Phase 12 | Complete |
+| BRAIN-05 | Phase 12 | Complete |
 | GATE-01 | Phase 12 | Pending |
 | GATE-02 | Phase 12 | Pending |
 | GATE-03 | Phase 12 | Pending |
