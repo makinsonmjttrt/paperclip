@@ -48,8 +48,8 @@
 
 - [x] **TEAM-01**: LinkedIn Growth Director expanded with LinkedIn Content Specialist (hook writing, carousel scripts, story posts)
 - [x] **TEAM-02**: LinkedIn Growth Director expanded with LinkedIn Outreach Specialist (DM sequences, connection requests, engagement)
-- [ ] **TEAM-03**: Technical Writer expanded with Content Producer (drafting blog posts, newsletters, social content)
-- [ ] **TEAM-04**: Technical Writer expanded with Quality Reviewer (humanizer pass, copy-editing, brand voice checks)
+- [x] **TEAM-03**: Technical Writer expanded with Content Producer (drafting blog posts, newsletters, social content)
+- [x] **TEAM-04**: Technical Writer expanded with Quality Reviewer (humanizer pass, copy-editing, brand voice checks)
 - [ ] **TEAM-05**: Skill ownership matrix updated for all new agents (skills redistributed from directors to specialists)
 - [ ] **TEAM-06**: New agents registered in Paperclip and validated via heartbeat
 
@@ -98,8 +98,8 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | EVNT-05 | Phase 14 | Complete |
 | TEAM-01 | Phase 15 | Complete |
 | TEAM-02 | Phase 15 | Complete |
-| TEAM-03 | Phase 15 | Pending |
-| TEAM-04 | Phase 15 | Pending |
+| TEAM-03 | Phase 15 | Complete |
+| TEAM-04 | Phase 15 | Complete |
 | TEAM-05 | Phase 15 | Pending |
 | TEAM-06 | Phase 15 | Pending |
 
