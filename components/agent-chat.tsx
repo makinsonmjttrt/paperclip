@@ -159,6 +159,10 @@ function getAgentColor(urlKey: string): string {
   return AGENT_COLORS[urlKey] ?? "from-gray-500 to-zinc-600"
 }
 
+function formatTime(date: Date): string {
+  return date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
+}
+
 // ---- Animation presets (centralised for reduced-motion) --------------------
 
 function useSafeMotion() {
@@ -215,7 +219,7 @@ function ProcessingIndicator({
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex gap-1.5 py-1">
+      <div className="flex gap-1.5 py-1" role="status" aria-label={`${agentName} is processing`}>
         {[0, 0.2, 0.4].map((delay) => (
           <motion.span
             key={delay}
@@ -289,7 +293,7 @@ function EmptyState({
           : greeting.subtext}
       </p>
 
-      {/* Clickable quick actions */}
+      {/* Clickable quick actions - min 44px touch targets */}
       <div className="flex flex-wrap justify-center gap-2 mt-6">
         {hints.map((hint, i) => (
           <motion.button
@@ -300,7 +304,7 @@ function EmptyState({
             whileHover={prefersReduced ? {} : { scale: 1.04, borderColor: "rgba(30,163,199,0.3)" }}
             whileTap={prefersReduced ? {} : { scale: 0.97 }}
             onClick={() => onHintClick(hint)}
-            className="text-xs px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[#9A9EAD] cursor-pointer hover:text-[#EFF1F6] hover:bg-white/[0.06] transition-colors duration-200"
+            className="text-xs px-4 py-2.5 min-h-[44px] rounded-full bg-white/[0.04] border border-white/[0.08] text-[#9A9EAD] cursor-pointer hover:text-[#EFF1F6] hover:bg-white/[0.06] transition-colors duration-200"
           >
             {hint}
           </motion.button>
@@ -314,7 +318,7 @@ function EmptyState({
 
 function AgentListSkeleton() {
   return (
-    <div className="space-y-2 p-3">
+    <div className="space-y-2 p-3" role="status" aria-label="Loading agents">
       {Array.from({ length: 5 }).map((_, i) => (
         <div key={i} className="flex items-center gap-3 px-3 py-2.5">
           <div className="size-9 rounded-lg bg-white/[0.06] animate-pulse" />
@@ -324,6 +328,7 @@ function AgentListSkeleton() {
           </div>
         </div>
       ))}
+      <span className="sr-only">Loading agent list</span>
     </div>
   )
 }
@@ -339,6 +344,7 @@ export function AgentChat() {
   const [isLoading, setIsLoading] = useState(true)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [recentlyAssigned, setRecentlyAssigned] = useState<string | null>(null)
+  const [connectionOk, setConnectionOk] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const motion$ = useSafeMotion()
@@ -348,6 +354,16 @@ export function AgentChat() {
     messagesEndRef.current?.scrollIntoView({ behavior: motion$.prefersReduced ? "auto" : "smooth" })
   }, [messages, motion$.prefersReduced])
 
+  // Close mobile sidebar on Escape key
+  useEffect(() => {
+    if (!sidebarOpen) return
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSidebarOpen(false)
+    }
+    window.addEventListener("keydown", handleEscape)
+    return () => window.removeEventListener("keydown", handleEscape)
+  }, [sidebarOpen])
+
   // Fetch agents from Paperclip
   useEffect(() => {
     async function fetchAgents() {
@@ -356,6 +372,7 @@ export function AgentChat() {
         if (!res.ok) throw new Error("Failed to fetch agents")
 
         const data = await res.json()
+        setConnectionOk(true)
 
         const mapped: Agent[] = data
           .filter((a: { name: string }) => a.name !== "Chat Assistant")
@@ -386,6 +403,7 @@ export function AgentChat() {
 
         setAgents(mapped)
       } catch {
+        setConnectionOk(false)
         setAgents([
           { id: "ceo", name: "CEO", title: "CEO", icon: "crown", status: "idle", color: "from-amber-500 to-orange-600" },
           { id: "cto", name: "CTO", title: "Chief Technology Officer", icon: "circuit-board", status: "idle", color: "from-cyan-500 to-blue-600" },
@@ -528,7 +546,7 @@ export function AgentChat() {
         <p className="text-xs text-[#616675] mt-0.5">Agent Command Centre</p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-3 space-y-1 scrollbar-thin">
+      <nav className="flex-1 overflow-y-auto p-3 space-y-1 scrollbar-thin" aria-label="Agent list">
         {isLoading ? (
           <AgentListSkeleton />
         ) : (
@@ -536,7 +554,8 @@ export function AgentChat() {
             {/* Auto-route */}
             <button
               onClick={() => handleSelectAgent(null)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
+              aria-pressed={selectedAgent === null}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-lg transition-colors duration-200 text-left cursor-pointer ${
                 selectedAgent === null
                   ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
                   : "hover:bg-white/[0.04]"
@@ -555,7 +574,7 @@ export function AgentChat() {
               </div>
             </button>
 
-            <div className="h-px bg-white/[0.06] my-2" />
+            <div className="h-px bg-white/[0.06] my-2" aria-hidden="true" />
 
             {/* Agent buttons */}
             {agents.map((agent, i) => {
@@ -571,7 +590,9 @@ export function AgentChat() {
                   onClick={() => handleSelectAgent(agent.id)}
                   whileHover={motion$.prefersReduced ? {} : { scale: 1.01 }}
                   whileTap={motion$.prefersReduced ? {} : { scale: 0.99 }}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 text-left cursor-pointer ${
+                  aria-pressed={isActive}
+                  aria-label={`${agent.name} - ${agent.title} - ${agent.status}`}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-lg transition-colors duration-200 text-left cursor-pointer ${
                     isActive
                       ? "bg-white/[0.08] ring-1 ring-white/[0.12]"
                       : "hover:bg-white/[0.04]"
@@ -616,6 +637,7 @@ export function AgentChat() {
                               ? "bg-[#616675]"
                               : "bg-amber-400"
                         }`}
+                        aria-hidden="true"
                       />
                     </div>
                     <span className="text-xs text-[#616675] truncate block">
@@ -627,13 +649,22 @@ export function AgentChat() {
             })}
           </>
         )}
-      </div>
+      </nav>
 
       {/* Connection status */}
       <div className="p-4 border-t border-white/[0.06]">
-        <div className="flex items-center gap-2">
-          <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs text-[#616675]">Paperclip connected</span>
+        <div className="flex items-center gap-2" role="status">
+          <span
+            className={`size-2 rounded-full ${
+              connectionOk
+                ? "bg-emerald-400 animate-pulse"
+                : "bg-amber-400"
+            }`}
+            aria-hidden="true"
+          />
+          <span className="text-xs text-[#616675]">
+            {connectionOk ? "Paperclip connected" : "Using fallback agents"}
+          </span>
         </div>
       </div>
     </>
@@ -661,6 +692,7 @@ export function AgentChat() {
               transition={{ duration: 0.2 }}
               className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setSidebarOpen(false)}
+              aria-hidden="true"
             />
             {/* Drawer */}
             <motion.aside
@@ -669,10 +701,12 @@ export function AgentChat() {
               exit={{ x: -300 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="fixed inset-y-0 left-0 z-50 w-72 flex flex-col border-r border-white/[0.06] bg-[#0a0a12]/95 backdrop-blur-xl md:hidden"
+              role="dialog"
+              aria-label="Agent sidebar"
             >
               <button
                 onClick={() => setSidebarOpen(false)}
-                className="absolute top-4 right-4 size-8 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
+                className="absolute top-4 right-4 size-11 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
                 aria-label="Close sidebar"
               >
                 <X className="size-4 text-[#9A9EAD]" />
@@ -693,7 +727,7 @@ export function AgentChat() {
           {/* Mobile menu button */}
           <button
             onClick={() => setSidebarOpen(true)}
-            className="md:hidden size-9 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
+            className="md:hidden size-11 rounded-lg bg-white/[0.06] flex items-center justify-center cursor-pointer hover:bg-white/[0.1] transition-colors duration-200"
             aria-label="Open agent sidebar"
           >
             <Menu className="size-4 text-[#9A9EAD]" />
@@ -746,7 +780,7 @@ export function AgentChat() {
 
         {/* Messages or Empty State */}
         {hasMessages ? (
-          <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 space-y-4" role="log" aria-label="Chat messages">
             <AnimatePresence initial={false}>
               {messages.map((msg) => {
                 const msgAgent = msg.agentId
@@ -771,6 +805,7 @@ export function AgentChat() {
                             ? `bg-gradient-to-br ${msgAgent.color}`
                             : "bg-white/[0.06]"
                       }`}
+                      aria-hidden="true"
                     >
                       {msg.role === "user" ? (
                         <User className="size-4 text-[#1EA3C7]" />
@@ -792,10 +827,20 @@ export function AgentChat() {
                           : "bg-white/[0.04] border border-white/[0.06] rounded-2xl rounded-tl-sm"
                       } px-4 py-3`}
                     >
-                      {msg.agentName && msg.role === "agent" && (
-                        <p className="text-xs font-medium text-[#9A9EAD] mb-1">
-                          {msg.agentName}
-                        </p>
+                      {msg.role === "agent" && (
+                        <div className="flex items-center gap-2 mb-1">
+                          {msg.agentName && (
+                            <p className="text-xs font-medium text-[#9A9EAD]">
+                              {msg.agentName}
+                            </p>
+                          )}
+                          <time
+                            dateTime={msg.timestamp.toISOString()}
+                            className="text-[10px] text-[#616675] ml-auto"
+                          >
+                            {formatTime(msg.timestamp)}
+                          </time>
+                        </div>
                       )}
                       {msg.status === "processing" ? (
                         <ProcessingIndicator
@@ -819,6 +864,14 @@ export function AgentChat() {
                         >
                           {msg.content}
                         </p>
+                      )}
+                      {msg.role === "user" && (
+                        <time
+                          dateTime={msg.timestamp.toISOString()}
+                          className="block text-[10px] text-[#1EA3C7]/40 mt-1.5 text-right"
+                        >
+                          {formatTime(msg.timestamp)}
+                        </time>
                       )}
                       {msg.issueId && (
                         <p className="text-xs text-[#616675] mt-1.5 font-mono">
@@ -844,7 +897,11 @@ export function AgentChat() {
         <div className="px-4 md:px-6 py-4 border-t border-white/[0.06] bg-[#0a0a12]/60 backdrop-blur-xl">
           <div className="flex items-center gap-3 max-w-3xl mx-auto">
             <div className="flex-1 relative group">
+              <label htmlFor="chat-input" className="sr-only">
+                {selectedAgentData ? `Message ${selectedAgentData.name}` : "Type a message"}
+              </label>
               <input
+                id="chat-input"
                 ref={inputRef}
                 type="text"
                 value={input}
@@ -856,16 +913,18 @@ export function AgentChat() {
                     : "Type a message..."
                 }
                 disabled={isSending}
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-[#EFF1F6] placeholder:text-[#616675] focus:outline-none focus:ring-1 focus:ring-[#1EA3C7]/50 focus:border-[#1EA3C7]/30 transition-all duration-200 disabled:opacity-50"
+                autoComplete="off"
+                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-[#EFF1F6] placeholder:text-[#616675] focus:outline-none focus:ring-1 focus:ring-[#1EA3C7]/50 focus:border-[#1EA3C7]/30 transition-colors duration-200 disabled:opacity-50"
               />
               {/* Gradient glow on focus */}
-              <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-[#1EA3C7]/0 via-[#3C66EA]/0 to-[#B844BC]/0 group-focus-within:from-[#1EA3C7]/10 group-focus-within:via-[#3C66EA]/10 group-focus-within:to-[#B844BC]/10 transition-all duration-300 -z-10 blur-sm" />
+              <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-[#1EA3C7]/0 via-[#3C66EA]/0 to-[#B844BC]/0 group-focus-within:from-[#1EA3C7]/10 group-focus-within:via-[#3C66EA]/10 group-focus-within:to-[#B844BC]/10 transition-opacity duration-300 -z-10 blur-sm" aria-hidden="true" />
             </div>
             <motion.button
               whileHover={motion$.prefersReduced ? {} : { scale: 1.05 }}
               whileTap={motion$.prefersReduced ? {} : { scale: 0.95 }}
               onClick={sendMessage}
               disabled={!input.trim() || isSending}
+              aria-label="Send message"
               className="size-12 rounded-xl bg-gradient-to-r from-[#1EA3C7] to-[#3C66EA] text-white flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed transition-opacity duration-200 cursor-pointer shadow-lg shadow-[#1EA3C7]/20"
             >
               {isSending ? (
