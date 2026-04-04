@@ -111,11 +111,11 @@ Plans:
   2. A test issue crosses department boundaries (business > tech) via the event bus and completes
   3. Content passing through the Quality Reviewer gate completes the full quality workflow end-to-end
   4. Simulated agent failure triggers stall detection, escalation, and self-healing recovery
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 19-01: TBD
-- [ ] 19-02: TBD
+- [ ] 19-01-PLAN.md -- Delegation chain (CEO>CMO>LGD) and cross-department handoff (CMO>CTO)
+- [ ] 19-02-PLAN.md -- Quality gate (TW>CP>QR) and stall detection under simulated failure
 
 ## Progress
 
@@ -128,4 +128,4 @@ Plans:
 | 16. Performance Monitoring | 2/2 | Complete   | 2026-04-04 | - |
 | 17. Self-Healing | v3.0 | 2/2 | Complete | 2026-04-04 |
 | 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
-| 19. End-to-End Validation | v3.0 | 0/? | Not started | - |
+| 19. End-to-End Validation | v3.0 | 0/2 | Not started | - |
