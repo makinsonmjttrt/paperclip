@@ -72,42 +72,42 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFR-01 | TBD | Pending |
-| INFR-02 | TBD | Pending |
-| INFR-03 | TBD | Pending |
-| INFR-04 | TBD | Pending |
-| BRAIN-01 | TBD | Pending |
-| BRAIN-02 | TBD | Pending |
-| BRAIN-03 | TBD | Pending |
-| BRAIN-04 | TBD | Pending |
-| BRAIN-05 | TBD | Pending |
-| DELG-01 | TBD | Pending |
-| DELG-02 | TBD | Pending |
-| DELG-03 | TBD | Pending |
-| DELG-04 | TBD | Pending |
-| DELG-05 | TBD | Pending |
-| EVNT-01 | TBD | Pending |
-| EVNT-02 | TBD | Pending |
-| EVNT-03 | TBD | Pending |
-| EVNT-04 | TBD | Pending |
-| EVNT-05 | TBD | Pending |
-| GATE-01 | TBD | Pending |
-| GATE-02 | TBD | Pending |
-| GATE-03 | TBD | Pending |
-| GATE-04 | TBD | Pending |
-| GATE-05 | TBD | Pending |
-| TEAM-01 | TBD | Pending |
-| TEAM-02 | TBD | Pending |
-| TEAM-03 | TBD | Pending |
-| TEAM-04 | TBD | Pending |
-| TEAM-05 | TBD | Pending |
-| TEAM-06 | TBD | Pending |
+| INFR-01 | Phase 11 | Pending |
+| INFR-02 | Phase 11 | Pending |
+| INFR-03 | Phase 11 | Pending |
+| INFR-04 | Phase 11 | Pending |
+| BRAIN-01 | Phase 12 | Pending |
+| BRAIN-02 | Phase 12 | Pending |
+| BRAIN-03 | Phase 12 | Pending |
+| BRAIN-04 | Phase 12 | Pending |
+| BRAIN-05 | Phase 12 | Pending |
+| GATE-01 | Phase 12 | Pending |
+| GATE-02 | Phase 12 | Pending |
+| GATE-03 | Phase 12 | Pending |
+| GATE-04 | Phase 12 | Pending |
+| GATE-05 | Phase 12 | Pending |
+| DELG-01 | Phase 13 | Pending |
+| DELG-02 | Phase 13 | Pending |
+| DELG-03 | Phase 13 | Pending |
+| DELG-04 | Phase 13 | Pending |
+| DELG-05 | Phase 13 | Pending |
+| EVNT-01 | Phase 14 | Pending |
+| EVNT-02 | Phase 14 | Pending |
+| EVNT-03 | Phase 14 | Pending |
+| EVNT-04 | Phase 14 | Pending |
+| EVNT-05 | Phase 14 | Pending |
+| TEAM-01 | Phase 15 | Pending |
+| TEAM-02 | Phase 15 | Pending |
+| TEAM-03 | Phase 15 | Pending |
+| TEAM-04 | Phase 15 | Pending |
+| TEAM-05 | Phase 15 | Pending |
+| TEAM-06 | Phase 15 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 30 total
-- Mapped to phases: 0
-- Unmapped: 30
+- Mapped to phases: 30
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-03*
-*Last updated: 2026-04-03 after v2.0 milestone definition*
+*Last updated: 2026-04-03 after v2.0 roadmap creation*
