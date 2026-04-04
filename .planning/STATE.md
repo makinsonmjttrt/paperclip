@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Hardening
 status: executing
-stopped_at: "Completed 16-02-PLAN.md"
-last_updated: "2026-04-04T16:32:00Z"
-last_activity: 2026-04-04 -- Completed 16-02 CEO health reporting
+stopped_at: "Completed 17-02-PLAN.md"
+last_updated: "2026-04-04T17:55:00Z"
+last_activity: 2026-04-04 -- Completed 17-02 organisational recovery
 progress:
   total_phases: 4
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  completed_phases: 2
+  total_plans: 4
+  completed_plans: 4
   percent: 100
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-04)
 
 **Core value:** Every agent knows exactly which skills it owns, and work flows down the hierarchy without ambiguity or overlap.
-**Current focus:** Phase 16 - Performance Monitoring
+**Current focus:** Phase 17 - Self-Healing
 
 ## Current Position
 
-Phase: 16 of 19 (Performance Monitoring)
+Phase: 17 of 19 (Self-Healing)
 Plan: 2 of 2 complete
-Status: Phase 16 complete
-Last activity: 2026-04-04 -- Completed 16-02 CEO health reporting
+Status: Phase 17 complete
+Last activity: 2026-04-04 -- Completed 17-02 organisational recovery
 
 Progress: [██████████] 100%
 
@@ -50,6 +50,7 @@ Progress: [██████████] 100%
 - Phase 18 combines LOAD + CONS (both depend on monitoring data, both about agent allocation)
 - 16-01: Identical metrics schema for all 14 agents; daily period rollover into lifetime counters; utilisation = heartbeats_with_work / heartbeats_total
 - 16-02: X-Dept Metrics separate from X-Dept Summary (cumulative vs current-state); underutilisation threshold < 20% with min 5 heartbeats
+- 17-02: Deadlocks act after 1 idle cycle (not 2) because they never self-resolve; 2-nudge protocol before auto-reassignment; strategic work never auto-reassigned
 
 ### Blockers/Concerns
 
@@ -61,5 +62,5 @@ Progress: [██████████] 100%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Completed 16-02-PLAN.md
+Stopped at: Completed 17-02-PLAN.md
 Resume file: None
