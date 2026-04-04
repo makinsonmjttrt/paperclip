@@ -38,11 +38,11 @@
 
 ### Data Gating
 
-- [ ] **GATE-01**: Each agent has a Data Scope section in AGENTS.md defining readable paths
-- [ ] **GATE-02**: Business stream agents scoped to marketing/content/competitive data
-- [ ] **GATE-03**: Tech stream agents scoped to engineering/product/architecture data
-- [ ] **GATE-04**: CEO and Product Owner have cross-stream read access (both brains)
-- [ ] **GATE-05**: Data scope violations logged when detected (advisory, not enforced)
+- [x] **GATE-01**: Each agent has a Data Scope section in AGENTS.md defining readable paths
+- [x] **GATE-02**: Business stream agents scoped to marketing/content/competitive data
+- [x] **GATE-03**: Tech stream agents scoped to engineering/product/architecture data
+- [x] **GATE-04**: CEO and Product Owner have cross-stream read access (both brains)
+- [x] **GATE-05**: Data scope violations logged when detected (advisory, not enforced)
 
 ### Sub-Agent Teams
 
@@ -81,11 +81,11 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | BRAIN-03 | Phase 12 | Complete |
 | BRAIN-04 | Phase 12 | Complete |
 | BRAIN-05 | Phase 12 | Complete |
-| GATE-01 | Phase 12 | Pending |
-| GATE-02 | Phase 12 | Pending |
-| GATE-03 | Phase 12 | Pending |
-| GATE-04 | Phase 12 | Pending |
-| GATE-05 | Phase 12 | Pending |
+| GATE-01 | Phase 12 | Complete |
+| GATE-02 | Phase 12 | Complete |
+| GATE-03 | Phase 12 | Complete |
+| GATE-04 | Phase 12 | Complete |
+| GATE-05 | Phase 12 | Complete |
 | DELG-01 | Phase 13 | Pending |
 | DELG-02 | Phase 13 | Pending |
 | DELG-03 | Phase 13 | Pending |
@@ -110,4 +110,4 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 
 ---
 *Requirements defined: 2026-04-03*
-*Last updated: 2026-04-03 after v2.0 roadmap creation*
+*Last updated: 2026-04-04 after Phase 12 Plan 02 completion*

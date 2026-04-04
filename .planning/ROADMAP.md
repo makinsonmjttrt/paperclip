@@ -20,7 +20,7 @@
 - [x] **Phase 10: Validation** - Test issues through each agent to prove the company works (2026-04-03)
 
 - [x] **Phase 11: Infrastructure Hardening** (2026-04-04) - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
-- [ ] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping
+- [x] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping (2026-04-04)
 - [ ] **Phase 13: Delegation Chains** - Department heads manage their reports directly, CEO routes through heads only
 - [ ] **Phase 14: Cross-Department Event Bus** - Structured handoffs between business and tech streams via labelled issues
 - [ ] **Phase 15: Sub-Agent Teams** - Expand LinkedIn and Technical Writer into specialist teams
@@ -55,8 +55,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 12-01-PLAN.md -- Create department brain directories, BRAIN.md files, wire all agents with Read directives, add brain update steps to CMO/CTO heartbeats
-- [ ] 12-02-PLAN.md -- Add Data Scope sections to all 10 agents, add CEO violation logging
+- [x] 12-01-PLAN.md -- Create department brain directories, BRAIN.md files, wire all agents with Read directives, add brain update steps to CMO/CTO heartbeats
+- [x] 12-02-PLAN.md -- Add Data Scope sections to all 10 agents, add CEO violation logging
 
 ### Phase 13: Delegation Chains
 **Goal**: Work flows through the hierarchy (CEO to heads to reports) with original briefs preserved at every hop
@@ -126,7 +126,7 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 9. Engineer and Code Reviewer | v1.0 | 2/2 | Complete | 2026-04-02 |
 | 10. Validation | v1.0 | 2/2 | Complete | 2026-04-03 |
 | 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
-| 12. Department Brains and Data Gating | 1/2 | In Progress|  | - |
+| 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 13. Delegation Chains | v2.0 | 0/? | Not started | - |
 | 14. Cross-Department Event Bus | v2.0 | 0/? | Not started | - |
 | 15. Sub-Agent Teams | v2.0 | 0/? | Not started | - |
