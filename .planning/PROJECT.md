@@ -2,78 +2,83 @@
 
 ## What This Is
 
-A Paperclip-orchestrated AI agent company for FourPointZero, a creative tech recruitment firm specialising in AI. 10 agents organised into two streams (business and tech) with 71 marketing/content/engineering skills mapped to specific agent roles. The agents handle content production, competitive intelligence, brand positioning, software development, and product management autonomously.
+A Paperclip-orchestrated AI agent company for FourPointZero, a creative tech recruitment firm specialising in AI. 14 agents organised into two streams (business and tech) with 71 marketing/content/engineering skills, department brains, delegation chains, and a cross-department event bus. The agents handle content production, competitive intelligence, brand positioning, software development, and product management autonomously.
 
 ## Core Value
 
-Every agent knows exactly which skills it owns, and work flows down the hierarchy (CEO > CMO/CTO > Directors) without ambiguity or overlap.
+Every agent knows exactly which skills it owns, and work flows down the hierarchy (CEO > CMO/CTO > Directors > Specialists) without ambiguity or overlap.
 
-## Current Milestone: v2.0 Conducting AI Scale
+## Current Milestone: v3.0 Hardening
 
-**Goal:** Expand the 10-agent company toward the Conducting AI vision with department brains, sub-agent teams, cross-department handoffs, and delegation chains, all within Paperclip's architecture.
+**Goal:** Make the 14-agent company reliable and resilient under real workload. Monitor, measure, self-heal, and consolidate.
 
 **Target features:**
-- Department knowledge bases (shared context per stream)
-- Sub-agent team expansion (LinkedIn team specialists, content production team)
-- Cross-department event bus (CMO triggers CTO work and vice versa)
-- True delegation chains (CMO manages directors, not just CEO routing)
-- Data gating (departments see only their relevant context)
+- Agent performance monitoring (which agents deliver, which stall, which are underutilised)
+- Self-healing recovery (auto-restart stalled agents, clear deadlocks, recover from errors)
+- Workload balancing (redistribute work when agents are overloaded or idle)
+- Agent consolidation (merge or retire underperforming agents based on data)
+- End-to-end flow testing (prove real work completes the full delegation chain)
 
 ## Requirements
 
 ### Validated
 
-- Skill ownership matrix with zero overlap across 10 agents (v1.0)
+- Skill ownership matrix with zero overlap across 14 agents (v1.0, v2.0)
 - 71 skills adapted from Claude Code to Paperclip format (v1.0)
-- All 10 agents configured with FPZ-specific context, skills, heartbeat logic (v1.0)
-- CEO routing, CMO/CTO stream delegation, quality gate enforcement (v1.0)
-- End-to-end heartbeat validation across all agents (v1.0)
+- 14 agents configured with FPZ-specific context, skills, heartbeat logic (v1.0, v2.0)
+- CEO routing through department heads only (v2.0)
+- Department brains with write-one-read-many pattern (v2.0)
+- Delegation chains with brief passthrough and 3-hop limit (v2.0)
+- Cross-department event bus with approval gates and rate limiting (v2.0)
+- 3-tier stall detection (heads monitor reports, CEO monitors heads) (v2.0)
+- Heartbeat stagger and MEMORY.md checkpoint recovery (v2.0)
+- Data scope sections for all agents (advisory gating) (v2.0)
 
 ### Active
 
-- [ ] Department brains: shared knowledge bases per stream
-- [ ] Sub-agent teams: expand LinkedIn Director into specialist team
-- [ ] Cross-department handoffs: CMO can trigger CTO work with context
-- [ ] Delegation chains: CMO truly manages directors
-- [ ] Data gating: departments see only their relevant context
+- [ ] Performance monitoring: track agent output, stall frequency, and utilisation
+- [ ] Self-healing: auto-recover from errors, deadlocks, and interrupted heartbeats
+- [ ] Workload balancing: redistribute when agents are overloaded or idle
+- [ ] Agent consolidation: data-driven decisions on which agents to keep, merge, or retire
+- [ ] End-to-end flow testing: prove real work completes delegation chains
 
 ### Out of Scope
 
+- Adding more agents (14 is the cap until proven necessary)
 - Building new skills outside of agent orchestration
 - Modifying Paperclip core source code
-- Moving off Paperclip to Relevance AI or Make.com
+- Moving off Paperclip to other platforms
 - Running 150+ agents (machine resource constraint)
 - Real-time agent-to-agent messaging (Paperclip doesn't support it)
 
 ## Context
 
 - Paperclip company "FourPointZero" operational (ID: c86bff2f-e63b-4982-8a0d-aa4b50fc82a5)
-- 10 agents validated end-to-end in v1.0
+- 14 agents validated (10 original + 4 specialists)
 - Agent directories at ~/.paperclip/instances/default/companies/FourPointZero/agents/
-- Skills at /Users/martynmakinson/Documents/fourpointzero/.claude/skills/ and agent skill dirs
-- Conducting AI reference architecture: multi-layer delegation, department brains, event bus
-- Paperclip constraints: flat reportsTo, no data isolation, async task passing only
-- All workarounds must use Paperclip's existing primitives (issues, skills, agent files, heartbeats)
+- Known issues: 4 new agents went to "error" on first heartbeat (self-recovered)
+- Known Paperclip bug: deadlock (Issue #2516) detected by CEO stall-detection.md
+- All 4 x-dept labels created and placeholder IDs replaced
+- Machine constraint: 2-3 concurrent agents practical max
 
 ## Constraints
 
-- **Platform**: Paperclip only (no Relevance AI, no Make.com, no external orchestration)
+- **Platform**: Paperclip only
 - **Machine**: Single local machine, 2-3 concurrent agents practical max
-- **Communication**: Async task passing via issues only (no real-time messaging)
-- **Storage**: No built-in per-department memory (must use file-based workarounds)
-- **Agents**: Paperclip's flat reportsTo structure (hierarchy via instructions only)
+- **Agents**: 14 current, no additions until consolidation data available
+- **Monitoring**: Must use Paperclip primitives (issue comments, MEMORY.md, run logs)
+- **No enforcement**: Data gating and hierarchy are advisory-only
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | GTM preset with pr-review | Covers both business and tech streams | Good |
-| 10 agents (9 wizard + 1 manual) | Full org chart including LinkedIn Growth Director | Good |
-| CMO owns business stream | CreativAI, LinkedIn, newsletter, competitive intel all under one head | Good |
-| CTO/CPO owns tech stream | ADHD EF system, internal tooling, product decisions under one head | Good |
-| Skills mapped by role not duplicated | Each skill assigned to exactly one agent | Good |
-| Stay on Paperclip for v2.0 | Push platform as far as it goes with creative workarounds before considering alternatives | Pending |
-| Full Conducting AI vision | Department brains, sub-agent teams, event bus, delegation chains, data gating | Pending |
+| 14 agents (10 + 4 specialists) | Full org chart with sub-agent teams | Good |
+| Stay on Paperclip | Push platform before considering alternatives | Good |
+| Department brains as markdown files | No built-in knowledge layer in Paperclip | Good |
+| Advisory data gating | Paperclip has no file permissions | Accepted limitation |
+| Hardening before expansion | User priority: resilience over more agents | Pending |
 
 ---
-*Last updated: 2026-04-03 after v2.0 milestone start*
+*Last updated: 2026-04-04 after v3.0 milestone start*
