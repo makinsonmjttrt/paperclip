@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import {
   Send,
@@ -20,6 +20,7 @@ import {
   MessageCircle,
   Menu,
   X,
+  Check,
   type LucideIcon,
 } from "lucide-react"
 
@@ -75,6 +76,80 @@ const AGENT_COLORS: Record<string, string> = {
   "chat-assistant": "from-gray-500 to-zinc-600",
 }
 
+// ---- Delight: agent-specific processing messages ---------------------------
+
+const AGENT_PROCESSING_MESSAGES: Record<string, readonly string[]> = {
+  CEO: [
+    "Reviewing from a strategic lens...",
+    "Thinking about the big picture...",
+    "Weighing up the options...",
+  ],
+  CTO: [
+    "Evaluating the technical approach...",
+    "Checking the architecture...",
+    "Running through the stack...",
+  ],
+  CMO: [
+    "Crafting the messaging...",
+    "Thinking about positioning...",
+    "Reviewing the brand angle...",
+  ],
+  "Product Owner": [
+    "Mapping this to the roadmap...",
+    "Prioritising against the backlog...",
+    "Checking user stories...",
+  ],
+  Engineer: [
+    "Spinning up a solution...",
+    "Writing the implementation...",
+    "Compiling thoughts...",
+  ],
+  "Code Reviewer": [
+    "Scanning for issues...",
+    "Reviewing line by line...",
+    "Checking best practices...",
+  ],
+  "Technical Writer": [
+    "Structuring the documentation...",
+    "Finding the right words...",
+    "Polishing the language...",
+  ],
+  "Customer Success": [
+    "Pulling up the context...",
+    "Checking the client history...",
+    "Preparing a response...",
+  ],
+  "UX Researcher": [
+    "Analysing the user flow...",
+    "Reviewing the patterns...",
+    "Mapping the experience...",
+  ],
+  "LinkedIn Growth Director": [
+    "Optimising for engagement...",
+    "Reviewing the algorithm angle...",
+    "Crafting the hook...",
+  ],
+}
+
+function getProcessingMessage(agentName: string): string {
+  const messages = AGENT_PROCESSING_MESSAGES[agentName]
+  if (!messages) return "Processing your request..."
+  return messages[Math.floor(Math.random() * messages.length)]
+}
+
+// ---- Delight: time-of-day greeting -----------------------------------------
+
+function getTimeGreeting(): { heading: string; subtext: string } {
+  const hour = new Date().getHours()
+  if (hour < 6) return { heading: "Burning the midnight oil?", subtext: "Your agents are standing by, no matter the hour." }
+  if (hour < 12) return { heading: "Good morning", subtext: "Your agents are ready. What's the first move today?" }
+  if (hour < 17) return { heading: "Afternoon command", subtext: "Your agents are active and waiting for direction." }
+  if (hour < 21) return { heading: "Evening session", subtext: "Your agents are still on call. What needs doing?" }
+  return { heading: "Late shift", subtext: "Your agents never clock off. Fire away." }
+}
+
+// ---- Helpers ---------------------------------------------------------------
+
 function getAgentIcon(iconName: string | null): LucideIcon {
   if (!iconName) return Bot
   return ICON_MAP[iconName] ?? Bot
@@ -105,6 +180,75 @@ function useSafeMotion() {
   }
 }
 
+// ---- Success checkmark animation -------------------------------------------
+
+function SuccessCheckmark({ prefersReduced }: { prefersReduced: boolean }) {
+  return (
+    <motion.div
+      initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={prefersReduced ? {} : { type: "spring", stiffness: 400, damping: 15 }}
+      className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
+    >
+      <motion.div
+        initial={prefersReduced ? {} : { pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={prefersReduced ? {} : { duration: 0.4, delay: 0.1 }}
+      >
+        <Check className="size-3 text-emerald-400" />
+      </motion.div>
+      <span className="text-xs text-emerald-400 font-medium">Assigned</span>
+    </motion.div>
+  )
+}
+
+// ---- Processing indicator with contextual message --------------------------
+
+function ProcessingIndicator({
+  agentName,
+  prefersReduced,
+}: {
+  agentName: string
+  prefersReduced: boolean
+}) {
+  const message = useMemo(() => getProcessingMessage(agentName), [agentName])
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-1.5 py-1">
+        {[0, 0.2, 0.4].map((delay) => (
+          <motion.span
+            key={delay}
+            className="size-2 rounded-full"
+            style={{
+              background:
+                delay === 0
+                  ? "#1EA3C7"
+                  : delay === 0.2
+                    ? "#3C66EA"
+                    : "#B844BC",
+            }}
+            animate={prefersReduced ? {} : { opacity: [0.3, 1, 0.3] }}
+            transition={
+              prefersReduced
+                ? {}
+                : { duration: 1.2, repeat: Infinity, delay }
+            }
+          />
+        ))}
+      </div>
+      <motion.p
+        initial={prefersReduced ? {} : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={prefersReduced ? {} : { delay: 0.3 }}
+        className="text-xs text-[#616675] italic"
+      >
+        {message}
+      </motion.p>
+    </div>
+  )
+}
+
 // ---- Empty state -----------------------------------------------------------
 
 function EmptyState({
@@ -119,6 +263,8 @@ function EmptyState({
   const hints = agentName
     ? [`What are you working on?`, `Give me a status update`, `Help me with a task`]
     : ["Draft a LinkedIn post", "Review the roadmap", "Run a code audit"]
+
+  const greeting = useMemo(() => getTimeGreeting(), [])
 
   return (
     <motion.div
@@ -135,12 +281,12 @@ function EmptyState({
         <MessageCircle className="size-7 text-[#1EA3C7]" />
       </motion.div>
       <h3 className="text-base font-semibold text-[#EFF1F6] mb-1.5">
-        {agentName ? `Chat with ${agentName}` : "FPZ Agent Command"}
+        {agentName ? `Chat with ${agentName}` : greeting.heading}
       </h3>
       <p className="text-sm text-[#616675] max-w-xs leading-relaxed">
         {agentName
           ? `Send a task or question directly to ${agentName}.`
-          : "Type a message below. Select an agent from the sidebar, or let auto-routing pick the best one."}
+          : greeting.subtext}
       </p>
 
       {/* Clickable quick actions */}
@@ -192,6 +338,7 @@ export function AgentChat() {
   const [isSending, setIsSending] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [recentlyAssigned, setRecentlyAssigned] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const motion$ = useSafeMotion()
@@ -258,6 +405,13 @@ export function AgentChat() {
     setSidebarOpen(false)
   }, [])
 
+  // Clear the sidebar pulse after 2 seconds
+  useEffect(() => {
+    if (!recentlyAssigned) return
+    const timer = setTimeout(() => setRecentlyAssigned(null), 2000)
+    return () => clearTimeout(timer)
+  }, [recentlyAssigned])
+
   const sendMessage = useCallback(async () => {
     if (!input.trim() || isSending) return
 
@@ -321,12 +475,15 @@ export function AgentChat() {
 
       const issue = await res.json()
 
+      // Trigger sidebar avatar pulse on the assigned agent
+      setRecentlyAssigned(targetAgentId)
+
       setMessages((prev) =>
         prev.map((m) =>
           m.id === processingId
             ? {
                 ...m,
-                content: `Task assigned: ${issue.identifier}. ${targetAgent?.name ?? "Agent"} is working on it.`,
+                content: `${issue.identifier} assigned to ${targetAgent?.name ?? "Agent"}`,
                 status: "done" as const,
                 issueId: issue.id,
               }
@@ -404,6 +561,7 @@ export function AgentChat() {
             {agents.map((agent, i) => {
               const Icon = getAgentIcon(agent.icon)
               const isActive = selectedAgent === agent.id
+              const justAssigned = recentlyAssigned === agent.id
               return (
                 <motion.button
                   key={agent.id}
@@ -419,11 +577,32 @@ export function AgentChat() {
                       : "hover:bg-white/[0.04]"
                   }`}
                 >
-                  <div
-                    className={`size-9 rounded-lg bg-gradient-to-br ${agent.color} flex items-center justify-center shadow-lg`}
+                  {/* Agent avatar with success pulse */}
+                  <motion.div
+                    className={`size-9 rounded-lg bg-gradient-to-br ${agent.color} flex items-center justify-center shadow-lg relative`}
+                    animate={
+                      justAssigned && !motion$.prefersReduced
+                        ? { scale: [1, 1.15, 1] }
+                        : {}
+                    }
+                    transition={
+                      justAssigned ? { duration: 0.5, ease: "easeOut" } : {}
+                    }
                   >
                     <Icon className="size-4 text-white" />
-                  </div>
+                    {/* Green ring pulse on assignment */}
+                    <AnimatePresence>
+                      {justAssigned && !motion$.prefersReduced && (
+                        <motion.div
+                          initial={{ opacity: 0.8, scale: 1 }}
+                          animate={{ opacity: 0, scale: 1.8 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                          className="absolute inset-0 rounded-lg border-2 border-emerald-400"
+                        />
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-[#EFF1F6] truncate">
@@ -619,31 +798,16 @@ export function AgentChat() {
                         </p>
                       )}
                       {msg.status === "processing" ? (
-                        <div className="flex gap-1.5 py-1">
-                          {[0, 0.2, 0.4].map((delay) => (
-                            <motion.span
-                              key={delay}
-                              className="size-2 rounded-full"
-                              style={{
-                                background:
-                                  delay === 0
-                                    ? "#1EA3C7"
-                                    : delay === 0.2
-                                      ? "#3C66EA"
-                                      : "#B844BC",
-                              }}
-                              animate={motion$.prefersReduced ? {} : { opacity: [0.3, 1, 0.3] }}
-                              transition={
-                                motion$.prefersReduced
-                                  ? {}
-                                  : {
-                                      duration: 1.2,
-                                      repeat: Infinity,
-                                      delay,
-                                    }
-                              }
-                            />
-                          ))}
+                        <ProcessingIndicator
+                          agentName={msg.agentName ?? "Agent"}
+                          prefersReduced={motion$.prefersReduced}
+                        />
+                      ) : msg.status === "done" ? (
+                        <div className="flex flex-col gap-2">
+                          <p className="text-sm leading-relaxed text-[#EFF1F6]">
+                            {msg.content}
+                          </p>
+                          <SuccessCheckmark prefersReduced={motion$.prefersReduced} />
                         </div>
                       ) : (
                         <p
