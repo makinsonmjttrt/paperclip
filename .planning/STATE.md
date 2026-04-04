@@ -50,6 +50,7 @@ Progress: [██████████] 100%
 - Phase 18 combines LOAD + CONS (both depend on monitoring data, both about agent allocation)
 - 16-01: Identical metrics schema for all 14 agents; daily period rollover into lifetime counters; utilisation = heartbeats_with_work / heartbeats_total
 - 16-02: X-Dept Metrics separate from X-Dept Summary (cumulative vs current-state); underutilisation threshold < 20% with min 5 heartbeats
+- 17-01: Agent name in HEAL-ERROR-LIMIT comments for fast identification; retry_count/partial_output fields before Resume Instructions; data preservation as step 2
 - 17-02: Deadlocks act after 1 idle cycle (not 2) because they never self-resolve; 2-nudge protocol before auto-reassignment; strategic work never auto-reassigned
 
 ### Blockers/Concerns
@@ -62,5 +63,5 @@ Progress: [██████████] 100%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Completed 17-02-PLAN.md
+Stopped at: Completed 17-01-PLAN.md (both 17-01 and 17-02 now done)
 Resume file: None

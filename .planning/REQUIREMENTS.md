@@ -14,9 +14,9 @@
 
 ### Self-Healing
 
-- [ ] **HEAL-01**: Agents in "error" status auto-retry on next heartbeat cycle
+- [x] **HEAL-01**: Agents in "error" status auto-retry on next heartbeat cycle
 - [x] **HEAL-02**: Deadlocked agents (executionRunId set but idle) auto-cleared by CEO
-- [ ] **HEAL-03**: Interrupted heartbeats resume from MEMORY.md checkpoint without data loss
+- [x] **HEAL-03**: Interrupted heartbeats resume from MEMORY.md checkpoint without data loss
 - [x] **HEAL-04**: Stalled work auto-reassigned after 2 failed nudges (routine work only)
 
 ### Workload Balancing
@@ -60,9 +60,9 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 | MON-02 | Phase 16 | Complete |
 | MON-03 | Phase 16 | Complete |
 | MON-04 | Phase 16 | Complete |
-| HEAL-01 | Phase 17 | Pending |
+| HEAL-01 | Phase 17 | Complete |
 | HEAL-02 | Phase 17 | Complete |
-| HEAL-03 | Phase 17 | Pending |
+| HEAL-03 | Phase 17 | Complete |
 | HEAL-04 | Phase 17 | Complete |
 | LOAD-01 | Phase 18 | Pending |
 | LOAD-02 | Phase 18 | Pending |

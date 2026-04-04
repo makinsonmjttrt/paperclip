@@ -83,8 +83,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 17-01-PLAN.md -- Agent-level self-recovery: error auto-retry and checkpoint resume with data preservation
-- [ ] 17-02-PLAN.md -- Organisational-level recovery: CEO deadlock auto-clear and 2-nudge stall reassignment
+- [x] 17-01-PLAN.md -- Agent-level self-recovery: error auto-retry and checkpoint resume with data preservation
+- [x] 17-02-PLAN.md -- Organisational-level recovery: CEO deadlock auto-clear and 2-nudge stall reassignment
 
 ### Phase 18: Workload & Consolidation
 **Goal**: Work is distributed fairly across agents, and underperforming agents are identified for merge or retirement
