@@ -1,35 +1,23 @@
 # Roadmap: FourPointZero AI Agent Company
 
-## Milestones
-
-- ✅ **v1.0 10-Agent Company** - Phases 0-10 (shipped 2026-04-03)
-- 🚧 **v2.0 Conducting AI Scale** - Phases 11-15 (in progress)
-
 ## Phases
 
 **Phase Numbering:**
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-<details>
-<summary>✅ v1.0 10-Agent Company (Phases 0-10) - SHIPPED 2026-04-03</summary>
-
-- [x] **Phase 0: Housekeeping** - Delete old FPZ company, create product-marketing-context
-- [x] **Phase 1: Skill Ownership Matrix** - Map all 71 skills to exactly one agent with zero overlap
-- [x] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format
-- [x] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work
-- [x] **Phase 4: CMO Agent** - Configure the business stream head with marketing strategy skills
-- [x] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream
-- [x] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight
-- [x] **Phase 7: Technical Writer** - Configure the content quality gate agent
-- [x] **Phase 8: Customer Success and UX Researcher** - Configure competitive intel and growth agents
-- [x] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream
-- [x] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair
-- [x] **Phase 10: Validation** - Test issues through each agent to prove the company works
-
-</details>
-
-### 🚧 v2.0 Conducting AI Scale (In Progress)
+- [x] **Phase 0: Housekeeping** - Delete old FPZ company, create product-marketing-context (2026-04-02)
+- [x] **Phase 1: Skill Ownership Matrix** - Map all 71 skills to exactly one agent with zero overlap (2026-04-02)
+- [x] **Phase 2: Skill Adaptation Template** - Create reusable pattern for converting Claude Code skills to Paperclip format (2026-04-02)
+- [x] **Phase 3: CEO and Product Owner** - Configure the two proactive agents that drive and prioritise work (2026-04-02)
+- [x] **Phase 4: CMO Agent** - Configure the business stream head with marketing strategy skills (2026-04-02)
+- [x] **Phase 5: CMO Stream Skill Deployment** - Adapt and deploy 30+ marketing skills to the business stream (2026-04-03)
+- [x] **Phase 6: CTO Agent** - Configure the tech stream head with engineering oversight (2026-04-02)
+- [x] **Phase 7: Technical Writer** - Configure the content quality gate agent (2026-04-03)
+- [x] **Phase 8: Customer Success and UX Researcher** - Configure competitive intel and growth agents (2026-04-02)
+- [x] **Phase 8.5: LinkedIn Growth Director** - Configure dedicated LinkedIn agent under CMO stream (2026-04-02)
+- [x] **Phase 9: Engineer and Code Reviewer** - Configure the dev stream workers as a pair (2026-04-03)
+- [x] **Phase 10: Validation** - Test issues through each agent to prove the company works (2026-04-03)
 
 - [ ] **Phase 11: Infrastructure Hardening** - Stagger heartbeats, add stall detection, session recovery, chain-of-command validation
 - [ ] **Phase 12: Department Brains and Data Gating** - Shared stream knowledge bases with advisory access scoping
