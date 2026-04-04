@@ -30,9 +30,9 @@
 
 ### Cross-Department Event Bus
 
-- [ ] **EVNT-01**: Label convention defined for cross-department issues (x-dept:business->tech, x-dept:tech->business)
-- [ ] **EVNT-02**: Handoff issue templates created for common cross-dept workflows
-- [ ] **EVNT-03**: Rate limiting configured (max 3 cross-dept issues per heartbeat cycle)
+- [x] **EVNT-01**: Label convention defined for cross-department issues (x-dept:business->tech, x-dept:tech->business)
+- [x] **EVNT-02**: Handoff issue templates created for common cross-dept workflows
+- [x] **EVNT-03**: Rate limiting configured (max 3 cross-dept issues per heartbeat cycle)
 - [ ] **EVNT-04**: Draft-status handoffs require department head approval before execution
 - [ ] **EVNT-05**: CEO has oversight dashboard of all cross-department work in flight
 
@@ -91,9 +91,9 @@ All 73 v1.0 requirements completed. See .planning/MILESTONES.md for details.
 | DELG-03 | Phase 13 | Pending |
 | DELG-04 | Phase 13 | Complete |
 | DELG-05 | Phase 13 | Pending |
-| EVNT-01 | Phase 14 | Pending |
-| EVNT-02 | Phase 14 | Pending |
-| EVNT-03 | Phase 14 | Pending |
+| EVNT-01 | Phase 14 | Complete |
+| EVNT-02 | Phase 14 | Complete |
+| EVNT-03 | Phase 14 | Complete |
 | EVNT-04 | Phase 14 | Pending |
 | EVNT-05 | Phase 14 | Pending |
 | TEAM-01 | Phase 15 | Pending |

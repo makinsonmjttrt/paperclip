@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Conducting AI Scale
 status: in_progress
-stopped_at: Completed 13-01-PLAN.md
-last_updated: "2026-04-04T11:28:15Z"
-last_activity: 2026-04-04 -- completed Phase 13 Plan 01 Delegation Chains reporting lines and CEO routing
+stopped_at: Completed 14-01-PLAN.md
+last_updated: "2026-04-04T11:58:43Z"
+last_activity: 2026-04-04 -- completed Phase 14 Plan 01 Cross-Department Event Bus labels, templates, and handoff protocol
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 5
-  completed_plans: 5
-  percent: 50
+  completed_plans: 6
+  percent: 60
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-03)
 
 **Core value:** Every agent knows exactly which skills it owns, and work flows down the hierarchy without ambiguity or overlap.
-**Current focus:** Phase 13 - Delegation Chains
+**Current focus:** Phase 14 - Cross-Department Event Bus
 
 ## Current Position
 
-Phase: 13 in progress (third of 5 in v2.0 milestone)
-Plan: 1 of 2 in Phase 13 complete, ready for Plan 02
-Status: Phase 13 Plan 01 complete, Plan 02 pending
-Last activity: 2026-04-04 -- completed Phase 13 Plan 01 Delegation Chains reporting lines and CEO routing
+Phase: 14 in progress (fourth of 5 in v2.0 milestone)
+Plan: 1 of 2 in Phase 14 complete, ready for Plan 02
+Status: Phase 14 Plan 01 complete, Plan 02 pending
+Last activity: 2026-04-04 -- completed Phase 14 Plan 01 Cross-Department Event Bus labels, templates, and handoff protocol
 
-Progress: [█████-----] 50% (Phase 13)
+Progress: [██████----] 60% (Phase 14)
 
 ## Performance Metrics
 
@@ -66,6 +66,10 @@ Progress: [█████-----] 50% (Phase 13)
 - [Phase 13]: CEO routes to 3 targets only: CMO, CTO, Product Owner
 - [Phase 13]: Product Owner is cross-stream under CEO with CTO direct-assign for tech backlog
 - [Phase 13]: FPZ Delegation Logic in HEARTBEAT simplified to pointer to stream head AGENTS.md files
+- [Phase 14]: X-dept label convention: business->tech (orange), tech->business (green), pending-approval (yellow)
+- [Phase 14]: Approval gate uses blocked status + x-dept:pending-approval label as draft-status workaround
+- [Phase 14]: Rate limiting via MEMORY.md counter: max 3 x-dept issues per heartbeat cycle with deferred queue
+- [Phase 14]: Product Owner gets full cross-stream handoff capability targeting either CMO or CTO
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-04T11:28:15Z
-Stopped at: Completed 13-01-PLAN.md
+Last session: 2026-04-04T11:58:43Z
+Stopped at: Completed 14-01-PLAN.md
 Resume file: None

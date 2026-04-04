@@ -128,5 +128,5 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 12. Department Brains and Data Gating | v2.0 | 2/2 | Complete | 2026-04-04 |
 | 13. Delegation Chains | v2.0 | 1/2 | In Progress | - |
-| 14. Cross-Department Event Bus | v2.0 | 0/2 | Not started | - |
+| 14. Cross-Department Event Bus | 1/2 | In Progress|  | - |
 | 15. Sub-Agent Teams | v2.0 | 0/3 | Not started | - |
