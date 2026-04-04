@@ -52,11 +52,11 @@ Plans:
   3. Only department heads (CMO, CTO) can write to their stream's brain files
   4. Each agent's AGENTS.md defines a Data Scope section listing what it can and cannot read
   5. A data scope violation is logged when detected (not enforced, advisory only)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 12-01: TBD
-- [ ] 12-02: TBD
+- [ ] 12-01-PLAN.md -- Create department brain directories, BRAIN.md files, wire all agents with Read directives, add brain update steps to CMO/CTO heartbeats
+- [ ] 12-02-PLAN.md -- Add Data Scope sections to all 10 agents, add CEO violation logging
 
 ### Phase 13: Delegation Chains
 **Goal**: Work flows through the hierarchy (CEO to heads to reports) with original briefs preserved at every hop
@@ -125,8 +125,8 @@ Phases execute in numeric order: 11 > 12 > 13 > 14 > 15
 | 8.5. LinkedIn Growth Director | v1.0 | 1/1 | Complete | 2026-04-02 |
 | 9. Engineer and Code Reviewer | v1.0 | 2/2 | Complete | 2026-04-02 |
 | 10. Validation | v1.0 | 2/2 | Complete | 2026-04-03 |
-| 11. Infrastructure Hardening | v2.0 | 0/? | Not started | - |
-| 12. Department Brains and Data Gating | v2.0 | 0/? | Not started | - |
+| 11. Infrastructure Hardening | v2.0 | 2/2 | Complete | 2026-04-04 |
+| 12. Department Brains and Data Gating | v2.0 | 0/2 | Not started | - |
 | 13. Delegation Chains | v2.0 | 0/? | Not started | - |
 | 14. Cross-Department Event Bus | v2.0 | 0/? | Not started | - |
 | 15. Sub-Agent Teams | v2.0 | 0/? | Not started | - |
