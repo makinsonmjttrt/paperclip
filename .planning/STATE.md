@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Hardening
-status: ready_to_plan
-stopped_at: null
-last_updated: "2026-04-04T15:00:00Z"
-last_activity: 2026-04-04 -- Roadmap created for v3.0 (Phases 16-19)
+status: executing
+stopped_at: "Completed 16-01-PLAN.md"
+last_updated: "2026-04-04T16:29:00Z"
+last_activity: 2026-04-04 -- Completed 16-01 agent performance metrics instrumentation
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 2
+  completed_plans: 1
+  percent: 50
 ---
 
 # Project State
@@ -26,18 +26,18 @@ See: .planning/PROJECT.md (updated 2026-04-04)
 ## Current Position
 
 Phase: 16 of 19 (Performance Monitoring)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-04-04 -- Roadmap created for v3.0
+Plan: 1 of 2 complete
+Status: Executing
+Last activity: 2026-04-04 -- Completed 16-01 agent performance metrics instrumentation
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0 (v3.0)
-- Average duration: --
-- Total execution time: 0 hours
+- Total plans completed: 1 (v3.0)
+- Average duration: 76 min
+- Total execution time: 1.3 hours
 
 ## Accumulated Context
 
@@ -48,6 +48,7 @@ Progress: [░░░░░░░░░░] 0%
 - v3.0 scope: Hardening (monitoring, self-healing, workload balancing, consolidation, e2e testing)
 - No new agents until consolidation data proves they're needed
 - Phase 18 combines LOAD + CONS (both depend on monitoring data, both about agent allocation)
+- 16-01: Identical metrics schema for all 14 agents; daily period rollover into lifetime counters; utilisation = heartbeats_with_work / heartbeats_total
 
 ### Blockers/Concerns
 
@@ -59,5 +60,5 @@ Progress: [░░░░░░░░░░] 0%
 ## Session Continuity
 
 Last session: 2026-04-04
-Stopped at: Roadmap created for v3.0 Hardening
+Stopped at: Completed 16-01-PLAN.md
 Resume file: None

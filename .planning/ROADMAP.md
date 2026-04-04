@@ -125,7 +125,7 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 0-10 | v1.0 | All | Complete | 2026-04-03 |
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
-| 16. Performance Monitoring | v3.0 | 0/2 | Not started | - |
+| 16. Performance Monitoring | 1/2 | In Progress|  | - |
 | 17. Self-Healing | v3.0 | 0/? | Not started | - |
 | 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
 | 19. End-to-End Validation | v3.0 | 0/? | Not started | - |
