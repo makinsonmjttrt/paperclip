@@ -65,11 +65,11 @@ Expanded from 10 to 14 agents. Department brains, delegation chains, cross-depar
   2. CEO produces a daily summary showing which agents are active, stalled, errored, and how many issues completed
   3. Any agent's utilisation ratio (working heartbeats vs idle heartbeats) can be read from its MEMORY.md
   4. Event bus metrics (handoffs created, approved, rejected, stalled) are logged and visible to the CEO
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 16-01: TBD
-- [ ] 16-02: TBD
+- [ ] 16-01-PLAN.md -- Instrument all 14 agents with Performance Metrics section and heartbeat update step
+- [ ] 16-02-PLAN.md -- Add CEO health summary reporting and event bus metrics counters
 
 ### Phase 17: Self-Healing
 **Goal**: Agents recover from failures automatically without human intervention
@@ -125,7 +125,7 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 0-10 | v1.0 | All | Complete | 2026-04-03 |
 | 11-15 | v2.0 | All | Complete | 2026-04-04 |
-| 16. Performance Monitoring | v3.0 | 0/? | Not started | - |
+| 16. Performance Monitoring | v3.0 | 0/2 | Not started | - |
 | 17. Self-Healing | v3.0 | 0/? | Not started | - |
 | 18. Workload & Consolidation | v3.0 | 0/? | Not started | - |
 | 19. End-to-End Validation | v3.0 | 0/? | Not started | - |
