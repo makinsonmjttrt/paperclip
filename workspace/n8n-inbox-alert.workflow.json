@@ -1,0 +1,131 @@
+{
+  "name": "ADHD: Inbox Alert (WF-03)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "ia_cron",
+      "name": "Daily 07:50",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 0],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "50 7 * * *"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ia_query",
+      "name": "Query Uncategorised Tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [250, 0],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/2915456c-327f-80d8-83b4-000b8bc03128/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "{\"filter\":{\"and\":[{\"property\":\"Status\",\"select\":{\"equals\":\"To Do\"}},{\"property\":\"Priority\",\"select\":{\"is_empty\":true}}]},\"page_size\":100}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Notion Internal Integration"
+        }
+      }
+    },
+    {
+      "id": "ia_count",
+      "name": "Count Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const response = $('Query Uncategorised Tasks').first().json;\nconst results = response.results || [];\nconst count = results.length;\nconst hasMore = response.has_more || false;\n\n// If Notion returned has_more=true, there are more than 100 uncategorised tasks.\n// count is effectively 100+ — well above the threshold.\nconst effectiveCount = hasMore ? count + '+' : String(count);\n\nreturn [{\n  json: {\n    count,\n    hasMore,\n    effectiveCount,\n    notionTasksUrl: 'https://www.notion.so/2915456c327f80d883b4000b8bc03128'\n  }\n}];"
+      }
+    },
+    {
+      "id": "ia_if",
+      "name": "Inbox Over Threshold",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [750, 0],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.count }}",
+              "operation": "larger",
+              "value2": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ia_email",
+      "name": "Send Inbox Alert",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [1000, -100],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "subject": "={{ '⚠️ ADHD Inbox Alert: ' + $('Count Items').first().json.effectiveCount + ' uncategorised tasks' }}",
+        "bodyContent": "={{ 'You have ' + $('Count Items').first().json.effectiveCount + ' uncategorised tasks in your inbox.\\n\\nYour inbox needs 5 minutes.\\n\\nOpen Notion Tasks:\\n' + $('Count Items').first().json.notionTasksUrl }}",
+        "toRecipients": "mart@fourpointzero.co.uk",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "name": "Mart"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Daily 07:50": {
+      "main": [[{"node": "Query Uncategorised Tasks", "type": "main", "index": 0}]]
+    },
+    "Query Uncategorised Tasks": {
+      "main": [[{"node": "Count Items", "type": "main", "index": 0}]]
+    },
+    "Count Items": {
+      "main": [[{"node": "Inbox Over Threshold", "type": "main", "index": 0}]]
+    },
+    "Inbox Over Threshold": {
+      "main": [
+        [{"node": "Send Inbox Alert", "type": "main", "index": 0}],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/London",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  }
+}
