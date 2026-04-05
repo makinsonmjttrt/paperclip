@@ -65,11 +65,11 @@ Paste the contents of `fpz-schema-markup.php` (excluding the plugin header comme
 
 ## One thing to update before deploying
 
-**Logo URL:** The plugin references `https://fourpointzero.io/wp-content/uploads/fpz-logo.png` as a placeholder. Replace this with the actual logo image URL from the WordPress media library.
-
 **LinkedIn URL:** Currently set to `https://www.linkedin.com/company/xrjobs`. Update to the new slug once the LinkedIn URL change is approved and processed.
 
 **Crunchbase URL:** Set to `https://www.crunchbase.com/organization/fourpointzero` — confirm this is the live Crunchbase URL.
+
+**Logo URL:** Already set to the verified media library path (`/wp-content/uploads/2018/10/FourPointZero-Horizontal-Colour-400.png`) in both the plugin and JSON reference files. No action needed.
 
 ---
 

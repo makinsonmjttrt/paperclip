@@ -10,7 +10,7 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://fourpointzero.io/#logo",
-        "url": "https://fourpointzero.io/wp-content/uploads/fpz-logo.png",
+        "url": "https://fourpointzero.io/wp-content/uploads/2018/10/FourPointZero-Horizontal-Colour-400.png",
         "caption": "FourPointZero"
       },
       "image": { "@id": "https://fourpointzero.io/#logo" },
