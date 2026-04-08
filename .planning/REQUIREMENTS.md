@@ -33,8 +33,8 @@
 
 ### End-to-End Testing
 
-- [ ] **E2E-01**: Create a test issue that exercises the full CEO > CMO > Director > Specialist chain
-- [ ] **E2E-02**: Create a test issue that exercises cross-department handoff (business > tech)
+- [x] **E2E-01**: Create a test issue that exercises the full CEO > CMO > Director > Specialist chain
+- [x] **E2E-02**: Create a test issue that exercises cross-department handoff (business > tech)
 - [ ] **E2E-03**: Verify quality gate pass (content through Quality Reviewer) completes end-to-end
 - [ ] **E2E-04**: Verify stall detection and escalation fires correctly under simulated failure
 
@@ -70,8 +70,8 @@ All 103 requirements from v1.0 (73) and v2.0 (30) are complete. See MILESTONES.m
 | CONS-01 | Phase 18 | Complete |
 | CONS-02 | Phase 18 | Complete |
 | CONS-03 | Phase 18 | Complete |
-| E2E-01 | Phase 19 | Pending |
-| E2E-02 | Phase 19 | Pending |
+| E2E-01 | Phase 19 | Complete |
+| E2E-02 | Phase 19 | Complete |
 | E2E-03 | Phase 19 | Pending |
 | E2E-04 | Phase 19 | Pending |
 
