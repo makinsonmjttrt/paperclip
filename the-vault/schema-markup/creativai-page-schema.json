@@ -35,6 +35,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is CreativAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CreativAI is FourPointZero\u2019s AI executive search practice. It places the senior leaders who integrate AI into production pipelines at VFX studios, post-production houses, experiential agencies, virtual production facilities, and creative software companies. CreativAI works on a retained basis with established organisations that have a confirmed AI mandate at board or executive level."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What is CAIO hiring and why is it specialist work?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -86,7 +94,7 @@
           "name": "What is the geographic coverage for CreativAI executive search?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "UK and US coverage."
+            "text": "CreativAI conducts executive search across the UK and US, placing AI leadership roles in creative production organisations in both markets."
           }
         },
         {
