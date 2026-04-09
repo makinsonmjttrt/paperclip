@@ -31,7 +31,7 @@
       "waitBetweenTries": 5000,
       "parameters": {
         "method": "POST",
-        "url": "https://api.notion.com/v1/databases/{{NOTION_TASKS_DB_ID}}/query",
+        "url": "https://api.notion.com/v1/databases/2915456c-327f-80d8-83b4-000b8bc03128/query",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -92,7 +92,7 @@
         "sendBody": true,
         "contentType": "json",
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ date: $json.date, generatedAt: $json.generatedAt, taskCount: $json.taskCount, overdueCount: $json.overdueCount, todayCount: $json.todayCount, inProgressCount: $json.inProgressCount, overdueTasks: $json.overdueTasks, todayTasks: $json.todayTasks, inProgressTasks: $json.inProgressTasks }) }}"
+        "jsonBody": "={{ { date: $json.date, generatedAt: $json.generatedAt, taskCount: $json.taskCount, overdueCount: $json.overdueCount, todayCount: $json.todayCount, inProgressCount: $json.inProgressCount, overdueTasks: $json.overdueTasks, todayTasks: $json.todayTasks, inProgressTasks: $json.inProgressTasks } }}"
       }
     },
     {

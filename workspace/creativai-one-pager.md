@@ -1,35 +1,58 @@
-# CreativAI: Executive Search at the Intersection of AI and Creative Production
+# CreativAI
 
-## What we do
+Executive search for the leaders running AI-integrated creative production.
 
-CreativAI is FourPointZero's dedicated AI-sector executive search practice. We place the senior leaders responsible for integrating AI into production pipelines across VFX studios, media owners, creative software companies, and AI-native platforms.
+---
 
-The mandate we serve sits at the intersection of two talent markets simultaneously: AI/ML technical depth and creative production credibility. This is precisely the combination that generalist recruiters and specialist VFX recruiters cannot bridge independently. The result, for most organisations attempting to hire without specialist support, is a role that sits open for three to six months — or a placement that succeeds on one dimension but not both.
+## What CreativAI is
 
-## Who we serve
+CreativAI is FourPointZero's executive search practice for the intersection of AI and creative production. We place the senior operators who run AI-integrated production at VFX studios, experiential agencies, and spatial computing companies. We have been building this network since 2019. The talent exists. It's not visible to generalist recruiters or sector specialists working one side of the boundary.
 
-We work with organisations navigating complex AI integration mandates — from creative software platforms such as Foundry and Maxon, to AI-native companies scaling their operating leadership, to major VFX studios including DNEG and Framestore where production and AI must converge at the executive level. We also serve media owners and broadcasters making their first VP-level AI appointments, and advertising holding company brands creating inaugural CAIO and Head of AI Strategy roles.
+---
 
-The Tier 1 candidate pool for the most senior roles numbers approximately 50–75 individuals globally. Internal TA teams can access one side of this pool. Specialist recruiters on either side cover the other. Neither reaches the candidates who sit genuinely at the intersection.
+## Who it is for
 
-## Why FourPointZero
+We work with organisations with a confirmed AI mandate and a senior search underway or imminent.
 
-Established in 2019. Six years of senior placement history in creative production across the UK and US. Members of APSCO, VRARA, and AIXR — organisations through which we have built and maintained direct relationships with the practitioners, leaders, and communities at the forefront of AI-integrated creative workflows.
+**Company types:** VFX and virtual production studios, experiential and spatial computing agencies, creative SaaS platforms, media owners with AI-integrated production divisions.
 
-Three capabilities define what CreativAI brings to an AI leadership search:
+**Role types:** Head of Production, VP Production, Executive Producer, Head of Technology, CTO and equivalent. Roles where production delivery and AI workflow fluency are both requirements, not optional extras.
 
-**Network depth.** We have pre-built relationships with the Tier 1 AI-in-production candidates at ILM, DNEG, Framestore, Adobe, and Foundry. No AI search firm has this. No VFX specialist recruiter has the AI leadership side. We have both.
+**Our bar:** Director-level and above. £150K+ total comp. 50 or more headcount.
 
-**Production fluency.** We assess candidates on AI delivered under real production constraints — Unreal Engine, Nuke, Houdini, Maya, ComfyUI — not simply on credentials and titles. This evaluation capability is what allows us to say with confidence that a candidate can actually do the job, not just that they have held a similar title elsewhere.
+---
 
-**Candidate access.** The candidates who fit these roles are passive. They do not respond to volume InMail or generic recruiter approaches. Our outreach references their specific work, understands their stack, and demonstrates genuine sector knowledge. Response rates are significantly higher as a result.
+## What makes CreativAI different
 
-## Proof points
+**Network depth, not database breadth**
+We have been placing senior creative production talent since 2019. The senior AI-in-production talent at ILM, DNEG, Framestore, Adobe, and the Foundry know us. We do not scrape LinkedIn. An AI recruiter pivoting to cover creative production cannot replicate six years of direct relationships.
 
-Senior AI-creative leadership roles are taking three to six months to fill through conventional routes. The delay is not market shortage — it is recruiter misalignment. Generalist recruiters source on title, not production context. VFX specialist recruiters lack the AI leadership capability. Neither fully solves the brief.
+**Both sides of the market**
+AI tech recruiters assess AI credentials and miss the production delivery piece. Media and entertainment recruiters know the production structure but have no framework for evaluating AI workflow competence. We shortlist on both. Our candidates have run pipelines, managed crews, and delivered under production pressure. They know where AI fits in that workflow.
 
-Demand is moving. AI Production Supervisor roles are appearing across major studios. First-ever CAIO appointments are being made at holding company agency brands. C-suite mandates at the AI-creative intersection are being created for the first time — and the candidates who can fill them are not posting their availability on job boards.
+**Sector embeddedness**
+APSCO, VRARA, and AIXR memberships, plus a weekly industry intelligence newsletter with active readership. We see career moves and studio announcements before they reach the public domain. That matters when the candidate you need is two months from being available but not publicly looking yet.
 
-## Next step
+---
 
-A 15-minute call is all we need to tell you whether your mandate is within our network and capability. No pitch meeting required.
+## How it works
+
+We run retained searches.
+
+1. Brief call: 45 minutes to confirm role scope, candidate criteria, and any confidentiality requirements.
+2. Network-only sourcing: no job boards, no volume outreach, no scraped profiles.
+3. Shortlist: typically 8 to 12 weeks.
+
+For clients new to retained search, we offer a container model: a small engagement fee to start, the full placement fee on hire.
+
+---
+
+## What happens next
+
+A 15-minute conversation is enough to tell you whether your mandate sits within our network. No pitch. No commitment.
+
+fourpointzero.io/creativai
+
+---
+
+*FourPointZero. Creative production and emerging technology recruitment since 2019.*

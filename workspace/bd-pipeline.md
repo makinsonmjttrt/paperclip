@@ -1,7 +1,43 @@
 # FourPointZero BD Pipeline — Phase 1
 ## CreativAI Practice: 5 Priority Clients
 
-*Created: 2026-04-03 | FOU-25 | LinkedIn Growth Director*
+*Created: 2026-04-03 | FOU-25 | LinkedIn Growth Director | Updated: 2026-04-08 | FOU-404 | Customer Success*
+
+---
+
+## Pipeline Status Note — April 8, 2026
+
+**Batch 1 sent:** Week of April 7, 2026. Five LinkedIn connection requests sent: Foundry (Jody Madden), SideFX (Kim Davidson), Maxon (David McGavran), DNEG (Namit Malhotra), BBC Studios (Tom Fussell).
+
+Day 1–2 post-send. No reply expected yet — typical LinkedIn acceptance window is 2–7 days.
+
+### Current status by target
+
+| Company | Sent | Priority | No reply by Apr 12 | Positive reply received |
+|---------|------|----------|---------------------|------------------------|
+| DNEG | 7 Apr | **Highest** | Hold — do not nudge pending request. If no acceptance by Apr 14, shift to email (Day 14 format below) | Send first message within 24 hrs. If acceptance + immediate message, propose 20-min call with two time options. Flag to Martyn same day |
+| The Foundry | 7 Apr | High | Hold — wait for acceptance. Go to email only on Apr 21 (Day 14) | Send first message within 24–48 hrs |
+| Maxon | 7 Apr | High | Hold — NAB Show 2026 in April is a live hook for follow-up if needed | Send first message within 24–48 hrs |
+| BBC Studios | 7 Apr | Medium | Hold — less time-sensitive relative to launch | Send first message within 24–48 hrs |
+| SideFX | 7 Apr | Medium | Hold | Send first message within 24–48 hrs |
+
+**Rule:** Never nudge a pending LinkedIn connection request. Wait or shift to email at Day 14.
+
+### Priority for CreativAI launch — April 17
+
+**DNEG is the standout.** A live conversation with the Brahma team before April 17 is the strongest commercial signal the launch could have. If DNEG accepts before April 15, send the first message that day.
+
+Foundry and Maxon are second tier — both have confirmed AI product cycles (NAB Show in April). A conversation during launch week is a genuine fit.
+
+BBC Studios and SideFX are valuable, not urgent relative to launch timing.
+
+### BD Batch 2 — recommended send window
+
+- **Do not send before April 17.** Focus on launch and any live batch 1 conversations.
+- **Target window: April 22–25.** Post-launch, settled, still within April momentum.
+- **Exception:** If a warm intro route to Framestore or Stability AI is confirmed before April 17, the launch is a natural conversation opener — use it.
+- **Weta FX remains on hold** until Q3 2026. Financial restructure ($140M losses over two years, 100 roles cut) makes a leadership pitch poorly timed regardless.
+- **Batch 2 send order:** Framestore → Stability AI → Runway ML → Disguise → Weta FX (hold).
 
 ---
 
@@ -9,11 +45,11 @@
 
 | # | Company | Target Contact | Title | Platform | Tier | Status | Approach Date | Response | Next Step |
 |---|---------|---------------|-------|----------|------|--------|--------------|----------|-----------|
-| 1 | Foundry | Jody Madden | CEO | LinkedIn | 2 | Not sent | — | — | Send connection request |
-| 2 | SideFX | Kim Davidson | CEO | LinkedIn | 2 | Not sent | — | — | Send connection request |
-| 3 | Maxon | David McGavran | CEO | LinkedIn | 2 | Not sent | — | — | Send connection request |
-| 4 | DNEG | Namit Malhotra | CEO | LinkedIn | 2 | Not sent | — | — | Send connection request |
-| 5 | BBC Studios | Tom Fussell | CEO, BBC Studios | LinkedIn | 2 | Not sent | — | — | Verify contact still in role, send connection request |
+| 1 | Foundry | Jody Madden | CEO | LinkedIn | 1 | Sent | 7 Apr 2026 | Awaiting | Monitor acceptance |
+| 2 | SideFX | Kim Davidson | CEO | LinkedIn | 2 | Sent | 7 Apr 2026 | Awaiting | Monitor acceptance |
+| 3 | Maxon | David McGavran | CEO | LinkedIn | 1 | Sent | 7 Apr 2026 | Awaiting | Monitor acceptance |
+| 4 | DNEG | Namit Malhotra | CEO | LinkedIn | 2 | Sent | 7 Apr 2026 | Awaiting | Monitor acceptance — highest priority |
+| 5 | BBC Studios | Tom Fussell | CEO, BBC Studios | LinkedIn | 2 | Sent | 7 Apr 2026 | Awaiting | Monitor acceptance |
 
 **Tier assignment:** All companies are Tier 2 (company info + role context). No specific named recent LinkedIn post or breaking news signals verified at time of drafting. Upgrade to Tier 1 if a named signal is confirmed before sending — adjust the connection request accordingly.
 
@@ -31,11 +67,11 @@
 
 ---
 
-**Connection Request (LinkedIn — 300 chars max):**
+**Connection Request (LinkedIn — 300 chars max) — TIER 1:**
 
-> Your team shipping CopyCat inside Nuke for production pipelines is exactly the kind of AI-in-the-real-world deployment I find most interesting. Wanted to connect — I work at the intersection of this space.
+> The Griptape acquisition signals something specific: AI orchestration inside the production pipeline, not alongside it. That's a different ambition. I work at the intersection of AI and creative production talent. Wanted to connect.
 
-*Character count: ~228 — within limit*
+*Character count: ~233 — within limit | Signal: Griptape acquisition, February 2026*
 
 ---
 
@@ -155,15 +191,15 @@ Subject: AI leadership at SideFX: a quick question
 
 **Target contact:** David McGavran, CEO
 
-**Tier 2** — company context strong; no specific recent post or news signal confirmed at time of writing.
+**Tier 1** — MWC 2026 Cinema 4D AI announcement confirmed. Connection request upgraded.
 
 ---
 
-**Connection Request (LinkedIn — 300 chars max):**
+**Connection Request (LinkedIn — 300 chars max) — TIER 1:**
 
-> The Maxon/Redshift/Red Giant consolidation is a genuinely interesting AI integration challenge — holding a coherent roadmap across those product lines as the AI tooling landscape shifts. I work in AI and creative production talent. Wanted to connect.
+> The Cinema 4D AI announcement at MWC was interesting, particularly the framing around early-stage ideation. Giving artists better tools to move faster on creative decisions, not just technical ones, is the right conversation to be having. I work in AI and creative production talent. Keen to connect.
 
-*Character count: ~253 — within limit*
+*Character count: ~297 — within limit | Signal: MWC 2026 Cinema 4D AI / text-to-3D announcement*
 
 ---
 
@@ -349,10 +385,35 @@ Before sending any message, complete the following:
 
 - [x] **Foundry** — CEO confirmed: Jody Madden. Ownership: Roper Technologies (since 2019). Verified April 2026.
 - [x] **BBC Studios** — Tom Fussell confirmed as CEO. Verified April 2026 (Deadline, Feb 2026).
-- [ ] **DNEG** — check vault and existing contacts for warm introduction route before going cold.
-- [ ] **All five** — check whether Martyn is already connected on LinkedIn to any of these contacts. If connected, skip connection request and go straight to first message with adjusted opener.
-- [ ] **Signal upgrade** — before sending each connection request, do a 5-minute check of the target's recent LinkedIn activity. If a relevant post is found in the last 30 days, upgrade to Tier 1 and rewrite the connection request to reference it specifically.
+- [ ] **DNEG** — check vault and existing contacts for warm introduction route before going cold. (Awaiting Martyn CRM check.)
+- [ ] **All five** — check whether Martyn is already connected on LinkedIn to any of these contacts. If connected, skip connection request and go straight to first message with adjusted opener. (Martyn to check.)
+- [x] **Signal upgrade** — completed April 2026. See signal intelligence section below.
 - [ ] All messages reviewed and approved by Martyn before sending.
+
+---
+
+## Signal Intelligence — April 2026
+
+*Run before send. Tier 1 upgrades confirmed for Foundry and Maxon. DNEG and BBC signals noted but existing sequences hold.*
+
+### Foundry — UPGRADE TO TIER 1
+**Signal:** The Foundry acquired Griptape (AI orchestration, co-founded by Jason Schleifer) February 2026. Madden publicly stated the company is "building the AI-first pipeline of the future." Source: CG Channel.
+**Action:** Rewrite connection request to reference Griptape acquisition specifically. LGD subtask created.
+
+### SideFX — KEEP TIER 2
+**Signal:** No verifiable recent public statements or announcements from Kim Davidson (March–April 2026). VIEW Conference 2026 listing confirmed but no new content. Keep existing sequence as drafted.
+
+### Maxon — UPGRADE TO TIER 1
+**Signal:** At MWC 2026, Maxon announced AI-assisted workflows for Cinema 4D — text-to-3D/UV from prompts. McGavran quoted: "giving creators additional tools to move faster when they choose to." Source: Jon Peddie Research.
+**Action:** Rewrite connection request to reference the MWC announcement and text-to-3D workflow angle. LGD subtask created.
+
+### DNEG — KEEP TIER 2 (existing sequence is strong)
+**Signal found:** Namit Malhotra joined Hurun Global Rich List as billionaire (January 2026); Ramayana film project (two-part, Nitesh Tiwari, 2026 launch). Ramayana angle is content production, not VFX AI leadership. Billionaire angle is off-brief for recruitment outreach.
+**Decision:** Existing sequence already references Brahma at production scale — this is the stronger hook. Keep Tier 2. If Martyn has a warm intro route via CRM, use that instead.
+
+### BBC Studios — KEEP TIER 2 (existing sequence is strong)
+**Signal found:** Tom Fussell at BBC Studios Showcase February 2026 discussed M&A appetite and international streaming acquisitions (BritBox International acquisition as precedent). Signal is strategy/M&A focused, not AI production talent. Existing sequence around BBC editorial/union/AI context is more directly relevant.
+**Decision:** Keep existing sequence. M&A angle would be off-topic for AI leadership search outreach.
 
 ---
 
